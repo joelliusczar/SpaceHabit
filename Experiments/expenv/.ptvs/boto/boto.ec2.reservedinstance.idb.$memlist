@@ -1,0 +1,14 @@
+ReservedInstancesModification
+PriceSchedule
+EC2Object
+InstanceCount
+parse_ts
+ModificationResult
+ReservedInstancesOffering
+ModifyReservedInstancesResult
+ResultSet
+PricingDetail
+ReservedInstanceListing
+RecurringCharge
+ReservedInstancesConfiguration
+ReservedInstance

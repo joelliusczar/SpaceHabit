@@ -1,0 +1,17 @@
+time
+KeyFile
+UserAgent
+urlparse
+os
+ResumableUploadException
+ResumableUploadHandler
+config
+InvalidUriError
+ResumableTransferDisposition
+errno
+httplib
+md5
+re
+AWSAuthConnection
+random
+socket

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/static/login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(unescape('%3Clink rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" /%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/jquery.min.js" %3E%3C/script%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/bootstrap.min.js" %3E%3C/script%3E'));
+
+        }
+    </script>
+    <script src="/static/login.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="global" class="row">
+            <div id="login_form" class="col-md-offset-2 col-sm-6 col-md-6">
+                <div id="top_banner">
+                    <div class="row">
+                        <div id="banner_label" class="col-md-12">
+                            Space Habit Frontier
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="inputUserName">User Name:</label>
+                        <input type="text" class="form-control" id="inputUserName" placeholder="username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUPassword">Password:</label>
+                        <input type="password" class="form-control" id="inputUserName" placeholder="password" />
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="btnLogin">Log in</button>
+                        <p class="help-block"><a href="#forgot_pw" id="forgot_pw">Forget Password?</a></p>
+                        <p class="help-block"><a href="#create_account" id="create_account">Create New Account?</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="new_user_box" class="edit_task_box modal">
+        <div class="modal-dialog">
+            <div class="modal-content task_modal_content">
+                <div id="email_1">
+                    <div id="email_1_label">Email:</div>
+                    <div id="email_input_1_wrapper">
+                        <input type="text" name="email_input_1" />
+                    </div>
+                    <div id="email_1_validation"></div>
+                </div>
+                <div id="email_2">
+                    <div id="email_2_label">Confirm Email:</div>
+                    <div id="email_input_2_wrapper">
+                        <input type="text" name="email_input_2" />
+                    </div>
+                    <div id="email_2_validation"></div>
+                </div>
+                <div id="pw_1">
+                    <div id="pw_1_label">Enter Password:</div>
+                    <div id="pw_1_input_wrapper">
+                        <input type="password" name="pw_input_1" />
+                    </div>
+                </div>
+                <div id="pw_2">
+                    <div id="pw_2_label">Enter Password:</div>
+                    <div id="pw_2_input_wrapper">
+                        <input type="password" name="pw_input_2" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="save_user">Save</button>
+                    <button type="button" name="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+IncompatibleVersionException
+JSONResponseError
+ValidationException
+LimitExceededException
+ResourceInUseException
+InternalServiceException
+AccessDeniedException
+ResourceNotFoundException

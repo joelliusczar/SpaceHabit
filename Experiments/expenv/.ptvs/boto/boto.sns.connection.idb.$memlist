@@ -1,0 +1,7 @@
+RegionInfo
+AWSQueryConnection
+json
+hashlib
+uuid
+boto
+SNSConnection

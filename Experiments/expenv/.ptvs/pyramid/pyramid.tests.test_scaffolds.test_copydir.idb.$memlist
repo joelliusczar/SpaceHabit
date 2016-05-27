@@ -1,0 +1,11 @@
+RawInputMockObject
+pkg_resources
+Test_raise_SkipTemplate
+Test_support_functions
+Test_query_interactive
+dummy_template_renderer
+os
+Test_copy_dir
+Test_should_skip_file
+Test_makedirs
+unittest

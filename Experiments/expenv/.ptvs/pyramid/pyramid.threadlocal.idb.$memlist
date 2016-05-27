@@ -1,0 +1,7 @@
+defaults
+manager
+threading
+ThreadLocalManager
+get_current_request
+global_registry
+get_current_registry

@@ -1,0 +1,14 @@
+handler
+HEADERS
+User
+METHODS
+types
+Cors
+MAXAGESEC
+ORIGIN
+CORS
+METHOD
+ORIGINS
+InvalidCorsError
+HEADER
+CORS_CONFIG

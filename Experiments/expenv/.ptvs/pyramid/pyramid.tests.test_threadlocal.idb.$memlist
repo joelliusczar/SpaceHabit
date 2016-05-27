@@ -1,0 +1,6 @@
+GetCurrentRegistryTests
+GetCurrentRegistryWithoutTestingRegistry
+unittest
+testing
+TestThreadLocalManager
+TestGetCurrentRequest

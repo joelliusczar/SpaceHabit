@@ -1,0 +1,10 @@
+ServiceUnavailableException
+ResourceAlreadyExistsException
+InvalidSequenceTokenException
+LimitExceededException
+InvalidParameterException
+BotoServerError
+OperationAbortedException
+DataAlreadyAcceptedException
+ResourceNotFoundException
+ResourceInUseException

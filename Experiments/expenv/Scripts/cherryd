@@ -1,0 +1,6 @@
+#!C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Scripts\python.exe
+
+import cherrypy.daemon
+
+if __name__ == '__main__':
+    cherrypy.daemon.run()

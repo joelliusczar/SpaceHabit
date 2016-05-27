@@ -1,0 +1,16 @@
+Dummy
+text_
+TestCustomPredicate
+TestRequestParamPredicate
+Test_CheckCSRFTokenPredicate
+TestMatchParamPredicate
+testing
+TestPathInfoPredicate
+TestHeaderPredicate
+TestXHRPredicate
+TestTraversePredicate
+TestRequestMethodPredicate
+Test_PhysicalPathPredicate
+Test_EffectivePrincipalsPredicate
+unittest
+predicate

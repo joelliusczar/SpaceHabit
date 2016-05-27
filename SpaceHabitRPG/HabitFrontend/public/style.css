@@ -1,0 +1,100 @@
+
+.fill_label{
+	font-size: 12px;
+}
+
+.fill_bar{
+  width: 100%;
+}
+
+.tab-label{
+  font-size:13px;
+  margin-left: -7px;
+}
+
+.task_item{
+  border: black 1px solid;
+}
+
+.danger_radio{
+  background-color: #B2A6AF;
+  height: 17px;
+  width: 15px;
+  display: inline-block;
+}
+
+.selected_danger_radio{
+  border: 2px solid #0B0B0B;
+}
+
+.edit_task_box{
+	width: 310px;
+}
+
+.task_modal_content{
+	padding-left:25px;
+}
+
+#hero_info_row{
+	background-color: #AA2886;
+}
+
+#hp_row{
+  background-color: #DAF7A6;
+}
+
+
+#max_hp{
+  background-color: #818788;
+  height: 10px;
+}
+
+#now_hp{
+  background-color: #FF0000;
+  height: 100%;
+}
+
+#xp_row{
+  background-color: #DAF7A6;
+}
+
+
+#max_xp{
+  background-color: #818788;
+  height: 10px;
+}
+
+
+#now_xp{
+  height: 100%;
+  background-color: #FFC300;
+}
+
+#monster_hp_row{
+  background-color: #A6F7DA;
+}
+
+#monster_max_hp{
+  background-color: #FFFFFF;
+  height: 10px;
+}
+
+#monster_now_hp{
+  background-color: #000000;
+  height:100%;
+}
+
+#output{
+  background-color: #D2D1CF;
+  height: 100px;
+}
+
+#menu_tab{
+  margin-left:-100px;
+}
+
+
+
+#rate_input input{
+	width: 4em;
+}

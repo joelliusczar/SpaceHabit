@@ -1,0 +1,6 @@
+Zone
+copy
+default_ttl
+Status
+TooManyRecordsException
+ResourceRecordSets

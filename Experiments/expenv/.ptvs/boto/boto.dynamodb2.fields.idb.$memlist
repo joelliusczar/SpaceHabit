@@ -1,0 +1,12 @@
+HashKey
+RangeKey
+GlobalKeysOnlyIndex
+GlobalIncludeIndex
+GlobalAllIndex
+IncludeIndex
+STRING
+KeysOnlyIndex
+BaseSchemaField
+BaseIndexField
+AllIndex
+GlobalBaseIndexField

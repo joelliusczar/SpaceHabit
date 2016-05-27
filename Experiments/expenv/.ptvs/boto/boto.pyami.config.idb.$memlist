@@ -1,0 +1,12 @@
+BotoConfigLocations
+expanduser
+Config
+os
+path
+ConfigParser
+warnings
+UserConfigPath
+StringIO
+boto
+BotoConfigPath
+re

@@ -1,0 +1,6 @@
+AWSAuthConnection
+exceptions
+json
+CognitoSyncConnection
+RegionInfo
+JSONResponseError

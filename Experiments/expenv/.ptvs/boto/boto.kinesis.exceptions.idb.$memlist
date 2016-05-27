@@ -1,0 +1,8 @@
+SubscriptionRequiredException
+BotoServerError
+ProvisionedThroughputExceededException
+ResourceNotFoundException
+ResourceInUseException
+InvalidArgumentException
+ExpiredIteratorException
+LimitExceededException

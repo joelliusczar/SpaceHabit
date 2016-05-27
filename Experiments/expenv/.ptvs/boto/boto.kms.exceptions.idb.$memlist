@@ -1,0 +1,16 @@
+NotFoundException
+InvalidMarkerException
+MalformedPolicyDocumentException
+KeyUnavailableException
+BotoServerError
+InvalidCiphertextException
+InvalidGrantTokenException
+DisabledException
+InvalidKeyUsageException
+KMSInternalException
+InvalidAliasNameException
+DependencyTimeoutException
+UnsupportedOperationException
+InvalidArnException
+AlreadyExistsException
+LimitExceededException

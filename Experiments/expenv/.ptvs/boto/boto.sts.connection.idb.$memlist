@@ -1,0 +1,13 @@
+datetime
+_session_token_cache
+AssumedRole
+DecodeAuthorizationMessage
+boto
+Credentials
+Provider
+STSConnection
+FederationToken
+RegionInfo
+NO_CREDENTIALS_PROVIDED
+threading
+AWSQueryConnection

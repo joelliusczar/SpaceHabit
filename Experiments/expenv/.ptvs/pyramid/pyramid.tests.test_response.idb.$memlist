@@ -1,0 +1,14 @@
+TestGetResponseFactory
+testing
+TestResponse
+os
+DummyVenusian
+Dummy
+mimetypes
+TestFileIter
+TestResponseAdapter
+Test_patch_mimetypes
+TestFileResponse
+io
+DummyConfigurator
+unittest

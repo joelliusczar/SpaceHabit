@@ -1,0 +1,15 @@
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\bin\Microsoft.PythonTools.WebRole.dll
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\attach_server.py
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\visualstudio_py_debugger.py
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\visualstudio_py_repl.py
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\visualstudio_py_util.py
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\__init__.py
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\__main__.py
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\bin\AzureSetup.cfg
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\bin\Microsoft.PythonTools.AzureSetup.exe
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\bin\Microsoft.PythonTools.AzureSetup.exe.config
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\bin\wfastcgi.py
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\web.config
+c:\users\joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\web.debug.config
+C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\obj\Debug\deployment-updated-pyvenv.cfg
+C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\HabitRPG\ptvs_virtualenv_proxy.py

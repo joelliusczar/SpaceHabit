@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Experiments", "Experiments\Experiments.pyproj", "{95855783-870B-44E1-86EE-A296317A111A}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SpaceHabitRPG", "SpaceHabitRPG\SpaceHabitRPG.pyproj", "{60383A39-FA97-4E70-A3B7-20AA3969670B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95855783-870B-44E1-86EE-A296317A111A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95855783-870B-44E1-86EE-A296317A111A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60383A39-FA97-4E70-A3B7-20AA3969670B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60383A39-FA97-4E70-A3B7-20AA3969670B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

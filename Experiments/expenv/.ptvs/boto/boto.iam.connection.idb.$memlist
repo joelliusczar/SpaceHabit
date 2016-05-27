@@ -1,0 +1,9 @@
+six
+AWSQueryConnection
+json
+DEFAULT_POLICY_DOCUMENTS
+ASSUME_ROLE_POLICY_DOCUMENT
+ResultSet
+IAMConnection
+boto
+SummaryMap

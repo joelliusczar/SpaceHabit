@@ -1,0 +1,10 @@
+CaseIdNotFound
+AttachmentSetIdNotFound
+CaseCreationLimitExceeded
+AttachmentSetExpired
+JSONResponseError
+AttachmentLimitExceeded
+AttachmentIdNotFound
+DescribeAttachmentLimitExceeded
+InternalServerError
+AttachmentSetSizeLimitExceeded

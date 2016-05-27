@@ -1,0 +1,7 @@
+BotoServerError
+DisabledOperationException
+InternalException
+BaseException
+InvalidTypeException
+LimitExceededException
+ResourceNotFoundException

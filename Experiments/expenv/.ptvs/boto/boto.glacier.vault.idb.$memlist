@@ -1,0 +1,15 @@
+MAXIMUM_ARCHIVE_SIZE
+_MEGABYTE
+resume_file_upload
+os
+compute_hashes_from_fileobj
+Job
+UploadArchiveError
+codecs
+minimum_part_size
+ConcurrentUploader
+_GIGABYTE
+DEFAULT_PART_SIZE
+MAXIMUM_NUMBER_OF_PARTS
+Writer
+Vault

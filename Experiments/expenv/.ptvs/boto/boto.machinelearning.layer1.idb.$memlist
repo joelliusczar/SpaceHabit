@@ -1,0 +1,8 @@
+RegionInfo
+exceptions
+urlsplit
+AWSQueryConnection
+json
+JSONResponseError
+MachineLearningConnection
+boto

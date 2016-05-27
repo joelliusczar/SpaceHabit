@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>60383a39-fa97-4e70-a3b7-20aa3969670b</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Web Server\SpaceHabitServer.py</StartupFile>
+    <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>SpaceHabitRPG</Name>
+    <RootNamespace>SpaceHabitRPG</RootNamespace>
+    <InterpreterId>{ffc25000-37cf-4da5-8235-55799b9ef7d5}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\3.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="spaceHabitEnv\">
+      <Id>{ffc25000-37cf-4da5-8235-55799b9ef7d5}</Id>
+      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
+      <Version>3.5</Version>
+      <Description>spaceHabitEnv (Python 64-bit 3.5)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>Amd64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CoreGame\" />
+    <Folder Include="CoreGame\__pycache__\" />
+    <Folder Include="HabitFrontend\" />
+    <Folder Include="HabitFrontend\public\" />
+    <Folder Include="HabitFrontend\public\fonts\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Helpers\__pycache__\" />
+    <Folder Include="Story\" />
+    <Folder Include="Story\__pycache__\" />
+    <Folder Include="Tests\" />
+    <Folder Include="Tests\__pycache__\" />
+    <Folder Include="Types\" />
+    <Folder Include="Types\__pycache__\" />
+    <Folder Include="Web Server\" />
+    <Folder Include="Web Server\Controllers\" />
+    <Folder Include="Web Server\Controllers\__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.ini" />
+    <Content Include="CoreGame\__pycache__\Progression.cpython-35.pyc" />
+    <Content Include="HabitFrontend\index.html" />
+    <Content Include="HabitFrontend\LogIn.html" />
+    <Content Include="HabitFrontend\public\bootstrap-theme.min.css" />
+    <Content Include="HabitFrontend\public\bootstrap.min.css" />
+    <Content Include="HabitFrontend\public\bootstrap.min.js" />
+    <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="HabitFrontend\public\jquery.min.js" />
+    <Content Include="HabitFrontend\public\knockout-min.js" />
+    <Content Include="HabitFrontend\public\login.css" />
+    <Content Include="HabitFrontend\public\login.js" />
+    <Content Include="HabitFrontend\public\script.js" />
+    <Content Include="HabitFrontend\public\style.css" />
+    <Content Include="Helpers\__pycache__\ConfigLayer.cpython-35.pyc" />
+    <Content Include="Helpers\__pycache__\DatabaseLayer.cpython-35.pyc" />
+    <Content Include="Helpers\__pycache__\Heap.cpython-35.pyc" />
+    <Content Include="Helpers\__pycache__\ModelLayer.cpython-35.pyc" />
+    <Content Include="Helpers\__pycache__\OrderedDictionary.cpython-35.pyc" />
+    <Content Include="Helpers\__pycache__\RpgTypeHelper.cpython-35.pyc" />
+    <Content Include="Helpers\__pycache__\TypeCreators.cpython-35.pyc" />
+    <Content Include="Story\__pycache__\ZoneLookup.cpython-35.pyc" />
+    <Content Include="Tests\__pycache__\MockDatabaseLayer.cpython-35.pyc" />
+    <Content Include="Tests\__pycache__\ProgressionTests.cpython-35.pyc" />
+    <Content Include="Tests\__pycache__\ToolsTests.cpython-35.pyc" />
+    <Content Include="Tests\__pycache__\TypesTests.cpython-35.pyc" />
+    <Content Include="Types\__pycache__\Account.cpython-35.pyc" />
+    <Content Include="Types\__pycache__\Daily.cpython-35.pyc" />
+    <Content Include="Types\__pycache__\Good.cpython-35.pyc" />
+    <Content Include="Types\__pycache__\Habit.cpython-35.pyc" />
+    <Content Include="Types\__pycache__\Hero.cpython-35.pyc" />
+    <Content Include="Types\__pycache__\Todo.cpython-35.pyc" />
+    <Content Include="Types\__pycache__\Zone.cpython-35.pyc" />
+    <Content Include="Web Server\Controllers\__pycache__\HeroController.cpython-35.pyc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoreGame\DamageReward.py" />
+    <Compile Include="CoreGame\Progression.py" />
+    <Compile Include="CoreGame\StartUpRoutine.py" />
+    <Compile Include="CoreGame\TaskCompleters.py" />
+    <Compile Include="Helpers\ConfigLayer.py" />
+    <Compile Include="Helpers\DatabaseLayer.py" />
+    <Compile Include="Helpers\Heap.py" />
+    <Compile Include="Helpers\RpgTypeHelper.py" />
+    <Compile Include="Helpers\UnsavedChangesError.py" />
+    <Compile Include="Story\CommonEvents.py" />
+    <Compile Include="Story\ZoneLookup.py" />
+    <Compile Include="Tests\MockDatabaseLayer.py" />
+    <Compile Include="Tests\ProgressionTests.py" />
+    <Compile Include="Tests\ToolsTests.py" />
+    <Compile Include="Tests\TypesTests.py" />
+    <Compile Include="Types\Account.py" />
+    <Compile Include="Types\Daily.py" />
+    <Compile Include="Types\Good.py" />
+    <Compile Include="Types\Habit.py" />
+    <Compile Include="Types\Hero.py" />
+    <Compile Include="Types\Monster.py" />
+    <Compile Include="Types\Todo.py" />
+    <Compile Include="Types\Zone.py" />
+    <Compile Include="Web Server\Controllers\AccountController.py" />
+    <Compile Include="Web Server\Controllers\AllDailiesController.py" />
+    <Compile Include="Web Server\Controllers\HeroController.py" />
+    <Compile Include="Web Server\SpaceHabitServer.py" />
+  </ItemGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

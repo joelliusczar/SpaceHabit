@@ -1,0 +1,15 @@
+UnknownIndexFieldError
+UnknownFilterTypeError
+ProvisionedThroughputExceededException
+ValidationException
+ResourceNotFoundException
+LimitExceededException
+ResourceInUseException
+QueryError
+JSONResponseError
+UnknownSchemaFieldError
+ConditionalCheckFailedException
+DynamoDBError
+ItemCollectionSizeLimitExceededException
+InternalServerError
+ItemNotFound

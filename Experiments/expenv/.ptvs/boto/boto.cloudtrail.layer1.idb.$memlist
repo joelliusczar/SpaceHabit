@@ -1,0 +1,7 @@
+RegionInfo
+exceptions
+AWSQueryConnection
+json
+JSONResponseError
+CloudTrailConnection
+boto

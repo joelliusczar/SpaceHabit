@@ -1,0 +1,16 @@
+Test_bootstrap
+Test_get_appsettings
+DummyRequest
+DummyLoadWSGI
+Test_setup_logging
+os
+make_dummyapp
+DummyRegistry
+Dummy
+Test_get_app
+DummyConfigParserModule
+here
+DummyApp
+dummy_registry
+DummyConfigParser
+unittest

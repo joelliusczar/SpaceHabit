@@ -1,0 +1,11 @@
+SESAddressNotVerifiedError
+SESDomainNotConfirmedError
+BotoServerError
+SESAddressBlacklistedError
+SESMaxSendingRateExceededError
+SESDailyQuotaExceededError
+SESLocalAddressCharacterError
+SESDomainEndsWithDotError
+SESIdentityNotVerifiedError
+SESError
+SESIllegalAddressError

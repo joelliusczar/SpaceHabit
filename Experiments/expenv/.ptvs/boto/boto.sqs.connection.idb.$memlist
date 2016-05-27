@@ -1,0 +1,10 @@
+Queue
+BotoServerError
+AWSQueryConnection
+BatchResults
+Attributes
+Message
+SQSConnection
+boto
+SQSError
+SQSRegionInfo

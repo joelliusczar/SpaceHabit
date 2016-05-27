@@ -1,0 +1,5 @@
+InvalidRequestContentException
+BotoServerError
+ServiceException
+ResourceNotFoundException
+InvalidParameterValueException

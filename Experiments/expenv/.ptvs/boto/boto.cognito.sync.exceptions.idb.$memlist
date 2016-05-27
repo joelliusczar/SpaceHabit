@@ -1,0 +1,9 @@
+TooManyRequestsException
+BotoServerError
+InternalErrorException
+LimitExceededException
+InvalidParameterException
+ResourceConflictException
+InvalidConfigurationException
+NotAuthorizedException
+ResourceNotFoundException

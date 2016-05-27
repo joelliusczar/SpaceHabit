@@ -1,0 +1,13 @@
+SQSRegionInfo
+regioninfo
+attributes
+message
+bigmessage
+connection
+jsonmessage
+batchresults
+get_regions
+regions
+messageattributes
+queue
+connect_to_region

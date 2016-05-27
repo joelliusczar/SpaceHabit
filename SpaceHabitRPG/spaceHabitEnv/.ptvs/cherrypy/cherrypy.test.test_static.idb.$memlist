@@ -1,0 +1,15 @@
+curdir
+HTTPSConnection
+cherrypy
+os
+BytesIO
+error_page_404
+sys
+helper
+static
+StaticTest
+has_space_filepath
+ntob
+BIGFILE_SIZE
+HTTPConnection
+bigfile_filepath

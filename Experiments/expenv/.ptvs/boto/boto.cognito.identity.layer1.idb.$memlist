@@ -1,0 +1,7 @@
+CognitoIdentityConnection
+exceptions
+AWSQueryConnection
+json
+RegionInfo
+JSONResponseError
+boto

@@ -1,0 +1,20 @@
+﻿body
+{
+}
+
+#top_banner {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #A70BCE;
+    color: #FFFFFF;
+    font-size:30px;
+    
+}
+
+#login_controls{
+    background-color: #E2EBEA;
+}
+
+
+.task_modal_content{
+	padding-left:25px;
+}

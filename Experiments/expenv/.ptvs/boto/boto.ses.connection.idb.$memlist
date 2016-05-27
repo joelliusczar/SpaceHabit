@@ -1,0 +1,10 @@
+six
+RegionInfo
+base64
+AWSAuthConnection
+SESConnection
+ses_exceptions
+BotoServerError
+boto
+urllib
+re

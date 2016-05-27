@@ -1,0 +1,6 @@
+InternalServiceError
+TaskNotFoundException
+JSONResponseError
+PipelineNotFoundException
+PipelineDeletedException
+InvalidRequestException
