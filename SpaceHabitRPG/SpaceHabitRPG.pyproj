@@ -105,12 +105,26 @@
     <Compile Include="CoreGame\Progression.py" />
     <Compile Include="CoreGame\StartUpRoutine.py" />
     <Compile Include="CoreGame\TaskCompleters.py" />
+    <Compile Include="Helpers\AuthenticationLayer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\ConfigLayer.py" />
+    <Compile Include="Helpers\CryptKeeper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\DatabaseLayer.py" />
+    <Compile Include="Helpers\EverywhereConstants.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\Heap.py" />
     <Compile Include="Helpers\RpgTypeHelper.py" />
     <Compile Include="Helpers\UnsavedChangesError.py" />
-    <Compile Include="Story\CommonEvents.py" />
+    <Compile Include="Helpers\UserDBLayer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Story\StoryEvents.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Story\ZoneLookup.py" />
     <Compile Include="Tests\MockDatabaseLayer.py" />
     <Compile Include="Tests\ProgressionTests.py" />
@@ -126,7 +140,14 @@
     <Compile Include="Types\Zone.py" />
     <Compile Include="Web Server\Controllers\AccountController.py" />
     <Compile Include="Web Server\Controllers\AllDailiesController.py" />
+    <Compile Include="Web Server\Controllers\AuthenticationController.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Web Server\Controllers\HeroController.py" />
+    <Compile Include="Web Server\Controllers\LoginController.py" />
+    <Compile Include="Web Server\Controllers\ValidationController.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Web Server\SpaceHabitServer.py" />
   </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />

@@ -1,0 +1,12 @@
+COLLECTION_NAME = 'users'
+ID_KEY = '_id'
+HERO_ID = 'heroId'
+REMINDER_TIME = 'reminderTime'
+DAY_START = 'dayStart'
+DEATH_GOLD_PENALTY = 'deathGoldPenalty'
+HERO_LVL_PENALTY = 'heroLvlPenalty'
+ZONE_LVL_PENALTY = 'zoneLvlPenalty'
+ENEMY_HEALED_ON_ATTACK = 'enemyHealedOnAttack'
+SELF_HEALED_ON_ATTACK = 'selfHealedOnAttack'
+PERMA_DEATH = 'permaDeath'
+

@@ -993,3 +993,213 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Micro
 2016-05-27T15:59:35: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\pymongo"
 2016-05-27T15:59:35: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\pymongo"
 2016-05-27T15:59:35: Deleting 0 files
+
+2016-05-29T16:13:11: Start analysis
+2016-05-29T16:13:11: [WARNING] Library was set explicitly - skipping path detection
+2016-05-29T16:13:11: IncludeModulesFromModulePath = win32com
+2016-05-29T16:13:11: Deleting 0 files
+2016-05-29T16:13:11: Scraping bcrypt._bcrypt
+2016-05-29T16:13:11: Command: "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Scripts\python.exe" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape bcrypt._bcrypt "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages" "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\.ptvs\bcrypt\bcrypt._bcrypt"
+2016-05-29T16:13:11: Scraped 1 files
+2016-05-29T16:13:12: astropy.CallDepth = 0
+2016-05-29T16:13:12: matplotlib.CallDepth = 3
+2016-05-29T16:13:12: pandas.CallDepth = 0
+2016-05-29T16:13:12: sympy.CallDepth = 0
+2016-05-29T16:13:12: Start group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt" with 1 files
+2016-05-29T16:13:12: Parsing "bcrypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt\__init__.py")
+2016-05-29T16:13:12: Parsing complete
+2016-05-29T16:13:12: Analyzing "bcrypt"
+2016-05-29T16:13:12: Starting analysis of 1 modules
+2016-05-29T16:13:13: Analysis complete
+2016-05-29T16:13:13: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt"
+2016-05-29T16:13:13: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt"
+2016-05-29T16:13:14: Deleting 0 files
+
+2016-05-29T16:18:52: Start analysis
+2016-05-29T16:18:52: [WARNING] Library was set explicitly - skipping path detection
+2016-05-29T16:18:52: IncludeModulesFromModulePath = win32com
+2016-05-29T16:18:52: Deleting 2 files
+2016-05-29T16:18:52: Deleting "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\.ptvs\bcrypt\bcrypt.idb"
+2016-05-29T16:18:52: Deleting "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\.ptvs\bcrypt\bcrypt._bcrypt.idb"
+
+2016-05-29T16:19:08: Start analysis
+2016-05-29T16:19:08: [WARNING] Library was set explicitly - skipping path detection
+2016-05-29T16:19:08: IncludeModulesFromModulePath = win32com
+2016-05-29T16:19:09: Deleting 0 files
+2016-05-29T16:19:09: astropy.CallDepth = 0
+2016-05-29T16:19:09: matplotlib.CallDepth = 3
+2016-05-29T16:19:09: pandas.CallDepth = 0
+2016-05-29T16:19:09: sympy.CallDepth = 0
+2016-05-29T16:19:09: Start group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib" with 69 files
+2016-05-29T16:19:09: Parsing "passlib.apache" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\apache.py")
+2016-05-29T16:19:09: Parsing "passlib.apps" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\apps.py")
+2016-05-29T16:19:09: Parsing "passlib.context" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\context.py")
+2016-05-29T16:19:09: Parsing "passlib.exc" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\exc.py")
+2016-05-29T16:19:09: Parsing "passlib.hash" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\hash.py")
+2016-05-29T16:19:09: Parsing "passlib.hosts" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\hosts.py")
+2016-05-29T16:19:09: Parsing "passlib.ifc" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\ifc.py")
+2016-05-29T16:19:09: Parsing "passlib.registry" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\registry.py")
+2016-05-29T16:19:09: Parsing "passlib.win32" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\win32.py")
+2016-05-29T16:19:09: Parsing "passlib" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\__init__.py")
+2016-05-29T16:19:09: Parsing "passlib.ext" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\ext\__init__.py")
+2016-05-29T16:19:09: Parsing "passlib.ext.django.models" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\ext\django\models.py")
+2016-05-29T16:19:09: Parsing "passlib.ext.django.utils" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\ext\django\utils.py")
+2016-05-29T16:19:09: Parsing "passlib.ext.django" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\ext\django\__init__.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.bcrypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\bcrypt.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.cisco" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\cisco.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.des_crypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\des_crypt.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.digests" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\digests.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.django" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\django.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.fshp" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\fshp.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.ldap_digests" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\ldap_digests.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.md5_crypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\md5_crypt.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.misc" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\misc.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.mssql" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\mssql.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.mysql" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\mysql.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.oracle" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\oracle.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.pbkdf2" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\pbkdf2.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.phpass" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\phpass.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.postgres" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\postgres.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.roundup" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\roundup.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.scram" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\scram.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.sha1_crypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\sha1_crypt.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.sha2_crypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\sha2_crypt.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.sun_md5_crypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\sun_md5_crypt.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers.windows" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\windows.py")
+2016-05-29T16:19:09: Parsing "passlib.handlers" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\handlers\__init__.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.backports" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\backports.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_apache" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_apache.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_apps" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_apps.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_context" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_context.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_context_deprecated" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_context_deprecated.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_ext_django" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_ext_django.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_handlers" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_handlers.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_handlers_bcrypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_handlers_bcrypt.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_handlers_django" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_handlers_django.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_hosts" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_hosts.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_registry" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_registry.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_utils" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_utils.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_utils_crypto" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_utils_crypto.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_utils_handlers" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_utils_handlers.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.test_win32" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\test_win32.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.tox_support" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\tox_support.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.utils" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\utils.py")
+2016-05-29T16:19:09: Parsing "passlib.tests._test_bad_register" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\_test_bad_register.py")
+2016-05-29T16:19:09: Parsing "passlib.tests" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\__init__.py")
+2016-05-29T16:19:09: Parsing "passlib.tests.__main__" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\tests\__main__.py")
+2016-05-29T16:19:09: Parsing "passlib.utils.compat" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\compat.py")
+2016-05-29T16:19:09: Parsing "passlib.utils.des" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\des.py")
+2016-05-29T16:19:09: Parsing "passlib.utils.handlers" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\handlers.py")
+2016-05-29T16:19:09: Parsing "passlib.utils.md4" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\md4.py")
+2016-05-29T16:19:09: Parsing "passlib.utils.pbkdf2" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\pbkdf2.py")
+2016-05-29T16:19:09: Parsing "passlib.utils" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\__init__.py")
+2016-05-29T16:19:09: Parsing "passlib.utils._blowfish.base" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\_blowfish\base.py")
+2016-05-29T16:19:09: Parsing "passlib.utils._blowfish.unrolled" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\_blowfish\unrolled.py")
+2016-05-29T16:19:09: Parsing "passlib.utils._blowfish._gen_files" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\_blowfish\_gen_files.py")
+2016-05-29T16:19:09: Parsing "passlib.utils._blowfish" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\utils\_blowfish\__init__.py")
+2016-05-29T16:19:09: Parsing "passlib._setup.docdist" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\_setup\docdist.py")
+2016-05-29T16:19:09: Parsing "passlib._setup.stamp" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\_setup\stamp.py")
+2016-05-29T16:19:09: Parsing "passlib._setup" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib\_setup\__init__.py")
+2016-05-29T16:19:09: Parsing complete
+2016-05-29T16:19:09: Analyzing "passlib.apache"
+2016-05-29T16:19:09: Analyzing "passlib.apps"
+2016-05-29T16:19:09: Analyzing "passlib.context"
+2016-05-29T16:19:09: Analyzing "passlib.exc"
+2016-05-29T16:19:09: Analyzing "passlib.hash"
+2016-05-29T16:19:09: Analyzing "passlib.hosts"
+2016-05-29T16:19:09: Analyzing "passlib.ifc"
+2016-05-29T16:19:09: Analyzing "passlib.registry"
+2016-05-29T16:19:09: Analyzing "passlib.win32"
+2016-05-29T16:19:09: Analyzing "passlib"
+2016-05-29T16:19:09: Analyzing "passlib.ext"
+2016-05-29T16:19:09: Analyzing "passlib.ext.django.models"
+2016-05-29T16:19:09: Analyzing "passlib.ext.django.utils"
+2016-05-29T16:19:09: Analyzing "passlib.ext.django"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.bcrypt"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.cisco"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.des_crypt"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.digests"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.django"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.fshp"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.ldap_digests"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.md5_crypt"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.misc"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.mssql"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.mysql"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.oracle"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.pbkdf2"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.phpass"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.postgres"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.roundup"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.scram"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.sha1_crypt"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.sha2_crypt"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.sun_md5_crypt"
+2016-05-29T16:19:09: Analyzing "passlib.handlers.windows"
+2016-05-29T16:19:09: Analyzing "passlib.handlers"
+2016-05-29T16:19:09: Analyzing "passlib.tests.backports"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_apache"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_apps"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_context"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_context_deprecated"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_ext_django"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_handlers"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_handlers_bcrypt"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_handlers_django"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_hosts"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_registry"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_utils"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_utils_crypto"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_utils_handlers"
+2016-05-29T16:19:09: Analyzing "passlib.tests.test_win32"
+2016-05-29T16:19:09: Analyzing "passlib.tests.tox_support"
+2016-05-29T16:19:09: Analyzing "passlib.tests.utils"
+2016-05-29T16:19:09: Analyzing "passlib.tests._test_bad_register"
+2016-05-29T16:19:09: Analyzing "passlib.tests"
+2016-05-29T16:19:09: Analyzing "passlib.tests.__main__"
+2016-05-29T16:19:09: Analyzing "passlib.utils.compat"
+2016-05-29T16:19:09: Analyzing "passlib.utils.des"
+2016-05-29T16:19:09: Analyzing "passlib.utils.handlers"
+2016-05-29T16:19:09: Analyzing "passlib.utils.md4"
+2016-05-29T16:19:09: Analyzing "passlib.utils.pbkdf2"
+2016-05-29T16:19:09: Analyzing "passlib.utils"
+2016-05-29T16:19:09: Analyzing "passlib.utils._blowfish.base"
+2016-05-29T16:19:09: Analyzing "passlib.utils._blowfish.unrolled"
+2016-05-29T16:19:09: Analyzing "passlib.utils._blowfish._gen_files"
+2016-05-29T16:19:09: Analyzing "passlib.utils._blowfish"
+2016-05-29T16:19:09: Analyzing "passlib._setup.docdist"
+2016-05-29T16:19:09: Analyzing "passlib._setup.stamp"
+2016-05-29T16:19:09: Analyzing "passlib._setup"
+2016-05-29T16:19:09: Starting analysis of 69 modules
+2016-05-29T16:19:12: Analysis complete
+2016-05-29T16:19:12: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib"
+2016-05-29T16:19:13: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\passlib"
+2016-05-29T16:19:13: Deleting 0 files
+
+2016-05-29T16:43:59: Start analysis
+2016-05-29T16:43:59: [WARNING] Library was set explicitly - skipping path detection
+2016-05-29T16:43:59: IncludeModulesFromModulePath = win32com
+2016-05-29T16:44:00: Deleting 0 files
+2016-05-29T16:44:00: Scraping bcrypt._bcrypt
+2016-05-29T16:44:00: Command: "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Scripts\python.exe" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape bcrypt._bcrypt "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages" "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\.ptvs\bcrypt\bcrypt._bcrypt"
+2016-05-29T16:44:00: Scraped 1 files
+2016-05-29T16:44:00: astropy.CallDepth = 0
+2016-05-29T16:44:00: matplotlib.CallDepth = 3
+2016-05-29T16:44:00: pandas.CallDepth = 0
+2016-05-29T16:44:00: sympy.CallDepth = 0
+2016-05-29T16:44:00: Start group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt" with 1 files
+2016-05-29T16:44:00: Parsing "bcrypt" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt\__init__.py")
+2016-05-29T16:44:00: Parsing complete
+2016-05-29T16:44:00: Analyzing "bcrypt"
+2016-05-29T16:44:00: Starting analysis of 1 modules
+2016-05-29T16:44:01: Analysis complete
+2016-05-29T16:44:01: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt"
+2016-05-29T16:44:01: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\Lib\site-packages\bcrypt"
+2016-05-29T16:44:02: Deleting 0 files
+
+2016-05-29T17:10:19: Start analysis
+2016-05-29T17:10:19: [WARNING] Library was set explicitly - skipping path detection
+2016-05-29T17:10:19: IncludeModulesFromModulePath = win32com
+2016-05-29T17:10:19: Deleting 2 files
+2016-05-29T17:10:19: Deleting "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\.ptvs\bcrypt\bcrypt.idb"
+2016-05-29T17:10:19: Deleting "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\SpaceHabitRPG\spaceHabitEnv\.ptvs\bcrypt\bcrypt._bcrypt.idb"

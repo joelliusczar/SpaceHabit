@@ -9,6 +9,20 @@ class StringGenerator(object):
     def index(self):
         return open('testweb/WebPage1.html',encoding='utf-8')
 
+class TestCherryPyThres(object):
+
+    @cherrypy.expose
+    def hello(self):
+        s = "hello, you goddamn motherfucker"
+        print(s)
+        return s
+
+    @cherrypy.expose
+    def crackhead(self):
+        s = "You crackhead!"
+        print(s)
+        return s
+
 class StringGeneratorWebService(object):
     exposed = True
 
@@ -39,6 +53,8 @@ if __name__ == '__main__':
             'tools.response_headers.on': True,
             'tools.response_headers.headers': [('Content-Type', 'text/plain')],
         },
+        '/yodal':{
+            },
         '/static': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': 'public'
@@ -46,4 +62,5 @@ if __name__ == '__main__':
     }
     webapp = StringGenerator()
     webapp.generator = StringGeneratorWebService()
+    webapp.yodal = TestCherryPyThres()
     cherrypy.quickstart(webapp, '/', conf)

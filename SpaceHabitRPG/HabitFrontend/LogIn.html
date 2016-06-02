@@ -34,14 +34,14 @@
                 <form>
                     <div class="form-group">
                         <label for="inputUserName">User Name:</label>
-                        <input type="text" class="form-control" id="inputUserName" placeholder="username" />
+                        <input type="text" class="form-control" id="input_login" name="input_login" placeholder="username" />
                     </div>
                     <div class="form-group">
                         <label for="inputUPassword">Password:</label>
-                        <input type="password" class="form-control" id="inputUserName" placeholder="password" />
+                        <input type="password" class="form-control" id="input_pw" name="input_pw" placeholder="password" />
                     </div>
                     <div class="form-group">
-                        <button type="button" id="btnLogin">Log in</button>
+                        <button type="button" id="btnLogin" name="btnLogin">Log in</button>
                         <p class="help-block"><a href="#forgot_pw" id="forgot_pw">Forget Password?</a></p>
                         <p class="help-block"><a href="#create_account" id="create_account">Create New Account?</a></p>
                     </div>
@@ -49,38 +49,77 @@
             </div>
         </div>
     </div>
-    <div id="new_user_box" class="edit_task_box modal">
+    <div id="new_user_box" class=" modal">
         <div class="modal-dialog">
-            <div class="modal-content task_modal_content">
-                <div id="email_1">
-                    <div id="email_1_label">Email:</div>
-                    <div id="email_input_1_wrapper">
-                        <input type="text" name="email_input_1" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="modal-content task_modal_content">
+                        <h1>Create new user</h1>
+                        <div id="email_1">
+                            <div id="email_1_label">Email:</div>
+                            <div id="email_input_1_wrapper">
+                                <input type="text" name="email_input_1" />
+                            </div>
+                            <div id="email_validation">
+                                <div id="bad_email" class='validation_error email_error hidden'>Invalid E-mail address.</div>
+                                <div id="taken_email" class='validation_error email_error hidden'>E-mail is already taken.</div>
+                                <div id="mismatched_email" class='validation_error hidden'>E-mail addresses must match</div>
+                                <div id="good_email" class='validation_success hidden'>E-mail is available.</div>
+                            </div>
+                        </div>
+                        <div id="email_2">
+                            <div id="email_2_label">Confirm Email:</div>
+                            <div id="email_input_2_wrapper">
+                                <input type="text" name="email_input_2" />
+                            </div>
+                        </div>
+                        <div id="pw_1">
+                            <div id="pw_1_label">Enter Password:</div>
+                            <div id="pw_1_input_wrapper">
+                                <input type="password" name="pw_input_1" />
+                            </div>
+                            <div id="short_pw" class='validation_error hidden'>Password must be at least six characters long.</div>
+                            <div id="mismatched_pw" class='validation_error hidden'>Passwords must match</div>
+                        </div>
+                        <div id="pw_2">
+                            <div id="pw_2_label">Enter Password:</div>
+                            <div id="pw_2_input_wrapper">
+                                <input type="password" name="pw_input_2" />
+                            </div>
+                        </div>
+                        <div id="ship_name">
+                            <div id="ship_label">Ship Name:</div>
+                            <div id="ship_input_wrapper">
+                                <input type="text" name="ship_input" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" name="save_user">Save</button>
+                            <button type="button" name="cancel">Cancel</button>
+                        </div>
                     </div>
-                    <div id="email_1_validation"></div>
                 </div>
-                <div id="email_2">
-                    <div id="email_2_label">Confirm Email:</div>
-                    <div id="email_input_2_wrapper">
-                        <input type="text" name="email_input_2" />
+            </div>
+        </div>
+    </div>
+    <div id="forgotten_pw_box" class="modal">
+        <div class="modal-dialog">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="modal-content task_modal_content">
+
+                        <div id="retrieval_email">
+                            <div id="retrieval_email_label">Email:</div>
+                            <div id="retrieval_email_input_wrapper">
+                                <input type="text" name="retrieval_email" />
+                            </div>
+                            <div id="retrieval_email_validation"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="pw_recovery" type="button" name="send_recovery">Save</button>
+                            <button type="button" name="pw_cancel">Cancel</button>
+                        </div>
                     </div>
-                    <div id="email_2_validation"></div>
-                </div>
-                <div id="pw_1">
-                    <div id="pw_1_label">Enter Password:</div>
-                    <div id="pw_1_input_wrapper">
-                        <input type="password" name="pw_input_1" />
-                    </div>
-                </div>
-                <div id="pw_2">
-                    <div id="pw_2_label">Enter Password:</div>
-                    <div id="pw_2_input_wrapper">
-                        <input type="password" name="pw_input_2" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" name="save_user">Save</button>
-                    <button type="button" name="cancel">Cancel</button>
                 </div>
             </div>
         </div>

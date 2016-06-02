@@ -1,5 +1,18 @@
 import DatabaseLayer
 
+COLLECTION_NAME = 'zones'
+ID_KEY = '_id'
+NAME = 'name'
+Progress_LVL = 'progressLvl'
+END_POINT_LVL = 'endPointLvl'
+SKILL_LVL = 'skillLvl'
+DESCRIPTION = 'description'
+PREVIOUS_ZONE_REFERENCE = 'previousZoneReference'
+NEXT_ZONE_REFERENCE_LIST = 'nextZoneReferenceList'
+ZONE_TYPE = 'zoneType'
+
+
+
 class Zone(object):
     """description of class"""
     def __init__(self,dict=None,id = None):
@@ -9,87 +22,87 @@ class Zone(object):
             self._dict = dict
             return
         if id:
-            self._dict = DatabaseLayer.get_thing_by_id(id,"zones")
+            self._dict = DatabaseLayer.get_thing_by_id(id,COLLECTION_NAME)
             return
         raise ValueError("Either a reference to a dictionary or an id is required")
 
 
     def save_changes(self):
-        DatabaseLayer.update_thing_by_id(self.id,"zones",self._changes)
+        DatabaseLayer.update_thing_by_id(self.id,COLLECTION_NAME,self._changes)
         self._changes = {}
 
     @property
     def id(self):
-        return self._dict['_id']
+        return self._dict[ID_KEY]
 
     @property
     def name(self):
-        return self._dict['name']
+        return self._dict[NAME]
 
     @name.setter
     def name(self,value):
-        self._dict['name'] = value
-        self._changes['name'] = value
+        self._dict[NAME] = value
+        self._changes[NAME] = value
 
     @property
-    def voyageLvl(self):
-        return self._dict['voyageLvl']
+    def progressLvl(self):
+        return self._dict[Progress_LVL]
 
-    @voyageLvl.setter
-    def voyageLvl(self,value):
-        self._dict['voyageLvl'] = value
-        self._changes['voyageLvl'] = value
+    @progressLvl.setter
+    def progressLvl(self,value):
+        self._dict[Progress_LVL] = value
+        self._changes[Progress_LVL] = value
 
     @property
-    def destinationLvl(self):
-        return self._dict['destinationLvl']
+    def endPointLvl(self):
+        return self._dict[END_POINT_LVL]
 
-    @destinationLvl.setter
-    def destinationLvl(self,value):
-        self._dict['destinationLvl'] = value
-        self._changes['destinationLvl'] = value
+    @endPointLvl.setter
+    def endPointLvl(self,value):
+        self._dict[END_POINT_LVL] = value
+        self._changes[END_POINT_LVL] = value
 
     @property
     def skillLvl(self):
-        return self._dict['skillLvl']
+        return self._dict[SKILL_LVL]
 
     @skillLvl.setter
     def skillLvl(self,value):
-        self._dict['skillLvl'] = value
-        self._changes['skillLvl'] = value
+        self._dict[SKILL_LVL] = value
+        self._changes[SKILL_LVL] = value
 
     @property
     def description(self):
-        return self._dict['description']
+        return self._dict[DESCRIPTION]
 
     @description.setter
     def description(self,value):
-        self._dict['description'] = value
-        self._changes['description'] = value
+        self._dict[DESCRIPTION] = value
+        self._changes[DESCRIPTION] = value
 
     @property
     def previousZoneReference(self):
-        return self._dict['previousZoneReference']
+        return self._dict[PREVIOUS_ZONE_REFERENCE]
 
     @previousZoneReference.setter
     def previousZoneReference(self,value):
-        self._dict['previousZoneReference'] = value
-        self._changes['previousZoneReference'] = value
+        self._dict[PREVIOUS_ZONE_REFERENCE] = value
+        self._changes[PREVIOUS_ZONE_REFERENCE] = value
 
     @property
     def nextZoneReferenceList(self):
-        return self._dict['nextZoneReferenceList']
+        return self._dict[NEXT_ZONE_REFERENCE_LIST]
 
     @nextZoneReferenceList.setter
     def nextZoneReferenceList(self,value):
-        self._dict['nextZoneReferenceList'] = value
-        self._changes['nextZoneReferenceList'] = value
+        self._dict[NEXT_ZONE_REFERENCE_LIST] = value
+        self._changes[NEXT_ZONE_REFERENCE_LIST] = value
 
     @property
     def zoneType(self):
-        return self._dict['zoneType']
+        return self._dict[ZONE_TYPE]
 
     @zoneType.setter
     def zoneType(self,value):
-        self._dict['zoneType'] = value
-        self._changes['zoneType'] = value
+        self._dict[ZONE_TYPE] = value
+        self._changes[ZONE_TYPE] = value

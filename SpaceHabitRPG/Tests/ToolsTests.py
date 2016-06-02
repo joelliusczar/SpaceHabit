@@ -76,13 +76,14 @@ class Test_ToolsTests(unittest.TestCase):
             self.assertEqual(a.difficulty,c.difficulty)
 
     def test_db_daily_sorting(self):
+        import Daily
         controlList = []
         for i in range(0,500):
             u = i // 100
             r = (500 -i) // 25
             f = i
             controlList.append(DailySortingTestObject(u,r,f))
-        dailies = DatabaseLayer.get_dailies_by_account(ObjectId("57428b8eee2a37797ef5d518"))
+        dailies = Daily.get_dailies_by_account(ObjectId("57428b8eee2a37797ef5d518"))
         for d,c in zip(dailies,controlList):
             self.assertEqual(d['daysUntilTrigger'],c.daysUntilTrigger)
             self.assertEqual(d['urgency'],c.urgency)

@@ -6,7 +6,7 @@
     <ProjectGuid>95855783-870b-44e1-86ee-a296317a111a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>testweb\testCherypy.py</StartupFile>
-    <SearchPath>..\HabitRPG\CoreGame\;..\HabitRPG\Helpers\;..\HabitRPG\Types\</SearchPath>
+    <SearchPath>..\SpaceHabitRPG\CoreGame\;..\SpaceHabitRPG\Helpers\;..\SpaceHabitRPG\Story\;..\SpaceHabitRPG\Types\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Experiments</Name>
@@ -33,6 +33,9 @@
     <Compile Include="MassAddToDB.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="testweb\TestCherrypy2.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="testweb\testCherypy.py">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +43,7 @@
   <ItemGroup>
     <Content Include="config.ini" />
     <Content Include="testweb\WebPage1.html" />
+    <Content Include="testweb\WebPage2.html" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.5" />

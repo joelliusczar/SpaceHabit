@@ -1,0 +1,5 @@
+ID_KEY = '_id'
+SESSION_KEY = 'userlogin'
+USER_ID_KEY = 'userID'
+ACCOUNT_ID_KEY = 'accountID'
+HERO_ID_KEY = 'heroID'

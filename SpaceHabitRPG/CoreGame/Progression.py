@@ -38,10 +38,10 @@ def generate_zone_name_suffix(visitCount):
    to account for that"""
     symbols =["","Alpha", "Beta","Cain","Delta", #4
             "Epsilon","Foxtrot","September","October", #8
-            "November","Juliett","Kilo","Romeo","Silver","Deckard", #14
+            "November","Kilo","Juliett","Romeo","Silver","Deckard", #14
             "Sierra","Tango","Zeta","Theta","July","Ludwig","Tyrell", #21
             "Lambda","Mu","London","Victor","Quintin","Gold", #27 
-            "Whiskey","Xray","Zulu","Pi","Rho","Antilles","Prime", #34
+            "Whiskey","Xray","Zulu","Pi","Rho","Antilles","Blanca", #34
             "Sigma","Tau","India","Hector","Quebec","Waltz","Sapphire", #41
             "Tokyo","Ramesses","Washington","Darius","Emerald","Midgard", #47
             "Futura","Charlotte","Flanders","Berlin","Onion","Ruby", #53
@@ -49,9 +49,10 @@ def generate_zone_name_suffix(visitCount):
             "Black","White","Olaf","Biggs","Wedge","Tyrannus", #65
             "Richter","Medusa","Swan","Gemini","Noir","Xerxes",#71
             "TNT","Plutonia","Cerberus","Tiberius", #75
-            "Arcturus","Prime","Tarsonis","Babylon","Sparta",#76
-            "Atlanta","82","Python","Ridley","85",
-            "86","87","88","89","90","91","92","Indigo",
+            "Arcturus","Prime","Tarsonis","Babylon","Sparta",#80
+            "Atlanta","Yutani","Python","Ridley","Midway", #85
+            "Bismark","Dextera","Dominus","Jejunum", #89
+            "Superior","Distal","Eurebus","Indigo", #93
             "Xs","Rex","Titan","Zen","Apex","Omega","Zed"] #100
     s = ""
     superSuffix = 0

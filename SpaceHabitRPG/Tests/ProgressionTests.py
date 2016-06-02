@@ -1,5 +1,6 @@
 import unittest
 import Progression
+from collections import OrderedDict
 
 
 class Test_ProgressionTests(unittest.TestCase):
@@ -35,19 +36,21 @@ class Test_ProgressionTests(unittest.TestCase):
     def test_generate_area_name_suffix(self):
         symbols =["","Alpha", "Beta","Cain","Delta", #4
             "Epsilon","Foxtrot","September","October", #8
-            "November","Juliett","Kilo","Romeo","Silver","Deckard", #14
+            "November","Kilo","Juliett","Romeo","Silver","Deckard", #14
             "Sierra","Tango","Zeta","Theta","July","Ludwig","Tyrell", #21
             "Lambda","Mu","London","Victor","Quintin","Gold", #27 
-            "Whiskey","Xray","Zulu","Pi","Rho","Antilles","Prime", #34
+            "Whiskey","Xray","Zulu","Pi","Rho","Antilles","Blanca", #34
             "Sigma","Tau","India","Hector","Quebec","Waltz","Sapphire", #41
             "Tokyo","Ramesses","Washington","Darius","Emerald","Midgard", #47
-            "Futura","Cookie","Flanders","Berlin","Onion","Ruby", #53
+            "Futura","Charlotte","Flanders","Berlin","Onion","Ruby", #53
             "David","Pizza","Lazlo","Kong","Jerico","Diamond", #59
             "Black","White","Olaf","Biggs","Wedge","Tyrannus", #65
-            "Richter","Medusa","Swan","Gemini","Noir","Xerxes",
-            "TNT","Plutonia","74","Tiberius",
-            "76","77","78","79","80","81","82","83","84","85",
-            "86","87","88","89","90","91","92","Indigo",
+            "Richter","Medusa","Swan","Gemini","Noir","Xerxes",#71
+            "TNT","Plutonia","Cerberus","Tiberius", #75
+            "Arcturus","Prime","Tarsonis","Babylon","Sparta",#80
+            "Atlanta","Yutani","Python","Ridley","Midway", #85
+            "Bismark","Dextera","Dominus","Jejunum", #89
+            "Superior","Distal","Eurebus","Indigo", #93
             "Xs","Rex","Titan","Zen","Apex","Omega","Zed"] #100
         combos = set()
         for s1 in symbols:

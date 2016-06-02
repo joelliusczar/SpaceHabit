@@ -1,19 +1,35 @@
 import DatabaseLayer
 
+COLLECTION_NAME = 'heros'
+ACCOUNT_ID = 'accountId'
+SHIP_NAME = 'shipName'
+ID_KEY = '_id'
+LVL = 'lvl'
+GOLD = 'gold'
+MAX_HP = 'maxHp'
+NOW_HP = 'nowHp'
+MAX_XP = 'maxXp'
+NOW_XP = 'nowXp'
+ATTACK_LVL = 'attackLvl'
+DEFENSE_LVL = 'defenseLvl'
+ZONE_VISIT_COUNTS = 'zoneVisitCounts'
+PUBLIC_KEY = 'PublicKey'
 
-def create_new_hero(shipName):
+
+def create_new_hero(accountId = None,shipName = ""):
     hero = {
-        'shipName':shipName,
-        'lvl':1,
-        'gold':0,
-        'maxHp': 100,
-        'nowHp': 100,
-        'maxXp': 50,
-        'nowXp': 0,
-        'attackLvl': 1,
-        'defenseLvl': 1,           
+        ACCOUNT_ID: accountId,
+        SHIP_NAME: shipName,
+        LVL:1,
+        GOLD:0,
+        MAX_HP: 100,
+        NOW_HP: 100,
+        MAX_XP: 50,
+        NOW_XP: 0,
+        ATTACK_LVL: 1,
+        DEFENSE_LVL: 1,           
     }
-    id  = DatabaseLayer.insert_thing(hero,"heros")
+    id  = DatabaseLayer.insert_thing(hero,COLLECTION_NAME)
     return id
 
 class Hero(object):
@@ -25,105 +41,95 @@ class Hero(object):
             self._dict = dict
             return
         if id:
-            self._dict = DatabaseLayer.get_thing_by_id(id,"heros")
+            self._dict = DatabaseLayer.get_thing_by_id(id,COLLECTION_NAME)
             return
 
     def save_changes(self):
-        DatabaseLayer.update_thing_by_id(self.id,"heros",self._changes)
+        DatabaseLayer.update_thing_by_id(self.id,COLLECTION_NAME,self._changes)
         self._changes = {}
-
-
 
     @property
     def id(self):
-        return self._dict['_id']
+        return self._dict[ID_KEY]
 
-    @property
-    def name(self):
-        return self._dict['name']
-
-    @name.setter
-    def name(self,value):
-        self._dict['name'] = value
-        self._changes['name'] = value
 
     @property
     def lvl(self):
-        return self._dict['lvl']
+        return self._dict[LVL]
 
     @lvl.setter
     def lvl(self,value):
-        self._dict['lvl'] = value
-        self._changes['lvl'] = value
+        self._dict[LVL] = value
+        self._changes[LVL] = value
 
     @property
     def maxHp(self):
-        return self._dict['maxHp']
+        return self._dict[MAX_HP]
 
     @maxHp.setter
     def maxHp(self,value):
-        self._dict['maxHp'] = value
-        self._changes['maxHp'] = value
+        self._dict[MAX_HP] = value
+        self._changes[MAX_HP] = value
 
     @property
     def nowHp(self):
-        return self._dict['nowHp']
+        return self._dict[NOW_HP]
 
     @nowHp.setter
     def nowHp(self,value):
-        self._dict['nowHp'] = value
-        self._changes['nowHp'] = value
+        self._dict[NOW_HP] = value
+        self._changes[NOW_HP] = value
 
     @property
     def maxXp(self):
-        return self._dict['maxXp']
+        return self._dict[MAX_XP]
 
     @maxXp.setter
     def maxXp(self,value):
-        self._dict['maxXp'] = value
-        self._changes['maxXp'] = value
+        self._dict[MAX_XP] = value
+        self._changes[MAX_XP] = value
 
     @property
     def nowXp(self):
-        return self._dict['nowXp']
+        return self._dict[NOW_XP]
 
     @nowXp.setter
     def nowXp(self,value):
-        self._dict['nowXp'] = value
-        self._changes['nowXp'] = value
+        self._dict[NOW_XP] = value
+        self._changes[NOW_XP] = value
 
     @property
     def gold(self):
-        return self._dict['gold']
+        return self._dict[GOLD]
 
     @gold.setter
     def gold(self,value):
-        self._dict['gold'] = value
-        self._changes['gold'] = value
+        self._dict[GOLD] = value
+        self._changes[GOLD] = value
 
     @property
     def attackLvl(self):
-        return self._dict['attackLvl']
+        return self._dict[ATTACK_LVL]
 
     @attackLvl.setter
     def attackLvl(self,value):
-        self._dict['attackLvl'] = value
-        self._changes['attackLvl'] = value
+        self._dict[ATTACK_LVL] = value
+        self._changes[ATTACK_LVL] = value
 
     @property
     def defenseLvl(self):
-        return self._dict['defenseLvl']
+        return self._dict[DEFENSE_LVL]
 
     @defenseLvl.setter
     def defenseLvl(self,value):
-        self._dict['defenseLvl'] = value
-        self._changes['defenseLvl'] = value
+        self._dict[DEFENSE_LVL] = value
+        self._changes[DEFENSE_LVL] = value
 
     @property
     def zoneVisitCounts(self):
-        return self._dict['zoneVisitCounts']
+        return self._dict[ZONE_VISIT_COUNTS]
 
     @zoneVisitCounts.setter
     def zoneVisitCounts(self,value):
-        self._dict['zoneVisitCounts'] = value
-        self._changes['zoneVisitCounts'] = value
+        self._dict[ZONE_VISIT_COUNTS] = value
+        self._changes[ZONE_VISIT_COUNTS] = value

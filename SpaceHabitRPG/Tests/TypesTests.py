@@ -1,8 +1,8 @@
 import unittest
 import DatabaseLayer
 import MockDatabaseLayer
-import TypeCreators
 from Hero import Hero
+from Hero import create_new_hero
 
 class Test_TypesTests(unittest.TestCase):
     def setUp(self):
@@ -12,15 +12,13 @@ class Test_TypesTests(unittest.TestCase):
         return super().setUp()
 
     def test_Hero_get_and_set(self):
-        id = TypeCreators.create_new_hero("cpt. Hook","Jolly Roger")
+        id = create_new_hero()
         self.assertEqual(id,"heros0")
         hero_stuff = DatabaseLayer.get_thing_by_id(id,"heros")
-        id2 = TypeCreators.create_new_hero("Pablo Escobar","USS Asskicked")
+        id2 = create_new_hero()
         self.assertEqual(id2,"heros1")
         hero0 = Hero(dict=hero_stuff)
         hero1 = Hero(id=id2)
-        self.assertEqual(hero0.name,"cpt. Hook")
-        self.assertEqual(hero1.name,"Pablo Escobar")
         hero1.lvl = 3
         hero2 = Hero(id=id2)
         self.assertEqual(hero2.lvl,1)

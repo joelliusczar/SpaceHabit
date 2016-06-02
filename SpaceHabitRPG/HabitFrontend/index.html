@@ -2,543 +2,569 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="/static/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-  <script type="text/javascript">
-    if (typeof jQuery == 'undefined') {
-      document.write(unescape('%3Clink rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" /%3E'));
-      document.write(unescape('%3Cscript type="text/javascript" src="/static/jquery.min.js" %3E%3C/script%3E'));
-      document.write(unescape('%3Cscript type="text/javascript" src="/static/bootstrap.min.js" %3E%3C/script%3E'));
-      document.write(unescape('%3Cscript type="text/javascript" src="/static/knockout-min.js" %3E%3C/script%3E'));
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(unescape('%3Clink rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" /%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/jquery.min.js" %3E%3C/script%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/bootstrap.min.js" %3E%3C/script%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/knockout-min.js" %3E%3C/script%3E'));
 
-    }
-  </script>
-  <script src="/static/script.js"></script>
+        }
+    </script>
+    <script src="/static/script.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <div id="global" class="row">
-      <div class="col-md-12">
-        <div id="status">
-          <div class="row">
+    <div class="container">
+        <div id="global" class="row">
             <div class="col-md-12">
-              <div id="hero_info_row" class="row">
-                <div id="hero_name" class="col-xs-4 col-md-2 " data-bind="text: hero.name()"></div>
-                <div id="hero_lvl" class="col-md-2 col-xs-4">Lvl: <span data-bind="text: hero.lvl()"></span></div>
-                <div id="hero_gold">$<span data-bind="text: hero.gold()"></span></div>
-              </div>
-              <div id="hp_row" class="row">
-                <div id="hp_num" class="col-md-1 col-xs-4 fill_label">HP: <span data-bind="text: hero.nowHp()"></span>/<span data-bind="text: hero.maxHp()"></span></div>
-                <div id="hp_bar" class="col-md-11 col-xs-8 fill_bar">
-                  <div id="max_hp">
-                    <div id="now_hp" data-bind="style: {width: getHeroHealthPercent()}"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="xp_row" class="row">
+                <div id="status">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="hero_info_row" class="row">
+                                <div id="hero_name" class="col-xs-4 col-md-2 " data-bind="text: hero.name()"></div>
+                                <div id="hero_lvl" class="col-md-2 col-xs-4">Lvl: <span data-bind="text: hero.lvl()"></span></div>
+                                <div id="hero_gold">$<span data-bind="text: hero.gold()"></span></div>
+                            </div>
+                            <div id="hp_row" class="row">
+                                <div id="hp_num" class="col-md-1 col-xs-4 fill_label">HP: <span data-bind="text: hero.nowHp()"></span>/<span data-bind="text: hero.maxHp()"></span></div>
+                                <div id="hp_bar" class="col-md-11 col-xs-8 fill_bar">
+                                    <div id="max_hp">
+                                        <div id="now_hp" data-bind="style: {width: getHeroHealthPercent()}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="xp_row" class="row">
 
-                <div id="xp_num" class="col-md-1 col-xs-4 fill_label">XP: <span data-bind="text: hero.nowXp()"></span>/<span data-bind="text: hero.maxXp()"></span></div>
-                <div id="xp_bar" class="col-md-11 col-xs-8 fill_bar">
-                  <div id="max_xp">
-                    <div id="now_xp" data-bind="style: {width: getHeroXpPercent()}"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="monster_hp_row" class="row">
-                <div id="monster_name" class="col-md-1 col-xs-4 fill_label" data-bind="text: monster.name()"></div>
-                <div id="monster_hp_bar" class="col-md-11 col-xs-8 fill_bar">
-                  <div id="monster_max_hp">
-                    <div id="monster_now_hp" data-bind="style: {width: getMonsterHealthPercent()}"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="output" class="row">
-          <div class="col-md-12">
-          </div>
-        </div>
-        <div id="tabs" class="row">
-          <div id="tab_links">
-            <ul class="nav nav-tabs">
-              <li class="space_habit_tabs active">
-                <a href="#tab_daily" data-toggle="tab">
-                  <div class="tab-label">Dailies</div>
-                </a>
-              </li>
-              <li class="space_habit_tabs">
-                <a href="#tab_habit" data-toggle="tab">
-                  <div class="tab-label">Habits</div>
-                </a>
-              </li>
-              <li class="space_habit_tabs">
-                <a href="#tab_todo" data-toggle="tab">
-                  <div class="tab-label">To dos</div>
-                </a>
-              </li>
-              <li class="space_habit_tabs">
-                <a href="#tab_goods" data-toggle="tab">
-                  <div class="tab-label">Goods</div>
-                </a>
-              </li>
-              <li class="space_habit_tabs">
-                <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="caret"></span></a>
-                <ul id="menu_tab" class="dropdown-menu">
-                  <li class="space_habit_tabs"><a href="#tab_ship" data-toggle="tab">Ship</a></li>
-                  <li class="space_habit_tabs"><a href="#tab_stats" data-toggle="tab">Stats</a></li>
-                  <li class="space_habit_tabs"><a href="#tab_settings" data-toggle="tab">Settings</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="tab-content">
-            <div id="tab_daily" class="tab-pane active row">
-              <div id="daily_box" class="task_box col-md-12">
-                <div id="daily_head" class="task_head">
-                  <div class="label_row row">
-                    <div class="task__open_add_button col-xs-2 col-md-1 ">
-                      <button type="button" class="btn btn-default" name="open_add_daily"><span class="glyphicon glyphicon-plus"></span></button>
-                    </div>
-                    <div id="daily_label" class="task_label col-xs-10 ">Dailies</div>
-
-                  </div>
-
-                  <div class="search_row row">
-                    <div class="task_search_input col-md-12 col-xs-12">
-                      <input type="text" name="daily_search" placeholder="Search Dailies" />
-                    </div>
-                  </div>
-                </div>
-                <div id="unfinished_daily_list" class="task_list" data-bind="foreach: dailies">
-                  <div class="daily_item task_item">
-                    <div class="row">
-                      <div class="do_daily task_activate col-xs-2 col-md-1">
-                        <button type="button" class="btn btn-default" name="complete_daily" data-bind="click: $parent.doDaily"><span class="glyphicon glyphicon-unchecked"></span></button>
-                      </div>
-                      <div class="daily_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
-                      <div class="button_edit_daily edit_button col-xs-2 col-md-1 ">
-                        <button type="button" class="btn btn-default" name="edit_daily"><span class="glyphicon glyphicon-pencil"></span></button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class=""></div>
-                      <div class="streak_label col-xs-4 col-md-2">Streak: <span data-bind="text: streak"></span></div>
-                      <!-- ko if: $data.hasOwnProperty('rate') -->
-                      <div class="streak_label col-xs-4 col-md-2">Days left: <span data-bind="text: daysLeft"></span></div>
-                      <!-- /ko -->
-                    </div>
-                  </div>
-                </div>
-                <div id="finished_daily_list" class="task_list" data-bind="foreach: finishedDailies">
-                  <div class="finished_daily_item task_item">
-                    <div class="row">
-                      <div class="undo_daily task_activate col-xs-2 col-md-1">
-                        <button type="button" class="btn btn-default" name="complete_daily" data-bind="click: $parent.undoDaily"><span class="glyphicon glyphicon-ok"></span></button>
-                      </div>
-                      <div class="daily_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
-                      <div class="button_edit_daily edit_button col-xs-2 col-md-1">
-                        <button type="button" class="btn btn-default" name="edit_daily"><span class="glyphicon glyphicon-pencil"></span></button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class=""></div>
-                      <div class="streak_label col-xs-4 col-md-2">Streak: <span data-bind="text: streak"></span></div>
-                      <!-- ko if: $data.hasOwnProperty('rate') -->
-                      <div class="streak_label col-xs-4 col-md-2">Days left: <span data-bind="text: daysLeft"></span></div>
-                      <!-- /ko -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="tab_habit" class="tab-pane row">
-              <div id="habit_box" class="task_box col-md-12">
-                <div id="habit_head" class="task_head">
-                  <div class="label_row row">
-                    <div class="task__open_add_button col-xs-2 col-md-1">
-                      <button type="button" class="btn btn-default" name="open_add_habit"><span class="glyphicon glyphicon-plus"></span></button>
-                    </div>
-                    <div id="habit_label" class="task_label col-xs-10 ">Habits</div>
-                  </div>
-                  <div class="search_row row">
-                    <div class="task_search_input col-md-12">
-                      <input type="text" name="habit_search" placeholder="Search Habits" />
-                    </div>
-                  </div>
-                </div>
-                <div id="habit_list" class="task_list" data-bind="foreach: habits">
-                  <!--ko if: polarity == "good" -->
-                  <div class="habit_item task_item">
-                    <div class="row">
-                      <div class="plus_one_habit task_activate col-xs-2 col-md-1">
-                        <button type="button" class="btn btn-default" name="plus_one"><span class="glyphicon glyphicon-triangle-top"></span>
-                        </button>
-                      </div>
-                      <div class="habit_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
-                      <div class="button_edit_daily edit_button ">
-                        <button type="button" class="btn btn-default" name="edit_habit"><span class="glyphicon glyphicon-pencil"></span></button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="hit_count col-md-12">Hits today: <span data-bind="text: hitCount"></span></div>
-                    </div>
-                  </div>
-                  <!-- /ko -->
-                  <!-- ko if: polarity == "bad" -->
-                  <div class="habit_item task_item">
-                    <div class="row">
-                      <div class="minus_one_habit task_activate col-xs-2 col-md-1">
-                        <button type="button" class="btn btn-default" name="minus_one"><span class="glyphicon glyphicon-triangle-bottom"></span>
-                        </button>
-                      </div>
-                      <div class="habit_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
-                      <div class="button_edit_daily edit_button ">
-                        <button type="button" class="btn btn-default" name="edit_habit"><span class="glyphicon glyphicon-pencil"></span></button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="hit_count col-md-12">Hits today: <span data-bind="text: hitCount"></span></div>
-                    </div>
-                  </div>
-                  <!-- /ko -->
-                </div>
-              </div>
-            </div>
-            <div id="tab_todo" class="tab-pane row">
-              <div id="todo_box" class="task_box col-md-12">
-                <div id="todo_head" class="task_head">
-                  <div class="label_row row">
-                    <div class="task__open_add_button col-xs-2  col-md-1">
-                      <button type="button" class="btn btn-default" name="open_add_todo"><span class="glyphicon glyphicon-plus"></span></button>
-                    </div>
-                    <div id="todo_label" class="task_label ">To dos</div>
-
-                  </div>
-                  <div class="search_row row">
-                    <div class="task_search_input col-md-12">
-                      <input type="text" name="todo_search" placeholder="Search To dos" />
-                    </div>
-                  </div>
-                </div>
-                <div id="todo_list" class="task_list" data-bind="foreach: todos">
-                  <div class="todo_item task_item">
-                    <div class="row">
-                      <div class="complete_todo task_activate col-xs-2 col-md-1">
-                        <button type="button" class="btn btn-default" name="complete_todo"><span class="glyphicon glyphicon-unchecked"></span></button>
-                      </div>
-                      <div class="todo_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
-                      <div class="button_edit_todo edit_button col-md-1">
-                        <button type="button" class="btn btn-default" name="edit_todo"><span class="glyphicon glyphicon-pencil"></span></button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="days_left col-md-12" data-bind="if: $data.hasOwnProperty('dueDate')">
-                        <!--ko if: ($parent.getDaysUntilTodoStarts($data) > 0 && $parent.getDaysUntilTodoEnds($data) > 0) -->
-                        Starts in <span data-bind="text: $parent.getDaysUntilTodoStarts($data)"></span> days
-                        <!-- /ko -->
-                        <!--ko if: ($parent.getDaysUntilTodoStarts($data) <= 0 && $parent.getDaysUntilTodoEnds($data) > 0) -->
-                        Due in <span data-bind="text: $parent.getDaysUntilTodoEnds($data)"></span> days
-                        <!-- /ko -->
-                        <!--ko if: ($parent.getDaysUntilTodoStarts($data) <= 0 && $parent.getDaysUntilTodoEnds($data) <= 0) -->
-                        Was due <span data-bind="text: $parent.getDaysUntilTodoEnds($data)*-1"></span> days ago
-                        <!-- /ko -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="tab_goods" class="tab-pane row">
-              <div id="goods_box" class="task_box col-md-12">
-                <div id="goods_head" class="task_head">
-                  <div class="label_row row">
-                    <div class="task__open_add_button col-xs-2 col-md-1">
-                      <button type="button" class="btn btn-default" name="goods"><span class="glyphicon glyphicon-plus"></span></button>
-                    </div>
-                    <div id="goods_label" class="task_label ">Goods</div>
-
-                  </div>
-                  <div class="search_row row">
-                    <div class="task_search_input col-md-12">
-                      <input type="text" name="goods_search" placeholder="Search Goods" />
-                    </div>
-                  </div>
-                </div>
-                <div id="all_goods">
-                  <div class="row">
-                    <div id="IRL_goods_label" class="col-md-10">IRL Goods</div>
-                  </div>
-                  <div id="IRL_goods_list" class="task_list" data-bind="foreach: IRLGoods">
-                    <div class="goods_item task_item">
-                      <div class="row">
-                        <div class="buy_good task_activate col-xs-2 col-md-1">
-                          <button type="button" class="btn btn-default" name="buy_good" data-bind="click: $parent.buyGood"><span class="glyphicon glyphicon-usd"></span></button>
+                                <div id="xp_num" class="col-md-1 col-xs-4 fill_label">XP: <span data-bind="text: hero.nowXp()"></span>/<span data-bind="text: hero.maxXp()"></span></div>
+                                <div id="xp_bar" class="col-md-11 col-xs-8 fill_bar">
+                                    <div id="max_xp">
+                                        <div id="now_xp" data-bind="style: {width: getHeroXpPercent()}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="monster_hp_row" class="row">
+                                <div id="monster_name" class="col-md-1 col-xs-4 fill_label" data-bind="text: monster.name()"></div>
+                                <div id="monster_hp_bar" class="col-md-11 col-xs-8 fill_bar">
+                                    <div id="monster_max_hp">
+                                        <div id="monster_now_hp" data-bind="style: {width: getMonsterHealthPercent()}"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="goods_title task_title col-xs-6 col-md-9" data-bind="text: name"></div>
-                        <div class="goods_cost col-xs-2 col-md-1">$<span data-bind="text: value"></span></div>
-                        <div class="button_edit_good edit_button ">
-                          <button type="button" class="btn btn-default" name="edit_good"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </div>
+                </div>
+                <div id="output" class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+                <div id="tabs" class="row">
+                    <div id="tab_links">
+                        <ul class="nav nav-tabs">
+                            <li class="space_habit_tabs active">
+                                <a href="#tab_daily" data-toggle="tab">
+                                    <div class="tab-label">Dailies</div>
+                                </a>
+                            </li>
+                            <li class="space_habit_tabs">
+                                <a href="#tab_habit" data-toggle="tab">
+                                    <div class="tab-label">Habits</div>
+                                </a>
+                            </li>
+                            <li class="space_habit_tabs">
+                                <a href="#tab_todo" data-toggle="tab">
+                                    <div class="tab-label">To dos</div>
+                                </a>
+                            </li>
+                            <li class="space_habit_tabs">
+                                <a href="#tab_goods" data-toggle="tab">
+                                    <div class="tab-label">Goods</div>
+                                </a>
+                            </li>
+                            <li class="space_habit_tabs">
+                                <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="caret"></span></a>
+                                <ul id="menu_tab" class="dropdown-menu">
+                                    <li class="space_habit_tabs"><a href="#tab_ship" data-toggle="tab">Ship</a></li>
+                                    <li class="space_habit_tabs"><a href="#tab_stats" data-toggle="tab">Stats</a></li>
+                                    <li class="space_habit_tabs"><a href="#tab_settings" data-toggle="tab">Settings</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div id="tab_daily" class="tab-pane active row">
+                            <div id="daily_box" class="task_box col-md-12">
+                                <div id="daily_head" class="task_head">
+                                    <div class="label_row row">
+                                        <div class="task__open_add_button col-xs-2 col-md-1 ">
+                                            <button type="button" class="btn btn-default" name="open_add_daily"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </div>
+                                        <div id="daily_label" class="task_label col-xs-10 ">Dailies</div>
+
+                                    </div>
+
+                                    <div class="search_row row">
+                                        <div class="task_search_input col-md-12 col-xs-12">
+                                            <input type="text" name="daily_search" placeholder="Search Dailies" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="unfinished_daily_list" class="task_list" data-bind="foreach: dailies">
+                                    <div class="daily_item task_item">
+                                        <div class="row">
+                                            <div class="do_daily task_activate col-xs-2 col-md-1">
+                                                <button type="button" class="btn btn-default" name="complete_daily" data-bind="click: $parent.doDaily"><span class="glyphicon glyphicon-unchecked"></span></button>
+                                            </div>
+                                            <div class="daily_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
+                                            <div class="button_edit_daily edit_button col-xs-2 col-md-1 ">
+                                                <button type="button" class="btn btn-default" name="edit_daily"><span class="glyphicon glyphicon-pencil"></span></button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class=""></div>
+                                            <div class="streak_label col-xs-4 col-md-2">Streak: <span data-bind="text: streak"></span></div>
+                                            <!-- ko if: $data.hasOwnProperty('rate') -->
+                                            <div class="streak_label col-xs-4 col-md-2">Days left: <span data-bind="text: daysLeft"></span></div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="finished_daily_list" class="task_list" data-bind="foreach: finishedDailies">
+                                    <div class="finished_daily_item task_item">
+                                        <div class="row">
+                                            <div class="undo_daily task_activate col-xs-2 col-md-1">
+                                                <button type="button" class="btn btn-default" name="complete_daily" data-bind="click: $parent.undoDaily"><span class="glyphicon glyphicon-ok"></span></button>
+                                            </div>
+                                            <div class="daily_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
+                                            <div class="button_edit_daily edit_button col-xs-2 col-md-1">
+                                                <button type="button" class="btn btn-default" name="edit_daily"><span class="glyphicon glyphicon-pencil"></span></button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class=""></div>
+                                            <div class="streak_label col-xs-4 col-md-2">Streak: <span data-bind="text: streak"></span></div>
+                                            <!-- ko if: $data.hasOwnProperty('rate') -->
+                                            <div class="streak_label col-xs-4 col-md-2">Days left: <span data-bind="text: daysLeft"></span></div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div id="disposable_label" class="col-md-12">Disposables</div>
-                  </div>
-                  <div id="disposable_list" class="task_list" data-bind="foreach: disposableGoods">
-                    <div class="goods_item task_item">
-                      <div class="row">
-                        <div class="buy_good task_activate col-xs-2 col-md-1">
-                          <button type="button" class="btn btn-default" name="buy_good" data-bind="click: $parent.buyGood"><span class="glyphicon glyphicon-usd"></span></button>
+                        <div id="tab_habit" class="tab-pane row">
+                            <div id="habit_box" class="task_box col-md-12">
+                                <div id="habit_head" class="task_head">
+                                    <div class="label_row row">
+                                        <div class="task__open_add_button col-xs-2 col-md-1">
+                                            <button type="button" class="btn btn-default" name="open_add_habit"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </div>
+                                        <div id="habit_label" class="task_label col-xs-10 ">Habits</div>
+                                    </div>
+                                    <div class="search_row row">
+                                        <div class="task_search_input col-md-12">
+                                            <input type="text" name="habit_search" placeholder="Search Habits" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="habit_list" class="task_list" data-bind="foreach: habits">
+                                    <!--ko if: polarity == "good" -->
+                                    <div class="habit_item task_item">
+                                        <div class="row">
+                                            <div class="plus_one_habit task_activate col-xs-2 col-md-1">
+                                                <button type="button" class="btn btn-default" name="plus_one">
+                                                    <span class="glyphicon glyphicon-triangle-top"></span>
+                                                </button>
+                                            </div>
+                                            <div class="habit_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
+                                            <div class="button_edit_daily edit_button ">
+                                                <button type="button" class="btn btn-default" name="edit_habit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="hit_count col-md-12">Hits today: <span data-bind="text: hitCount"></span></div>
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: polarity == "bad" -->
+                                    <div class="habit_item task_item">
+                                        <div class="row">
+                                            <div class="minus_one_habit task_activate col-xs-2 col-md-1">
+                                                <button type="button" class="btn btn-default" name="minus_one">
+                                                    <span class="glyphicon glyphicon-triangle-bottom"></span>
+                                                </button>
+                                            </div>
+                                            <div class="habit_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
+                                            <div class="button_edit_daily edit_button ">
+                                                <button type="button" class="btn btn-default" name="edit_habit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="hit_count col-md-12">Hits today: <span data-bind="text: hitCount"></span></div>
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                </div>
+                            </div>
                         </div>
-                        <div class="goods_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
-                        <div class="goods_cost ">$<span data-bind="text: value"></span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div id="arms_goods_label" class="col-md-12">Arms</div>
-                  </div>
-                  <div id="arms_goods_list" class="task_list" data-bind="foreach: armsGoods">
-                    <div class="goods_item task_item">
-                      <div class="row">
-                        <div class="buy_good task_activate col-xs-2 col-md-1">
-                          <button type="button" class="btn btn-default" name="buy_good" data-bind="click: $parent.buyGood"><span class="glyphicon glyphicon-usd"></span></button>
+                        <div id="tab_todo" class="tab-pane row">
+                            <div id="todo_box" class="task_box col-md-12">
+                                <div id="todo_head" class="task_head">
+                                    <div class="label_row row">
+                                        <div class="task__open_add_button col-xs-2  col-md-1">
+                                            <button type="button" class="btn btn-default" name="open_add_todo"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </div>
+                                        <div id="todo_label" class="task_label ">To dos</div>
+
+                                    </div>
+                                    <div class="search_row row">
+                                        <div class="task_search_input col-md-12">
+                                            <input type="text" name="todo_search" placeholder="Search To dos" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="todo_list" class="task_list" data-bind="foreach: todos">
+                                    <div class="todo_item task_item">
+                                        <div class="row">
+                                            <div class="complete_todo task_activate col-xs-2 col-md-1">
+                                                <button type="button" class="btn btn-default" name="complete_todo"><span class="glyphicon glyphicon-unchecked"></span></button>
+                                            </div>
+                                            <div class="todo_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
+                                            <div class="button_edit_todo edit_button col-md-1">
+                                                <button type="button" class="btn btn-default" name="edit_todo"><span class="glyphicon glyphicon-pencil"></span></button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="days_left col-md-12" data-bind="if: $data.hasOwnProperty('dueDate')">
+                                                <!--ko if: ($parent.getDaysUntilTodoStarts($data) > 0 && $parent.getDaysUntilTodoEnds($data) > 0) -->
+                                                Starts in <span data-bind="text: $parent.getDaysUntilTodoStarts($data)"></span> days
+                                                <!-- /ko -->
+                                                <!--ko if: ($parent.getDaysUntilTodoStarts($data) <= 0 && $parent.getDaysUntilTodoEnds($data) > 0) -->
+                                                Due in <span data-bind="text: $parent.getDaysUntilTodoEnds($data)"></span> days
+                                                <!-- /ko -->
+                                                <!--ko if: ($parent.getDaysUntilTodoStarts($data) <= 0 && $parent.getDaysUntilTodoEnds($data) <= 0) -->
+                                                Was due <span data-bind="text: $parent.getDaysUntilTodoEnds($data)*-1"></span> days ago
+                                                <!-- /ko -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="goods_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
-                        <div class="goods_cost ">$<span data-bind="text: value"></span></div>
-                      </div>
+                        <div id="tab_goods" class="tab-pane row">
+                            <div id="goods_box" class="task_box col-md-12">
+                                <div id="goods_head" class="task_head">
+                                    <div class="label_row row">
+                                        <div class="task__open_add_button col-xs-2 col-md-1">
+                                            <button type="button" class="btn btn-default" name="goods"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </div>
+                                        <div id="goods_label" class="task_label ">Goods</div>
+
+                                    </div>
+                                    <div class="search_row row">
+                                        <div class="task_search_input col-md-12">
+                                            <input type="text" name="goods_search" placeholder="Search Goods" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="all_goods">
+                                    <div class="row">
+                                        <div id="IRL_goods_label" class="col-md-10">IRL Goods</div>
+                                    </div>
+                                    <div id="IRL_goods_list" class="task_list" data-bind="foreach: IRLGoods">
+                                        <div class="goods_item task_item">
+                                            <div class="row">
+                                                <div class="buy_good task_activate col-xs-2 col-md-1">
+                                                    <button type="button" class="btn btn-default" name="buy_good" data-bind="click: $parent.buyGood"><span class="glyphicon glyphicon-usd"></span></button>
+                                                </div>
+                                                <div class="goods_title task_title col-xs-6 col-md-9" data-bind="text: name"></div>
+                                                <div class="goods_cost col-xs-2 col-md-1">$<span data-bind="text: value"></span></div>
+                                                <div class="button_edit_good edit_button ">
+                                                    <button type="button" class="btn btn-default" name="edit_good"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="disposable_label" class="col-md-12">Disposables</div>
+                                    </div>
+                                    <div id="disposable_list" class="task_list" data-bind="foreach: disposableGoods">
+                                        <div class="goods_item task_item">
+                                            <div class="row">
+                                                <div class="buy_good task_activate col-xs-2 col-md-1">
+                                                    <button type="button" class="btn btn-default" name="buy_good" data-bind="click: $parent.buyGood"><span class="glyphicon glyphicon-usd"></span></button>
+                                                </div>
+                                                <div class="goods_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
+                                                <div class="goods_cost ">$<span data-bind="text: value"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="arms_goods_label" class="col-md-12">Arms</div>
+                                    </div>
+                                    <div id="arms_goods_list" class="task_list" data-bind="foreach: armsGoods">
+                                        <div class="goods_item task_item">
+                                            <div class="row">
+                                                <div class="buy_good task_activate col-xs-2 col-md-1">
+                                                    <button type="button" class="btn btn-default" name="buy_good" data-bind="click: $parent.buyGood"><span class="glyphicon glyphicon-usd"></span></button>
+                                                </div>
+                                                <div class="goods_title task_title col-xs-7 col-md-10" data-bind="text: name"></div>
+                                                <div class="goods_cost ">$<span data-bind="text: value"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab_ship" class="tab-pane row col-md-12">
+                            <div id="ship_box" class="task_box">
+                                <div id="ship_head" class="task_head">
+                                    <div class="row">
+                                        <div id="ship_label" class="task_label col-md-12">Ship</div>
+                                    </div>
+                                </div>
+                                <div id="ship_arms"></div>
+                                <div id="items_list" class="task_list" data-bind="foreach: items">
+                                    <div class="row">
+                                        <div class="use_item task_activate col-xs-2 col-md-1">
+                                            <button type="button" class="btn btn-default" name="use_item" data-bind="click: $parent.useItem"><span class="glyphicon glyphicon-ice-lolly-tasted"></span></button>
+                                        </div>
+                                        <div class="item_title task_title col-md-10" data-bind="text: name"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab_stats" class="tab-pane row ">
+                            <div id="stats_box" class="task_box  col-md-12">
+                                <div id="stats_head" class="task_head">
+                                    <div class="row">
+                                        <div id="stats_label" class="task_label col-xs-12">Stats</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">Number of monsters killed: <span data-bind="text: stats.monstersKilled"></span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">Number of times killed: <span data-bind="text: stats.timeDied"></span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">Total number of dailies completed: <span data-bind="text: stats.dailiesCompleted"></span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">Number of days you've avoided your bad habits: <span data-bind="text: stats.daysBadHabitsAvoided"></span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">Current longest daily streak: <span data-bind="text: stats.currentLongestStreak"></span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">Longest daily streak ever: <span data-bind="text: stats.LongestStreak"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab_settings" class="tab-pane row">
+                            <div id="settings_box" class="task_box col-md-12">
+                                <div id="settings_head" class="task_head">
+                                    <div class="row">
+                                        <div id="settings_label" class="task_label col-md-12">Settings</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="day_start">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-            <div id="tab_ship" class="tab-pane row col-md-12">
-              <div id="ship_box" class="task_box">
-                <div id="ship_head" class="task_head">
-                  <div class="row">
-                    <div id="ship_label" class="task_label col-md-12">Ship</div>
-                  </div>
-                </div>
-                <div id="ship_arms"></div>
-                <div id="items_list" class="task_list" data-bind="foreach: items">
-                  <div class="row">
-                    <div class="use_item task_activate col-xs-2 col-md-1">
-                      <button type="button" class="btn btn-default" name="use_item" data-bind="click: $parent.useItem"><span class="glyphicon glyphicon-ice-lolly-tasted"></span></button>
+        </div>
+    </div>
+    <!--modal form -->
+
+    <div id="edit_daily_box" class="modal edit_task_box">
+
+        <div class="modal-dialog">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="modal-content">
+                        <div id="daily_modal_content" class="task_modal_content">
+
+                            <div class="input_label">Name:</div>
+                            <div class="task_name_inputs">
+                                <div class="task_edit_name_input">
+                                    <input type="text" name="edit_name" />
+                                </div>
+                            </div>
+                            <div class="task_open_extra_options">Extra Options<span class="caret"></span></div>
+                            <div id="advanced_daily_options" class="advanced_task_options">
+                                <div class="task_note">
+                                    <div class="note_label">Note:</div>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="task_urgency">
+                                    <div class="urgency_label">How important is this?</div>
+                                    <div id="daily_urgency" class="task_urgency" data-bind="foreach: ko.utils.range(0,10)">
+                                        <div class="danger_radio" data-bind="attr: {value: $data}"></div>
+                                    </div>
+                                </div>
+                                <div class="task_difficulty">
+                                    <div class="difficulty_label">How difficult is this?</div>
+                                    <div id="daily_difficulty" class="task_difficulty" data-bind="foreach: ko.utils.range(0,10)">
+                                        <div class="danger_radio" data-bind="attr: {value: $data}"></div>
+                                    </div>
+                                </div>
+                                <div id="daily_rate">
+                                    <div id="rate_input">
+                                        <div id="rate_input_labelt">
+                                            Happens every<span><input id="rate_spinner" name="rate_spinner"></span>day(s)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="active_days">
+                                    <div id="days_label">Active Days:</div>
+                                    <div id="mon_box">
+                                        <input type="checkbox" id="mon_check" class="day_check" checked>Monday
+                                    </div>
+                                    <div id="tue_box">
+                                        <input type="checkbox" id="tue_check" class="day_check" checked>Tuesday
+                                    </div>
+                                    <div id="wed_box">
+                                        <input type="checkbox" id="wed_check" class="day_check" checked>Wednesday
+                                    </div>
+                                    <div id="thr_box">
+                                        <input type="checkbox" id="thr_check" class="day_check" checked>Thursday
+                                    </div>
+                                    <div id="fri_box">
+                                        <input type="checkbox" id="fri_check" class="day_check" checked>Friday
+                                    </div>
+                                    <div id="sat_box">
+                                        <input type="checkbox" id="sat_check" class="day_check" checked>Saturday
+                                    </div>
+                                    <div id="sun_box">
+                                        <input type="checkbox" id="sun_check" class="day_check" checked>Sunday
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="save_delete_daily" class="modal-footer">
+                                <button type="button" name="save_changes">Save</button>
+                                <button type="button" name="delete">Delete</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item_title task_title col-md-10" data-bind="text: name"></div>
-                  </div>
                 </div>
-              </div>
             </div>
-            <div id="tab_stats" class="tab-pane row ">
-              <div id="stats_box" class="task_box  col-md-12">
-                <div id="stats_head" class="task_head">
-                  <div class="row">
-                    <div id="stats_label" class="task_label col-xs-12">Stats</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">Number of monsters killed: <span data-bind="text: stats.monstersKilled"></span></div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">Number of times killed: <span data-bind="text: stats.timeDied"></span></div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">Total number of dailies completed: <span data-bind="text: stats.dailiesCompleted"></span></div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">Number of days you've avoided your bad habits: <span data-bind="text: stats.daysBadHabitsAvoided"></span></div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">Current longest daily streak: <span data-bind="text: stats.currentLongestStreak"></span></div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">Longest daily streak ever: <span data-bind="text: stats.LongestStreak"></span></div>
-                </div>
-              </div>
-            </div>
-            <div id="tab_settings" class="tab-pane row">
-              <div id="settings_box" class="task_box col-md-12">
-                <div id="settings_head" class="task_head">
-                  <div class="row">
-                    <div id="settings_label" class="task_label col-md-12">Settings</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div id="day_start">
-                  </div>
-                </div>
-                <div class="row">
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+
     </div>
-  </div>
-  <!--modal form -->
-  <div id="edit_daily_box" class="modal edit_task_box">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div id="daily_modal_content" class="task_modal_content">
-          <div class="input_label">Name:</div>
-          <div class="task_name_inputs">
-            <div class="task_edit_name_input">
-              <input type="text" name="edit_name" />
-            </div>
-          </div>
-          <div class="task_open_extra_options">Extra Options<span class="caret"></span></div>
-          <div id="advanced_daily_options" class="advanced_task_options">
-            <div class="task_note">
-              <div class="note_label">Note:</div>
-              <textarea></textarea>
-            </div>
-            <div class="task_urgency">
-              <div class="urgency_label">How important is this?</div>
-              <div id="daily_urgency" class="task_urgency" data-bind="foreach: ko.utils.range(0,10)">
-                <div class="danger_radio" data-bind="attr: {value: $data}"></div>
-              </div>
-            </div>
-            <div class="task_difficulty">
-              <div class="difficulty_label">How difficult is this?</div>
-              <div id="daily_difficulty" class="task_difficulty" data-bind="foreach: ko.utils.range(0,10)">
-                <div class="danger_radio" data-bind="attr: {value: $data}"></div>
-              </div>
-            </div>
-            <div id="daily_rate">
-              <div id="rate_input">
-                <div id="rate_input_labelt">
-                  Happens every<span><input id="rate_spinner" name="rate_spinner"></span>day(s)
+
+    <div id="edit_habit_box" class="modal edit_task_box">
+        <div class="modal-dialog">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="modal-content">
+                        <div id="habit_modal_content" class="task_modal_content">
+                            <div class="input_label">Name:</div>
+                            <div class="task_name_inputs">
+                                <div class="task_edit_name_input">
+                                    <input type="text" name="edit_name" />
+                                </div>
+                            </div>
+                            <div id="polarity_choice">
+                                <input type="radio" name="polarity" checked>Good Habit
+                                <input type="radio" name="polarity">Bad Habit
+                            </div>
+                            <div class="task_open_extra_options">Extra Options<span class="caret"></span></div>
+                            <div id="advanced_habit_options" class="advanced_task_options">
+                                <div class="task_note">
+                                    <div class="note_label">Note:</div>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="task_urgency">
+                                    <div class="urgency_label">How important is this?</div>
+                                    <div id="habit_urgency" class="task_urgency" data-bind="foreach: ko.utils.range(0,10)">
+                                        <div class="danger_radio" data-bind="attr: {value: $data}"></div>
+                                    </div>
+                                </div>
+                                <div class="task_difficulty">
+                                    <div class="difficulty_label">How difficult is this?</div>
+                                    <div id="habit_difficulty" class="task_difficulty" data-bind="foreach: ko.utils.range(0,10)">
+                                        <div class="danger_radio" data-bind="attr: {value: $data}"></div>
+                                    </div>
+                                </div>
+                                <div id="save_delete_habit" class="modal-footer">
+                                    <button type="button" name="save_changes">Save</button>
+                                    <button type="button" name="delete">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div id="active_days">
-              <div id="days_label">Active Days:</div>
-              <div id="mon_box">
-                <input type="checkbox" id="mon_check" class="day_check" checked>Monday</div>
-              <div id="tue_box">
-                <input type="checkbox" id="tue_check" class="day_check" checked>Tuesday</div>
-              <div id="wed_box">
-                <input type="checkbox" id="wed_check" class="day_check" checked>Wednesday</div>
-              <div id="thr_box">
-                <input type="checkbox" id="thr_check" class="day_check" checked>Thursday</div>
-              <div id="fri_box">
-                <input type="checkbox" id="fri_check" class="day_check" checked>Friday</div>
-              <div id="sat_box">
-                <input type="checkbox" id="sat_check" class="day_check" checked>Saturday</div>
-              <div id="sun_box">
-                <input type="checkbox" id="sun_check" class="day_check" checked>Sunday</div>
-            </div>
-          </div>
-          <div id="save_delete_daily" class="modal-footer">
-            <button type="button" name="save_changes">Save</button>
-            <button type="button" name="delete">Delete</button>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div id="edit_habit_box" class="modal edit_task_box">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div id="habit_modal_content" class="task_modal_content">
-          <div class="input_label">Name:</div>
-          <div class="task_name_inputs">
-            <div class="task_edit_name_input">
-              <input type="text" name="edit_name" />
+    <div id="edit_todo_box" class="modal edit_task_box">
+        <div class="modal-dialog">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="modal-content">
+                        <div id="todo_modal_content" class="task_modal_content">
+                            <div class="input_label">Name:</div>
+                            <div class="task_name_inputs">
+                                <div class="task_edit_name_input">
+                                    <input type="text" name="edit_name" />
+                                </div>
+                            </div>
+                            <div class="task_open_extra_options">Extra Options<span class="caret"></span></div>
+                            <div id="advanced_todo_options">
+                                <div class="task_note">
+                                    <div class="note_label">Note:</div>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="task_urgency">
+                                    <div class="urgency_label">How important is this?</div>
+                                    <div id="todo_urgency" class="task_urgency" data-bind="foreach: ko.utils.range(0,10)">
+                                        <div class="danger_radio" data-bind="attr: {value: $data}"></div>
+                                    </div>
+                                </div>
+                                <div class="task_difficulty">
+                                    <div class="difficulty_label">How difficult is this?</div>
+                                    <div id="todo_difficulty" class="task_difficulty" data-bind="foreach: ko.utils.range(0,10)">
+                                        <div class="danger_radio" data-bind="attr: {value: $data}"></div>
+                                    </div>
+                                </div>
+                                <div id="effective_date">
+                                    <div id="effective_date_label">When do you need to start worrying about this?</div>
+                                    <input type="text" id="effective_datepicker">
+                                </div>
+                                <div id="due_date">
+                                    Has due date?
+                                    <input type="checkbox" id="hide_date_check">
+                                    <div id="due_date_hidden">
+                                        <div id="due_date_label">When is this due?</div>
+                                        <input type="text" id="due_datepicker">
+                                    </div>
+                                </div>
+                                <div id="save_delete_todo" class="modal-footer">
+                                    <button type="button" name="save_changes">Save</button>
+                                    <button type="button" name="delete">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div id="polarity_choice">
-            <input type="radio" name="polarity" checked>Good Habit
-            <input type="radio" name="polarity">Bad Habit
-          </div>
-          <div class="task_open_extra_options">Extra Options<span class="caret"></span></div>
-          <div id="advanced_habit_options" class="advanced_task_options">
-            <div class="task_note">
-              <div class="note_label">Note:</div>
-              <textarea></textarea>
-            </div>
-            <div class="task_urgency">
-              <div class="urgency_label">How important is this?</div>
-              <div id="habit_urgency" class="task_urgency" data-bind="foreach: ko.utils.range(0,10)">
-                <div class="danger_radio" data-bind="attr: {value: $data}"></div>
-              </div>
-            </div>
-            <div class="task_difficulty">
-              <div class="difficulty_label">How difficult is this?</div>
-              <div id="habit_difficulty" class="task_difficulty" data-bind="foreach: ko.utils.range(0,10)">
-                <div class="danger_radio" data-bind="attr: {value: $data}"></div>
-              </div>
-            </div>
-            <div id="save_delete_habit" class="modal-footer">
-              <button type="button" name="save_changes">Save</button>
-              <button type="button" name="delete">Delete</button>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div id="edit_todo_box" class="modal edit_task_box">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div id="todo_modal_content" class="task_modal_content">
-          <div class="input_label">Name:</div>
-          <div class="task_name_inputs">
-            <div class="task_edit_name_input">
-              <input type="text" name="edit_name" />
-            </div>
-          </div>
-          <div class="task_open_extra_options">Extra Options<span class="caret"></span></div>
-          <div id="advanced_todo_options">
-            <div class="task_note">
-              <div class="note_label">Note:</div>
-              <textarea></textarea>
-            </div>
-            <div class="task_urgency">
-              <div class="urgency_label">How important is this?</div>
-              <div id="todo_urgency" class="task_urgency" data-bind="foreach: ko.utils.range(0,10)">
-                <div class="danger_radio" data-bind="attr: {value: $data}"></div>
-              </div>
-            </div>
-            <div class="task_difficulty">
-              <div class="difficulty_label">How difficult is this?</div>
-              <div id="todo_difficulty" class="task_difficulty" data-bind="foreach: ko.utils.range(0,10)">
-                <div class="danger_radio" data-bind="attr: {value: $data}"></div>
-              </div>
-            </div>
-            <div id="effective_date">
-              <div id="effective_date_label">When do you need to start worrying about this?</div>
-              <input type="text" id="effective_datepicker">
-            </div>
-            <div id="due_date">
-              Has due date?
-              <input type="checkbox" id="hide_date_check">
-              <div id="due_date_hidden">
-                <div id="due_date_label">When is this due?</div>
-                <input type="text" id="due_datepicker">
-              </div>
-            </div>
-            <div id="save_delete_todo" class="modal-footer">
-              <button type="button" name="save_changes">Save</button>
-              <button type="button" name="delete">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>

@@ -175,9 +175,9 @@ def is_a_list_in_a_tuple_still_a_ref():
     t[0][1] = 999
     print(a[1])
 
-mygenerator = trying_out_gens()
+def trying_something_with_the_db_layer_and_globals():
+    a = DatabaseLayer.get_table("heros")
+    b = DatabaseLayer.get_table("dailies")
 
-is_a_list_in_a_tuple_still_a_ref()
 
-#for y in gen2():
-#    print("hello")
+trying_something_with_the_db_layer_and_globals()
