@@ -31,8 +31,7 @@ class SpaceHabitHome(object):
         self.testModeEnabled = True
         MockSetUp.set_up_mock_db_connections()
 
-
-if __name__ == "__main__":
+def server_starter():
     subdir = ""
     static = ""
     if os.name == "nt":
@@ -56,4 +55,10 @@ if __name__ == "__main__":
     webapp.login.validate = ValidationController()
     webapp.hero = HeroController()
     cherrypy.quickstart(webapp,"/",conf)
+
+
+if __name__ == "__main__":
+
+    
+    server_starter()
 

@@ -60,11 +60,11 @@ class Test_TestToolsTest(unittest.TestCase):
         self.assertIsNone(t3)
 
     def test_user_saving_and_validation(self):
-        id = MockDatabaseLayer.insert_user("a","p","s")
-        self.assertTrue(MockDatabaseLayer.does_login_exist("a"))
+        id = MockDatabaseLayer.insert_user("a@b.c","p","s")
+        self.assertTrue(MockDatabaseLayer.does_login_exist("a@b.c"))
         self.assertFalse(MockDatabaseLayer.does_login_exist("n"))
-        user = MockDatabaseLayer.get_user("a")
-        self.assertEqual(user[MockDatabaseLayer.USER_LOGIN],"a")
+        user = MockDatabaseLayer.get_user("a@b.c")
+        self.assertEqual(user[MockDatabaseLayer.USER_LOGIN],"a@b.c")
 
     def test_get_sorted_stuff_by_key(self):
         testId1 = MockDatabaseLayer.insert_thing({'test':0}, MockDatabaseLayer.accounts)

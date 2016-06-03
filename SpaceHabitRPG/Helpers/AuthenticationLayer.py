@@ -1,8 +1,8 @@
 import CryptKeeper
 import UserDBLayer
-from email.utils import parseaddr
 import Account
 import Hero
+import re
 
 
 def is_login_taken(login):
@@ -27,7 +27,7 @@ def authenticate_user(login,pw):
     return (True,"")
 
 def validate_email(email):
-    if not parseaddr(email)[1]:
+    if not re.match(r"[^@]+@[^@]+\.[^@]+",email):
         return "#bad_email"
     if UserDBLayer.does_login_exist(email):
         return "#taken_email"
