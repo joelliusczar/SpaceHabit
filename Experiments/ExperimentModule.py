@@ -11,3 +11,4 @@ def print_jvar():
     print(jvar)
 
 print("Called on import! Oops!")
+

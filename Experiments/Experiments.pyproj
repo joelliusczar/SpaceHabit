@@ -5,8 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>95855783-870b-44e1-86ee-a296317a111a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>testweb\testCherypy.py</StartupFile>
-    <SearchPath>..\SpaceHabitRPG\CoreGame\;..\SpaceHabitRPG\Helpers\;..\SpaceHabitRPG\Story\;..\SpaceHabitRPG\Types\</SearchPath>
+    <StartupFile>Experiments.py</StartupFile>
+    <SearchPath>..\SpaceHabitRPG\CoreGame\;..\SpaceHabitRPG\Helpers\;..\SpaceHabitRPG\Story\;..\SpaceHabitRPG\Types\;overrider\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Experiments</Name>
@@ -30,7 +30,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Experiments.py" />
-    <Compile Include="MassAddToDB.py">
+    <Compile Include="overrider\Replacer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="overrider\ReplacerB.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="overrider\Top.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="testweb\TestCherrypy2.py">
@@ -62,6 +68,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="overrider\" />
     <Folder Include="testweb\" />
   </ItemGroup>
   <PropertyGroup>

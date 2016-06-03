@@ -2688,3 +2688,223 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Micro
 2016-05-23T16:59:13: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\cherrypy"
 2016-05-23T16:59:13: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\cherrypy"
 2016-05-23T16:59:14: Deleting 0 files
+
+2016-06-02T19:38:40: Start analysis
+2016-06-02T19:38:40: [WARNING] Library was set explicitly - skipping path detection
+2016-06-02T19:38:40: IncludeModulesFromModulePath = win32com
+2016-06-02T19:38:40: Deleting 0 files
+
+2016-06-02T19:38:46: Start analysis
+2016-06-02T19:38:46: [WARNING] Library was set explicitly - skipping path detection
+2016-06-02T19:38:46: IncludeModulesFromModulePath = win32com
+2016-06-02T19:38:46: Deleting 0 files
+
+2016-06-03T11:25:05: Start analysis
+2016-06-03T11:25:05: [WARNING] Library was set explicitly - skipping path detection
+2016-06-03T11:25:05: IncludeModulesFromModulePath = win32com
+2016-06-03T11:25:05: Deleting 0 files
+2016-06-03T11:25:05: astropy.CallDepth = 0
+2016-06-03T11:25:05: matplotlib.CallDepth = 3
+2016-06-03T11:25:05: pandas.CallDepth = 0
+2016-06-03T11:25:05: sympy.CallDepth = 0
+2016-06-03T11:25:05: Start group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium" with 69 files
+2016-06-03T11:25:05: Parsing "selenium.selenium" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\selenium.py")
+2016-06-03T11:25:05: Parsing "selenium" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.common.exceptions" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\common\exceptions.py")
+2016-06-03T11:25:05: Parsing "selenium.common" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\common\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.android.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\android\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.android" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\android\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.blackberry.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\blackberry\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.blackberry" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\blackberry\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.chrome.options" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\chrome\options.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.chrome.remote_connection" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\chrome\remote_connection.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.chrome.service" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\chrome\service.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.chrome.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.chrome" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\chrome\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.action_chains" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\action_chains.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.alert" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\alert.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.by" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\by.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.desired_capabilities" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\desired_capabilities.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.keys" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\keys.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.proxy" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\proxy.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.service" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\service.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.touch_actions" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\touch_actions.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.utils" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\utils.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.html5.application_cache" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\html5\application_cache.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.common.html5" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\common\html5\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.edge.options" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\edge\options.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.edge.service" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\edge\service.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.edge.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\edge\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.edge" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\edge\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox.extension_connection" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\extension_connection.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox.firefox_binary" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\firefox_binary.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox.firefox_profile" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\firefox_profile.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox.options" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\options.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox.remote_connection" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\remote_connection.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox.service" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\service.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.firefox" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\firefox\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.ie.service" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\ie\service.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.ie.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\ie\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.ie" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\ie\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.opera.options" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\opera\options.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.opera.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\opera\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.opera" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\opera\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.phantomjs.service" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\phantomjs\service.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.phantomjs.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\phantomjs\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.phantomjs" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\phantomjs\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.command" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\command.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.errorhandler" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.file_detector" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\file_detector.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.mobile" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\mobile.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.remote_connection" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.switch_to" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\switch_to.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.utils" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\utils.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote.webelement" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\webelement.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.remote" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\remote\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.safari.service" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\safari\service.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.safari.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\safari\webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.safari" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\safari\__init__.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.abstract_event_listener" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\abstract_event_listener.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.color" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\color.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.events" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\events.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.event_firing_webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\event_firing_webdriver.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.expected_conditions" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\expected_conditions.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.select" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\select.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.ui" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\ui.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support.wait" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\wait.py")
+2016-06-03T11:25:05: Parsing "selenium.webdriver.support" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium\webdriver\support\__init__.py")
+2016-06-03T11:25:05: Parsing complete
+2016-06-03T11:25:05: Analyzing "selenium.selenium"
+2016-06-03T11:25:05: Analyzing "selenium"
+2016-06-03T11:25:05: Analyzing "selenium.common.exceptions"
+2016-06-03T11:25:05: Analyzing "selenium.common"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.android.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.android"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.blackberry.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.blackberry"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.chrome.options"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.chrome.remote_connection"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.chrome.service"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.chrome.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.chrome"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.action_chains"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.alert"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.by"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.desired_capabilities"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.keys"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.proxy"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.service"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.touch_actions"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.utils"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.html5.application_cache"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.common.html5"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.edge.options"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.edge.service"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.edge.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.edge"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox.extension_connection"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox.firefox_binary"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox.firefox_profile"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox.options"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox.remote_connection"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox.service"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.firefox"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.ie.service"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.ie.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.ie"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.opera.options"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.opera.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.opera"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.phantomjs.service"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.phantomjs.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.phantomjs"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.command"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.errorhandler"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.file_detector"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.mobile"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.remote_connection"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.switch_to"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.utils"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote.webelement"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.remote"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.safari.service"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.safari.webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.safari"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.abstract_event_listener"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.color"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.events"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.event_firing_webdriver"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.expected_conditions"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.select"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.ui"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support.wait"
+2016-06-03T11:25:05: Analyzing "selenium.webdriver.support"
+2016-06-03T11:25:05: Starting analysis of 69 modules
+2016-06-03T11:25:07: Analysis complete
+2016-06-03T11:25:07: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium"
+2016-06-03T11:25:07: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\selenium"
+2016-06-03T11:25:08: Deleting 0 files
+
+2016-06-03T11:30:37: Start analysis
+2016-06-03T11:30:37: [WARNING] Library was set explicitly - skipping path detection
+2016-06-03T11:30:37: IncludeModulesFromModulePath = win32com
+2016-06-03T11:30:38: Deleting 0 files
+2016-06-03T11:30:38: astropy.CallDepth = 0
+2016-06-03T11:30:38: matplotlib.CallDepth = 3
+2016-06-03T11:30:38: pandas.CallDepth = 0
+2016-06-03T11:30:38: sympy.CallDepth = 0
+2016-06-03T11:30:38: Start group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter" with 20 files
+2016-06-03T11:30:38: Parsing "splinter.browser" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\browser.py")
+2016-06-03T11:30:38: Parsing "splinter.cookie_manager" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\cookie_manager.py")
+2016-06-03T11:30:38: Parsing "splinter.element_list" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\element_list.py")
+2016-06-03T11:30:38: Parsing "splinter.exceptions" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\exceptions.py")
+2016-06-03T11:30:38: Parsing "splinter.meta" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\meta.py")
+2016-06-03T11:30:38: Parsing "splinter.utils" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\utils.py")
+2016-06-03T11:30:38: Parsing "splinter" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\__init__.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.djangoclient" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\djangoclient.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.flaskclient" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\flaskclient.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.zopetestbrowser" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\zopetestbrowser.py")
+2016-06-03T11:30:38: Parsing "splinter.driver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\__init__.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.webdriver.chrome" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\webdriver\chrome.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.webdriver.cookie_manager" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\webdriver\cookie_manager.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.webdriver.firefox" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\webdriver\firefox.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.webdriver.phantomjs" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\webdriver\phantomjs.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.webdriver.remote" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\webdriver\remote.py")
+2016-06-03T11:30:38: Parsing "splinter.driver.webdriver" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\driver\webdriver\__init__.py")
+2016-06-03T11:30:38: Parsing "splinter.request_handler.request_handler" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\request_handler\request_handler.py")
+2016-06-03T11:30:38: Parsing "splinter.request_handler.status_code" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\request_handler\status_code.py")
+2016-06-03T11:30:38: Parsing "splinter.request_handler" ("C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter\request_handler\__init__.py")
+2016-06-03T11:30:38: Parsing complete
+2016-06-03T11:30:38: Analyzing "splinter.browser"
+2016-06-03T11:30:38: Analyzing "splinter.cookie_manager"
+2016-06-03T11:30:38: Analyzing "splinter.element_list"
+2016-06-03T11:30:38: Analyzing "splinter.exceptions"
+2016-06-03T11:30:38: Analyzing "splinter.meta"
+2016-06-03T11:30:38: Analyzing "splinter.utils"
+2016-06-03T11:30:38: Analyzing "splinter"
+2016-06-03T11:30:38: Analyzing "splinter.driver.djangoclient"
+2016-06-03T11:30:38: Analyzing "splinter.driver.flaskclient"
+2016-06-03T11:30:38: Analyzing "splinter.driver.zopetestbrowser"
+2016-06-03T11:30:38: Analyzing "splinter.driver"
+2016-06-03T11:30:38: Analyzing "splinter.driver.webdriver.chrome"
+2016-06-03T11:30:38: Analyzing "splinter.driver.webdriver.cookie_manager"
+2016-06-03T11:30:38: Analyzing "splinter.driver.webdriver.firefox"
+2016-06-03T11:30:38: Analyzing "splinter.driver.webdriver.phantomjs"
+2016-06-03T11:30:38: Analyzing "splinter.driver.webdriver.remote"
+2016-06-03T11:30:38: Analyzing "splinter.driver.webdriver"
+2016-06-03T11:30:38: Analyzing "splinter.request_handler.request_handler"
+2016-06-03T11:30:38: Analyzing "splinter.request_handler.status_code"
+2016-06-03T11:30:38: Analyzing "splinter.request_handler"
+2016-06-03T11:30:38: Starting analysis of 20 modules
+2016-06-03T11:30:39: Analysis complete
+2016-06-03T11:30:39: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter"
+2016-06-03T11:30:39: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\splinter"
+2016-06-03T11:30:39: Deleting 0 files

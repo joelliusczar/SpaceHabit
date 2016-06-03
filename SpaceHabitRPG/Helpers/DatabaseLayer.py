@@ -40,6 +40,8 @@ def update_thing_by_id(id,tableName,changes):
             '$set': changes,    
             }
         )
+
+
 def delete_thing_by_key(key,tableName):
     collection = get_table(tableName)
     collection.remove({'_id':key})

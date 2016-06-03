@@ -4,9 +4,37 @@ from collections import OrderedDict
 import random
 import DatabaseLayer
 from bson.objectid import ObjectId
+from TestDummyObjectMaker import DailySortingTestObject
+from Account import COLLECTION_NAME as accounts
+from Daily import COLLECTION_NAME as dailiesName
 
 
 class Test_ToolsTests(unittest.TestCase):
+
+
+
+    def setUp(self):
+        self.accountId = DatabaseLayer.insert_thing({'test':0},accounts)
+        testList = []
+        for i in range(0,500):
+            u = i // 100
+            r = (500 -i) // 25
+            f = i
+            tObj = {'ownerAccountId':self.accountId,'daysUntilTrigger':u,'urgency':r,'difficulty':f,'isCompleted':False}
+            testList.append(tObj)
+        random.shuffle(testList)
+    
+        for d in testList:
+            id = DatabaseLayer.insert_thing(d,dailiesName)
+            print(id)
+        print("done")
+        return super().setUp()
+
+    def tearDown(self):
+        dailyCollection = DatabaseLayer.get_table(dailiesName)
+        result = dailyCollection.delete_many( {'ownerAccountId':self.accountId})
+        DatabaseLayer.delete_thing_by_key(self.accountId,accounts)
+        return super().tearDown()
 
     def test_heap_basic_functions(self):
         heap = Heap(lambda x,y: x > y)
@@ -83,18 +111,13 @@ class Test_ToolsTests(unittest.TestCase):
             r = (500 -i) // 25
             f = i
             controlList.append(DailySortingTestObject(u,r,f))
-        dailies = Daily.get_dailies_by_account(ObjectId("57428b8eee2a37797ef5d518"))
+        dailies = Daily.get_dailies_by_account(self.accountId)
         for d,c in zip(dailies,controlList):
             self.assertEqual(d['daysUntilTrigger'],c.daysUntilTrigger)
             self.assertEqual(d['urgency'],c.urgency)
             self.assertEqual(d['difficulty'],c.difficulty)
 
-class DailySortingTestObject(object):
 
-    def __init__(self,daysUntilTrigger,urgency,difficulty):
-        self.daysUntilTrigger = daysUntilTrigger
-        self.urgency = urgency
-        self.difficulty = difficulty
 
 if __name__ == '__main__':
     unittest.main()

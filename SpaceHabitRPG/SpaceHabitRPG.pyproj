@@ -6,7 +6,7 @@
     <ProjectGuid>60383a39-fa97-4e70-a3b7-20aa3969670b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>Web Server\SpaceHabitServer.py</StartupFile>
-    <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\</SearchPath>
+    <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\;Tests\TestHelpers\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SpaceHabitRPG</Name>
@@ -53,6 +53,7 @@
     <Folder Include="Story\" />
     <Folder Include="Story\__pycache__\" />
     <Folder Include="Tests\" />
+    <Folder Include="Tests\TestHelpers\" />
     <Folder Include="Tests\__pycache__\" />
     <Folder Include="Types\" />
     <Folder Include="Types\__pycache__\" />
@@ -126,8 +127,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Story\ZoneLookup.py" />
-    <Compile Include="Tests\MockDatabaseLayer.py" />
+    <Compile Include="Tests\AuthenticationLayerTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\MockDatabaseLayer.py" />
     <Compile Include="Tests\ProgressionTests.py" />
+    <Compile Include="Tests\TestHelpers\MockSetUp.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\TestDummyObjectMaker.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\TestFunctionBuilder.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestToolsTest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\ToolsTests.py" />
     <Compile Include="Tests\TypesTests.py" />
     <Compile Include="Types\Account.py" />

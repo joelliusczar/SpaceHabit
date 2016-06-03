@@ -7,6 +7,7 @@ import os
 
 
 
+
 def check_login_state():
     username = cherrypy.session.get(EverywhereConstants.SESSION_KEY)
     if not username:
@@ -16,11 +17,19 @@ cherrypy.tools.check_login = cherrypy.Tool("before_handler",check_login_state)
 
 class SpaceHabitHome(object):
 
+    def __init__(self):
+        self.testModeEnabled = False
+
     @cherrypy.expose
     @cherrypy.tools.check_login()
     def index(self):
         return open("HabitFrontend/index.html",encoding="utf-8")
 
+    @cherrypy.expose
+    def enable_test_mode(self):
+        import MockSetUp
+        self.testModeEnabled = True
+        MockSetUp.set_up_mock_db_connections()
 
 
 if __name__ == "__main__":

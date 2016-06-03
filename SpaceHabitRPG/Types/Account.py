@@ -2,7 +2,7 @@ import DatabaseLayer
 from Daily import Daily
 from Hero import Hero
 
-COLLECTION_NAME = 'users'
+COLLECTION_NAME = 'accounts'
 ID_KEY = '_id'
 USER_ID = 'heroId'
 REMINDER_TIME = 'reminderTime'

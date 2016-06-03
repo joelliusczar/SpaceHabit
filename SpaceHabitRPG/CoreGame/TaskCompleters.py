@@ -1,4 +1,4 @@
-import ModelLayer
+
 
 def complete_daily(dailyid,heroid):
     daily = ModelLayer.get_daily_by_id(dailyid)

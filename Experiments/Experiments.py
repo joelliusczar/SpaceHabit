@@ -5,7 +5,8 @@ import ExperimentalModule2
 import datetime
 from bson.objectid import ObjectId
 import Progression
-
+import Replacer
+import ReplacerB
 
 class Experiment(object):
     """just a file to experiment with python"""
@@ -180,4 +181,23 @@ def trying_something_with_the_db_layer_and_globals():
     b = DatabaseLayer.get_table("dailies")
 
 
-trying_something_with_the_db_layer_and_globals()
+def magic_method_stuff():
+    a = 5
+    print(a.__gt__(0))
+    print(a.__gt__(6))
+
+
+
+def testing_closures(a):
+    b = a
+    def nested():
+        print(b)
+    return nested
+
+def testing_module_scope():
+    
+    Replacer.replace()
+    ReplacerB.call_print_one()
+
+
+testing_module_scope()
