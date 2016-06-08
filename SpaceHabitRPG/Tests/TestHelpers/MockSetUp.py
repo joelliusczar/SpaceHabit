@@ -2,7 +2,6 @@ import DatabaseLayer
 import UserDBLayer
 import MockDatabaseLayer
 
-
 def set_up_mock_db_connections():
     DatabaseLayer.delete_thing_by_key = MockDatabaseLayer.delete_thing_by_key
     DatabaseLayer.get_sorted_stuff_by_key = MockDatabaseLayer.get_sorted_stuff_by_key

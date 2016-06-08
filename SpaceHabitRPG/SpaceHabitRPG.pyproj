@@ -13,6 +13,8 @@
     <RootNamespace>SpaceHabitRPG</RootNamespace>
     <InterpreterId>{ffc25000-37cf-4da5-8235-55799b9ef7d5}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -130,8 +132,17 @@
     <Compile Include="Tests\AuthenticationLayerTests.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\LoginPageTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\MockDataLoaderTests.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\TestHelpers\MockDatabaseLayer.py" />
     <Compile Include="Tests\ProgressionTests.py" />
+    <Compile Include="Tests\TestHelpers\MockDataLoader.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\TestHelpers\MockSetUp.py">
       <SubType>Code</SubType>
     </Compile>

@@ -6,7 +6,7 @@ import EverywhereConstants
 import os
 
 
-
+SERVER_PORT = 8080
 
 def check_login_state():
     username = cherrypy.session.get(EverywhereConstants.SESSION_KEY)
@@ -31,34 +31,58 @@ class SpaceHabitHome(object):
         self.testModeEnabled = True
         MockSetUp.set_up_mock_db_connections()
 
-def server_starter():
-    subdir = ""
-    static = ""
-    if os.name == "nt":
-        subdir = "\\HabitFrontend"
-    else:
-        subdir = "/HabitFrontend"
-    conf = {
-        '/':{
-            'tools.sessions.on': True,
-            'tools.staticdir.root': (os.path.abspath(os.getcwd()) + subdir)
-            },
-        '/login':{
-            },
-        '/static':{
-            'tools.staticdir.on': True,
-            'tools.staticdir.dir': "public"
+import threading
+
+class HabitServer(threading.Thread):
+    def __init__(self,port=8080,host="127.0.0.1"):
+        self.port = port
+        self.host = host
+        subdir = ""
+        static = ""
+        if os.name == "nt":
+            subdir = "\\HabitFrontend"
+        else:
+            subdir = "/HabitFrontend"
+        self.conf = {
+            '/':{
+                'tools.sessions.on': True,
+                'tools.staticdir.root': (os.path.abspath(os.getcwd()) + subdir)
+                },
+            '/login':{
+                },
+            '/static':{
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': "public"
+                }
             }
-        }
-    webapp = SpaceHabitHome()
-    webapp.login = LoginController()
-    webapp.login.validate = ValidationController()
-    webapp.hero = HeroController()
-    cherrypy.quickstart(webapp,"/",conf)
+        threading.Thread.__init__(self)
+        self.sync = threading.Condition()
+        self.daemon = True
+
+    def run(self):
+        with self.sync:
+            cherrypy.server.socket_port = self.port
+            cherrypy.server.socket_host = self.host
+            webapp = SpaceHabitHome()
+            webapp.login = LoginController()
+            webapp.login.validate = ValidationController()
+            webapp.hero = HeroController()
+            cherrypy.tree.mount(webapp,"/",self.conf)
+            cherrypy.engine.start()
+        cherrypy.engine.block()
+
+    def stop(self):
+        with self.sync:
+            cherrypy.engine.exit()
+            cherrypy.engine.stop()
+
+
+def server_starter():
+    server = HabitServer()
+    server.start()
 
 
 if __name__ == "__main__":
 
-    
     server_starter()
 

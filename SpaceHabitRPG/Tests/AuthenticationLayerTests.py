@@ -6,10 +6,11 @@ import AuthenticationLayer as auth
 
 class Test_AuthenticationLayerTests(unittest.TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         import MockSetUp
         MockSetUp.set_up_mock_db_connections()
-        return super().setUp()
+        return super().setUpClass()
 
     def tearDown(self):
         MockDatabaseLayer.clean_up()
@@ -83,6 +84,15 @@ class Test_AuthenticationLayerTests(unittest.TestCase):
         self.assertEqual(len(t[0]),0)
         self.assertEqual(len(t[1]),0)
 
+    def test_get_new_user_encrypted_details(self):
+        c = auth.get_new_user_encrypted_details("a")
+        self.assertNotEqual(c[0],"a")
+        self.assertEqual(len(c[0]),87)
+        self.assertEqual(len(c[1]),32)
+
+    def test_safe_insert_new_user(self):
+        id = auth.safe_insert_new_user("a","123")
+        self.assertEqual(id,"users0")
 
 if __name__ == '__main__':
     unittest.main()

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Login to Space Habit Frontier</title>
     <link rel="stylesheet" href="/static/login.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
 
@@ -35,10 +35,12 @@
                     <div class="form-group">
                         <label for="inputUserName">User Name:</label>
                         <input type="text" class="form-control" id="input_login" name="input_login" placeholder="username" />
+                        <div id="bad_login" class='validation_error email_error hidden'>Login does exist</div>
                     </div>
                     <div class="form-group">
                         <label for="inputUPassword">Password:</label>
                         <input type="password" class="form-control" id="input_pw" name="input_pw" placeholder="password" />
+                        <div id="bad_login_pw" class='validation_error pw_error hidden'>Password is incorrect</div>
                     </div>
                     <div class="form-group">
                         <button type="button" id="btnLogin" name="btnLogin">Log in</button>

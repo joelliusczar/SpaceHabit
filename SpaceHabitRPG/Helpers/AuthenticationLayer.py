@@ -11,12 +11,22 @@ def is_login_taken(login):
 def insert_new_user(login,pw,shipName = ""):
     if is_login_taken(login):
         raise FileExistsError("That email is already taken")
-    salt = CryptKeeper.pass_the_salt()
-    safePw = CryptKeeper.encrypt_str(pw,salt)
-    id = UserDBLayer.insert_user(login,safePw,salt)
+    id = safe_insert_new_user(login,pw)
     accountId = Account.create_new_account(id)
     heroId = Hero.create_new_hero(accountId,shipName)
     return (id,accountId,heroId)
+
+def safe_insert_new_user(login,pw):
+    cryptPair = get_new_user_encrypted_details(pw)
+    safePw = cryptPair[0]
+    salt = cryptPair[1]
+    id = UserDBLayer.insert_user(login,safePw,salt)
+    return id
+
+def get_new_user_encrypted_details(pw):
+    salt = CryptKeeper.pass_the_salt()
+    safePw = CryptKeeper.encrypt_str(pw,salt)
+    return (safePw,salt)
 
 def authenticate_user(login,pw):
     user = UserDBLayer.get_user(login)
