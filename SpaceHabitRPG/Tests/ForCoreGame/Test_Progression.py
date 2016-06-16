@@ -1,9 +1,9 @@
-import unittest
+from SpaceUnitTest import SpaceUnitTest
 import Progression
 from collections import OrderedDict
 
 
-class Test_ProgressionTests(unittest.TestCase):
+class Test_Progression(SpaceUnitTest):
 
     def test_convert_number_to_naming_number_base(self):
         n = Progression.convert_number_to_naming_number_base(0,10)
@@ -131,3 +131,4 @@ class Test_ProgressionTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

@@ -3091,3 +3091,13 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Micro
 2016-06-06T17:37:03: Saving group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\requests"
 2016-06-06T17:37:03: End of group "C:\Users\Joellius\documents\visual studio 2015\Projects\HabitRPG\Experiments\expenv\Lib\site-packages\requests"
 2016-06-06T17:37:04: Deleting 0 files
+
+2016-06-10T01:41:56: Start analysis
+2016-06-10T01:41:56: [WARNING] Library was set explicitly - skipping path detection
+2016-06-10T01:41:56: IncludeModulesFromModulePath = win32com
+2016-06-10T01:41:56: Deleting 0 files
+
+2016-06-12T00:36:53: Start analysis
+2016-06-12T00:36:53: [WARNING] Library was set explicitly - skipping path detection
+2016-06-12T00:36:53: IncludeModulesFromModulePath = win32com
+2016-06-12T00:36:54: Deleting 0 files

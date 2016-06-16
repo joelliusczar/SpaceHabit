@@ -1,10 +1,13 @@
 import DatabaseLayer
 from Daily import Daily
 from Hero import Hero
+import uuid
+from datetime import datetime
+from datetime import timezone
 
 COLLECTION_NAME = 'accounts'
 ID_KEY = '_id'
-USER_ID = 'heroId'
+USER_ID = 'userId'
 REMINDER_TIME = 'reminderTime'
 DAY_START = 'dayStart'
 DEATH_GOLD_PENALTY = 'deathGoldPenalty'
@@ -16,6 +19,7 @@ PERMA_DEATH = 'permaDeath'
 STORY_MODE_IS_ON = 'storyModeIsOn'
 PUBLIC_ACCOUNT = 'publicAccount'
 PUBLIC_KEY = 'PublicKey'
+CREATE_DATE = 'creationDate'
 
 
 
@@ -29,10 +33,17 @@ def create_new_account(userId=None):
         ZONE_LVL_PENALTY:"LVLRESTART",
         ENEMY_HEALED_ON_ATTACK: False,
         SELF_HEALED_ON_ATTACK: False,
-        PERMA_DEATH: False}
+        PERMA_DEATH: False,
+        PUBLIC_ACCOUNT: False,
+        PUBLIC_KEY: uuid.uuid4().hex,
+        CREATE_DATE: datetime.now(timezone.utc)
+        }
 
     id = DatabaseLayer.insert_thing(account,COLLECTION_NAME)
     return id
+
+#def get_account_by_userID(userID):
+#    dbResults = DatabaseLayer.get_sorted_stuff_by_search(
 
 class Account(object):
     """description of class"""

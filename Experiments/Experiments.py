@@ -200,4 +200,13 @@ def testing_module_scope():
     ReplacerB.call_print_one()
 
 
-testing_module_scope()
+def find_out_what_im_getting_back_from_db():
+    for i in range(0,1000):
+            obj = {'a':i,'b':i % 10, 'c': "test"}
+            DatabaseLayer.insert_thing(obj,"test")
+
+    s = DatabaseLayer.get_sorted_stuff_by_search({},"test")
+    pass
+        
+
+find_out_what_im_getting_back_from_db()

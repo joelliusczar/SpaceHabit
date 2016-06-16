@@ -14,7 +14,7 @@ PUBLIC_KEY = 'PublicKey'
 
 def get_habits_by_account(id):
     import pymongo
-    return DatabaseLayer.get_sorted_stuff_by_key({ID_KEY:id},COLLECTION_NAME,[(TRIGGER_FREQUENCY,pymongo.DESCENDING),
+    return DatabaseLayer.get_sorted_stuff_by_search({ID_KEY:id},COLLECTION_NAME,[(TRIGGER_FREQUENCY,pymongo.DESCENDING),
         (URGENCY,pymongo.DESCENDING),
         (DIFFICULTY,pymongo.ASCENDING)])
 

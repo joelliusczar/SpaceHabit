@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Playground</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(unescape('%3Clink rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" /%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/jquery.min.js" %3E%3C/script%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/bootstrap.min.js" %3E%3C/script%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src="/static/knockout-min.js" %3E%3C/script%3E'));
+
+        }
+    </script>
+    <script src="/static/script.js"></script>
+    <script src="/static/login.js"></script>
+</head>
+<body>
+    <h1>Welcome to the playground</h1>
+    <input type="text" class="match" name="input1" placeholder="input1"/>
+    <input type="text" class="match" name="input2" maxlength="256" placeholder="input2"/>
+    <input type="text" class="match" name="input3" maxlength="256" placeholder="input3"/>
+    <input type="text" class="match_email" maxlength="256" name="email_input_1" placeholder="email_input_1"/>
+    <input type="text" class="match_email" maxlength="256" name="email_input_2" placeholder="email_input_2"/>
+    <input type="password" maxlength="256" name="pw_input_1" placeholder="pw_input_1" />
+    <input type="password" maxlength="256" name="pw_input_2" placeholder="pw_input_2" />
+    <input type="text" maxlength="256" name="ship_input" />
+    <div id="email_validation">
+        <div id="bad_email" class='validation_message validation_error email_error '>Invalid E-mail address.</div>
+        <div id="taken_email" class='validation_message validation_error email_error '>E-mail is already taken.</div>
+        <div id="mismatched_email" class='validation_message validation_error email_error '>E-mail addresses must match</div>
+        <div id="good_email" class='validation_message validation_success '>E-mail is available.</div>
+
+    </div>
+    <div id="short_pw" class='validation_message validation_error pw_error '>Password must be at least six characters long.</div>
+    <div id="mismatched_pw" class='validation_message validation_error pw_error '>Passwords must match</div>
+</body>
+</html>

@@ -34,13 +34,13 @@
                 <form>
                     <div class="form-group">
                         <label for="inputUserName">User Name:</label>
-                        <input type="text" class="form-control" id="input_login" name="input_login" placeholder="username" />
-                        <div id="bad_login" class='validation_error email_error hidden'>Login does exist</div>
+                        <input type="text" class="form-control" id="input_login" name="input_login" maxlength="256" placeholder="username" />
+                        <div id="bad_login" class='validation_error login_error email_error hidden'>Login does exist</div>
                     </div>
                     <div class="form-group">
                         <label for="inputUPassword">Password:</label>
-                        <input type="password" class="form-control" id="input_pw" name="input_pw" placeholder="password" />
-                        <div id="bad_login_pw" class='validation_error pw_error hidden'>Password is incorrect</div>
+                        <input type="password" class="form-control" id="input_pw" name="login_pw" maxlength="256" placeholder="password" />
+                        <div id="bad_login_pw" class='validation_error pw_error login_error hidden'>Password is incorrect</div>
                     </div>
                     <div class="form-group">
                         <button type="button" id="btnLogin" name="btnLogin">Log in</button>
@@ -60,44 +60,44 @@
                         <div id="email_1">
                             <div id="email_1_label">Email:</div>
                             <div id="email_input_1_wrapper">
-                                <input type="text" name="email_input_1" />
+                                <input type="text" class="match_email" maxlength="256" name="email_input_1" />
                             </div>
                             <div id="email_validation">
-                                <div id="bad_email" class='validation_error email_error hidden'>Invalid E-mail address.</div>
-                                <div id="taken_email" class='validation_error email_error hidden'>E-mail is already taken.</div>
-                                <div id="mismatched_email" class='validation_error hidden'>E-mail addresses must match</div>
-                                <div id="good_email" class='validation_success hidden'>E-mail is available.</div>
+                                <div id="bad_email" class='validation_message validation_error email_error hidden'>Invalid E-mail address.</div>
+                                <div id="taken_email" class='validation_message validation_error email_error hidden'>E-mail is already taken.</div>
+                                <div id="mismatched_email" class='validation_message validation_error email_error hidden'>E-mail addresses must match</div>
+                                <div id="good_email" class='validation_message validation_success hidden'>E-mail is available.</div>
                             </div>
                         </div>
                         <div id="email_2">
                             <div id="email_2_label">Confirm Email:</div>
                             <div id="email_input_2_wrapper">
-                                <input type="text" name="email_input_2" />
+                                <input type="text" class="match_email" maxlength="256" name="email_input_2" />
                             </div>
                         </div>
                         <div id="pw_1">
                             <div id="pw_1_label">Enter Password:</div>
                             <div id="pw_1_input_wrapper">
-                                <input type="password" name="pw_input_1" />
+                                <input type="password" class="match_pw" maxlength="256" name="pw_input_1" />
                             </div>
-                            <div id="short_pw" class='validation_error hidden'>Password must be at least six characters long.</div>
-                            <div id="mismatched_pw" class='validation_error hidden'>Passwords must match</div>
+                            <div id="short_pw" class='validation_message validation_error pw_error hidden'>Password must be at least six characters long.</div>
+                            <div id="mismatched_pw" class='validation_message validation_error pw_error hidden'>Passwords must match</div>
                         </div>
                         <div id="pw_2">
                             <div id="pw_2_label">Enter Password:</div>
                             <div id="pw_2_input_wrapper">
-                                <input type="password" name="pw_input_2" />
+                                <input type="password" class="match_pw" maxlength="256" name="pw_input_2" />
                             </div>
                         </div>
                         <div id="ship_name">
                             <div id="ship_label">Ship Name:</div>
                             <div id="ship_input_wrapper">
-                                <input type="text" name="ship_input" />
+                                <input type="text" maxlength="256" name="ship_input" />
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" name="save_user">Save</button>
-                            <button type="button" name="cancel">Cancel</button>
+                            <button type="button" name="cancel_add">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                         <div id="retrieval_email">
                             <div id="retrieval_email_label">Email:</div>
                             <div id="retrieval_email_input_wrapper">
-                                <input type="text" name="retrieval_email" />
+                                <input type="text" maxlength="256" name="retrieval_email" />
                             </div>
                             <div id="retrieval_email_validation"></div>
                         </div>

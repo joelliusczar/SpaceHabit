@@ -6,7 +6,7 @@
     <ProjectGuid>60383a39-fa97-4e70-a3b7-20aa3969670b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>Web Server\SpaceHabitServer.py</StartupFile>
-    <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\;Tests\TestHelpers\</SearchPath>
+    <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\;Tests\TestHelpers\;Tests\ForCoreGame\;Tests\ForHelpers\;Tests\ForTestHelpers\;Tests\ForTypes\;Tests\JSTests\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SpaceHabitRPG</Name>
@@ -55,6 +55,12 @@
     <Folder Include="Story\" />
     <Folder Include="Story\__pycache__\" />
     <Folder Include="Tests\" />
+    <Folder Include="Tests\Frontend\" />
+    <Folder Include="Tests\JSTests\" />
+    <Folder Include="Tests\ForHelpers\" />
+    <Folder Include="Tests\ForTypes\" />
+    <Folder Include="Tests\ForCoreGame\" />
+    <Folder Include="Tests\ForTestHelpers\" />
     <Folder Include="Tests\TestHelpers\" />
     <Folder Include="Tests\__pycache__\" />
     <Folder Include="Types\" />
@@ -82,6 +88,7 @@
     <Content Include="HabitFrontend\public\login.js" />
     <Content Include="HabitFrontend\public\script.js" />
     <Content Include="HabitFrontend\public\style.css" />
+    <Content Include="HabitFrontend\TestPlayground.html" />
     <Content Include="Helpers\__pycache__\ConfigLayer.cpython-35.pyc" />
     <Content Include="Helpers\__pycache__\DatabaseLayer.cpython-35.pyc" />
     <Content Include="Helpers\__pycache__\Heap.cpython-35.pyc" />
@@ -116,6 +123,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\DatabaseLayer.py" />
+    <Compile Include="Helpers\DataPaginator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\EverywhereConstants.py">
       <SubType>Code</SubType>
     </Compile>
@@ -129,21 +139,71 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Story\ZoneLookup.py" />
-    <Compile Include="Tests\AuthenticationLayerTests.py">
+    <Compile Include="Tests\ForCoreGame\Test_Progression.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\LoginPageTest.py">
+    <Compile Include="Tests\ForHelpers\Test_AuthenticationLayer.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\MockDataLoaderTests.py">
+    <Compile Include="Tests\ForHelpers\Test_DatabaseLayer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForHelpers\Test_DataPaginator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForHelpers\Test_Heap.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTestHelpers\Test_MockDatabaseLayer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTestHelpers\Test_MockDataLoader.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTestHelpers\Test_SpaceUnitTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTestHelpers\Test_TestFunctionBuilder.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTypes\Test_Daily.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTypes\Test_Hero.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\Frontend\LoginPageNewUserTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\Frontend\LoginPageOnLoadTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\Frontend\LoginPageRequests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\Frontend\LoginSaveNewUser.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\Frontend\PlaygroundLoad.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\JSTests\LoginJSTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\JSTests\PlaygroundLoginJS.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\MockDatabaseLayer.py" />
-    <Compile Include="Tests\ProgressionTests.py" />
     <Compile Include="Tests\TestHelpers\MockDataLoader.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\MockSetUp.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\SeleniumHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\SpaceUnitTest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\TestDummyObjectMaker.py">
@@ -152,11 +212,6 @@
     <Compile Include="Tests\TestHelpers\TestFunctionBuilder.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\TestToolsTest.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Tests\ToolsTests.py" />
-    <Compile Include="Tests\TypesTests.py" />
     <Compile Include="Types\Account.py" />
     <Compile Include="Types\Daily.py" />
     <Compile Include="Types\Good.py" />
@@ -167,9 +222,6 @@
     <Compile Include="Types\Zone.py" />
     <Compile Include="Web Server\Controllers\AccountController.py" />
     <Compile Include="Web Server\Controllers\AllDailiesController.py" />
-    <Compile Include="Web Server\Controllers\AuthenticationController.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Web Server\Controllers\HeroController.py" />
     <Compile Include="Web Server\Controllers\LoginController.py" />
     <Compile Include="Web Server\Controllers\ValidationController.py">

@@ -50,6 +50,7 @@
     <Content Include="config.ini" />
     <Content Include="testweb\WebPage1.html" />
     <Content Include="testweb\WebPage2.html" />
+    <Content Include="TextFile1.json" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.5" />

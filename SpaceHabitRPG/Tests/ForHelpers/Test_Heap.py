@@ -1,39 +1,29 @@
-import unittest
-from Heap import Heap
+from SpaceUnitTest import SpaceUnitTest
 from collections import OrderedDict
-import random
-import DatabaseLayer
-from bson.objectid import ObjectId
 from TestDummyObjectMaker import DailySortingTestObject
-from Account import COLLECTION_NAME as accounts
-from Daily import COLLECTION_NAME as dailiesName
+from Heap import Heap
+import random
 
-
-class Test_ToolsTests(unittest.TestCase):
-
-
-
+class Test_Heap(SpaceUnitTest):
+    
     def setUp(self):
-        self.accountId = DatabaseLayer.insert_thing({'test':0},accounts)
-        testList = []
+
+        self.testList = []
+        self.controlList = []
         for i in range(0,500):
             u = i // 100
             r = (500 -i) // 25
             f = i
-            tObj = {'ownerAccountId':self.accountId,'daysUntilTrigger':u,'urgency':r,'difficulty':f,'isCompleted':False}
-            testList.append(tObj)
-        random.shuffle(testList)
+            tObj = DailySortingTestObject(u,r,f)
+            self.testList.append(tObj)
+            self.controlList.append(tObj)
+        random.shuffle(self.testList)
     
-        for d in testList:
-            id = DatabaseLayer.insert_thing(d,dailiesName)
-            print(id)
         print("done")
         return super().setUp()
 
     def tearDown(self):
-        dailyCollection = DatabaseLayer.get_table(dailiesName)
-        result = dailyCollection.delete_many( {'ownerAccountId':self.accountId})
-        DatabaseLayer.delete_thing_by_key(self.accountId,accounts)
+
         return super().tearDown()
 
     def test_heap_basic_functions(self):
@@ -89,35 +79,11 @@ class Test_ToolsTests(unittest.TestCase):
     def test_multifield_heapsort(self):
         heap = Heap(lambda a,b: a.daysUntilTrigger <= b.daysUntilTrigger 
                     and a.urgency >= b.urgency and a.difficulty <= b.difficulty)
-        controlList = []
-        for i in range(0,500):
-            u = i // 100
-            r = (500 -i) // 25
-            f = i
-            controlList.append(DailySortingTestObject(u,r,f))
-        testList = controlList[:]
-        random.shuffle(testList)
-        heap.push_list(testList)
-        for a,c in zip(heap.popper(),controlList):
+        heap.push_list(self.testList)
+        for a,c in zip(heap.popper(),self.controlList):
             self.assertEqual(a.daysUntilTrigger,c.daysUntilTrigger)
             self.assertEqual(a.urgency,c.urgency)
             self.assertEqual(a.difficulty,c.difficulty)
-
-    def test_db_daily_sorting(self):
-        import Daily
-        controlList = []
-        for i in range(0,500):
-            u = i // 100
-            r = (500 -i) // 25
-            f = i
-            controlList.append(DailySortingTestObject(u,r,f))
-        dailies = Daily.get_dailies_by_account(self.accountId)
-        for d,c in zip(dailies,controlList):
-            self.assertEqual(d['daysUntilTrigger'],c.daysUntilTrigger)
-            self.assertEqual(d['urgency'],c.urgency)
-            self.assertEqual(d['difficulty'],c.difficulty)
-
-
 
 if __name__ == '__main__':
     unittest.main()

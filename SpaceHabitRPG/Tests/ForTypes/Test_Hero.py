@@ -1,10 +1,10 @@
-import unittest
+from SpaceUnitTest import SpaceUnitTest
 import DatabaseLayer
 import MockDatabaseLayer
 from Hero import Hero
 from Hero import create_new_hero
 
-class Test_TypesTests(unittest.TestCase):
+class Test_Hero(SpaceUnitTest):
     def setUp(self):
         DatabaseLayer.insert_thing = MockDatabaseLayer.insert_thing
         DatabaseLayer.get_thing_by_id = MockDatabaseLayer.get_thing_by_id

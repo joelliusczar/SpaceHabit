@@ -1,19 +1,19 @@
 $(function(){
     
-    $.ajax({
-        url: "/hero",
-        type: 'get',
-        dataType: 'json',
-        error: function (p1,p2,p3) {
-            alert(p3);
-        },
-        success: function (data) {
-            heroFromJson = JSON.parse(data);
+    //$.ajax({
+    //    url: "/hero",
+    //    type: 'get',
+    //    dataType: 'json',
+    //    error: function (p1,p2,p3) {
+    //        //alert(p3);
+    //    },
+    //    success: function (data) {
+    //        //heroFromJson = JSON.parse(data);
             
 
-            ko.applyBindings(new SpaceHabitModel(heroFromJson));
-        }
-    });
+    //        //ko.applyBindings(new SpaceHabitModel(heroFromJson));
+    //    }
+    //});
   
   function clearDailyEditInputs(){
     $('#edit_daily_box input').val("");

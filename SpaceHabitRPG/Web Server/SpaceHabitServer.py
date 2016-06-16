@@ -4,16 +4,12 @@ from LoginController import LoginController
 from ValidationController import ValidationController
 import EverywhereConstants
 import os
+import AuthenticationLayer
 
 
-SERVER_PORT = 8080
 
-def check_login_state():
-    username = cherrypy.session.get(EverywhereConstants.SESSION_KEY)
-    if not username:
-        raise cherrypy.HTTPRedirect("/login")
 
-cherrypy.tools.check_login = cherrypy.Tool("before_handler",check_login_state)
+
 
 class SpaceHabitHome(object):
 
@@ -21,15 +17,15 @@ class SpaceHabitHome(object):
         self.testModeEnabled = False
 
     @cherrypy.expose
-    @cherrypy.tools.check_login()
+    @cherrypy.tools.redirect_unauthenticated()
     def index(self):
         return open("HabitFrontend/index.html",encoding="utf-8")
 
     @cherrypy.expose
-    def enable_test_mode(self):
-        import MockSetUp
-        self.testModeEnabled = True
-        MockSetUp.set_up_mock_db_connections()
+    def playground(self):
+        import ConfigLayer
+        if ConfigLayer.get_is_debug():
+            return open("HabitFrontend/TestPlayground.html",encoding="utf-8")
 
 import threading
 

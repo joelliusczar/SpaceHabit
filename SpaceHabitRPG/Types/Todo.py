@@ -12,7 +12,7 @@ PUBLIC_KEY = 'PublicKey'
 
 def get_todos_by_account(id):
     import pymongo
-    return DatabaseLayer.get_sorted_stuff_by_key({ID_KEY:id},COLLECTION_NAME,[
+    return DatabaseLayer.get_sorted_stuff_by_search({ID_KEY:id},COLLECTION_NAME,[
         (DUE_DATE,pymongo.ASCENDING),
         (URGENCY,pymongo.DESCENDING),
         (DIFFICULTY,pymongo.ASCENDING)

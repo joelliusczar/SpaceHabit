@@ -13,7 +13,7 @@ PUBLIC_KEY = 'PublicKey'
 
 def get_dailies_by_account(id,isCompleted=False):
     import pymongo
-    return DatabaseLayer.get_sorted_stuff_by_key({ID_KEY:id,'isCompleted':isCompleted},
+    return DatabaseLayer.get_sorted_stuff_by_search({ID_KEY:id,'isCompleted':isCompleted},
         COLLECTION_NAME,[(DAYS_UNTIL_TRIGGER,pymongo.ASCENDING),
         (URGENCY,pymongo.DESCENDING),
         (DIFFICULTY,pymongo.ASCENDING)])

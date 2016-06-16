@@ -1,37 +1,8 @@
+from SpaceUnitTest import SpaceUnitTest
 import MockDatabaseLayer
-import TestFunctionBuilder
-import unittest
 import random
 
-class Test_TestToolsTest(unittest.TestCase):
-
-    def test_build_sort_function_single_property(self):
-        dictDict = {}
-        dictDict[10] = {'a':0}
-        dictDict[11] = {'a':1}
-        dictDict[12] = {'a':2}
-        compareFieldList = [('a',1)]
-        comparer = TestFunctionBuilder.build_sort_by_function(compareFieldList,dictDict)
-        t = comparer(dictDict[10],dictDict[11])
-        self.assertTrue(t)
-        t = comparer(dictDict[11],dictDict[10])
-        self.assertFalse(t)
-        t = comparer(dictDict[10],dictDict[10])
-        self.assertTrue(t)
-
-    def test_build_sort_function_double_property(self):
-        dictDict = {}
-        for i in range(0,15):
-            dictDict[10 + i] = {'a':i % 5, 'b': 15-i}
-        compareFieldList = [('a',1),('b',-1)]
-        comparer = TestFunctionBuilder.build_sort_by_function(compareFieldList,dictDict)
-        t = comparer(dictDict[10],dictDict[20])
-        self.assertTrue(t)
-        t = comparer(dictDict[10],dictDict[11])
-        self.assertTrue(t)
-        t = comparer(dictDict[10],dictDict[24])
-        self.assertTrue(t)
-
+class Test_MockDatabaseLayer(SpaceUnitTest):
     def test_insert_and_get_from_mock_db(self):
         t1 = {'a':121,'b':235,'c':316}
         id = MockDatabaseLayer.insert_thing(t1,MockDatabaseLayer.dailies)
@@ -96,6 +67,25 @@ class Test_TestToolsTest(unittest.TestCase):
             self.assertEqual(s['a'],c['a'])
             self.assertEqual(s['b'],c['b'])
             self.assertEqual(s['c'],c['c'])
+
+
+    def test_unfiltered_mockdb_count(self):
+        for i in range(0,100):
+            MockDatabaseLayer.insert_thing({'a':i,'b':i % 5},MockDatabaseLayer.dailies)
+        count = MockDatabaseLayer.get_count_of_stuff_search({},MockDatabaseLayer.dailies)
+        self.assertEqual(count,100)
+
+    def test_filtered_mockdb_count_multi(self):
+        for i in range(0,100):
+            MockDatabaseLayer.insert_thing({'a':i,'b':i % 5,'c':i %10},MockDatabaseLayer.dailies)
+        count = MockDatabaseLayer.get_count_of_stuff_search({'b':1, 'c':1},MockDatabaseLayer.dailies)
+        self.assertEqual(count,10)
+
+    def test_filtered_mockdb_count(self):
+        for i in range(0,100):
+            MockDatabaseLayer.insert_thing({'a':i,'b':i % 5},MockDatabaseLayer.dailies)
+        count = MockDatabaseLayer.get_count_of_stuff_search({'b':1},MockDatabaseLayer.dailies)
+        self.assertEqual(count,20)
 
 if __name__ == '__main__':
     unittest.main()
