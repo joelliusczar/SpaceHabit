@@ -29,7 +29,8 @@ def create_new_hero(accountId = None,shipName = ""):
         ATTACK_LVL: 1,
         DEFENSE_LVL: 1,           
     }
-    id  = DatabaseLayer.insert_thing(hero,COLLECTION_NAME)
+    collection = DatabaseLayer.get_table(COLLECTION_NAME)
+    id = collection.insert_one(hero).inserted_id
     return id
 
 class Hero(object):
