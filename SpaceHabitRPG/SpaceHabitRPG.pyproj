@@ -5,8 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>60383a39-fa97-4e70-a3b7-20aa3969670b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Web Server\SpaceHabitServer.py</StartupFile>
-    <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\;Tests\TestHelpers\;Tests\ForCoreGame\;Tests\ForHelpers\;Tests\ForTestHelpers\;Tests\ForTypes\;Tests\JSTests\</SearchPath>
+    <StartupFile>Tests\ForCoreGame\Test_Progression.py</StartupFile>
+    <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\;Tests\TestHelpers\;Tests\ForCoreGame\;Tests\ForHelpers\;Tests\ForTestHelpers\;Tests\ForTypes\;Tests\JSTests\;Models\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SpaceHabitRPG</Name>
@@ -52,6 +52,7 @@
     <Folder Include="HabitFrontend\public\fonts\" />
     <Folder Include="Helpers\" />
     <Folder Include="Helpers\__pycache__\" />
+    <Folder Include="Models\" />
     <Folder Include="Story\" />
     <Folder Include="Story\__pycache__\" />
     <Folder Include="Tests\" />
@@ -63,8 +64,6 @@
     <Folder Include="Tests\ForTestHelpers\" />
     <Folder Include="Tests\TestHelpers\" />
     <Folder Include="Tests\__pycache__\" />
-    <Folder Include="Types\" />
-    <Folder Include="Types\__pycache__\" />
     <Folder Include="Web Server\" />
     <Folder Include="Web Server\Controllers\" />
     <Folder Include="Web Server\Controllers\__pycache__\" />
@@ -101,13 +100,6 @@
     <Content Include="Tests\__pycache__\ProgressionTests.cpython-35.pyc" />
     <Content Include="Tests\__pycache__\ToolsTests.cpython-35.pyc" />
     <Content Include="Tests\__pycache__\TypesTests.cpython-35.pyc" />
-    <Content Include="Types\__pycache__\Account.cpython-35.pyc" />
-    <Content Include="Types\__pycache__\Daily.cpython-35.pyc" />
-    <Content Include="Types\__pycache__\Good.cpython-35.pyc" />
-    <Content Include="Types\__pycache__\Habit.cpython-35.pyc" />
-    <Content Include="Types\__pycache__\Hero.cpython-35.pyc" />
-    <Content Include="Types\__pycache__\Todo.cpython-35.pyc" />
-    <Content Include="Types\__pycache__\Zone.cpython-35.pyc" />
     <Content Include="Web Server\Controllers\__pycache__\HeroController.cpython-35.pyc" />
   </ItemGroup>
   <ItemGroup>
@@ -127,17 +119,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\Heap.py" />
+    <Compile Include="Models\Account.py" />
+    <Compile Include="Models\Daily.py" />
+    <Compile Include="Models\HabitBaseModel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Hero.py" />
+    <Compile Include="Models\Zone.py" />
     <Compile Include="Story\StoryEvents.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Story\ZoneLookup.py" />
+    <Compile Include="Story\ZoneDefinitions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\ForCoreGame\Test_Progression.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\ForHelpers\Test_AuthenticationLayer.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Tests\ForHelpers\Test_DatabaseLayer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\ForHelpers\Test_Heap.py">
@@ -149,7 +147,7 @@
     <Compile Include="Tests\ForTypes\Test_Daily.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\ForTypes\Test_Hero.py">
+    <Compile Include="Tests\ForTypes\Test_HabitBaseModel.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\Frontend\LoginPageNewUserTests.py">
@@ -176,27 +174,16 @@
     <Compile Include="Tests\TestHelpers\DatabaseTestSetupCleanup.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\TestHelpers\SeleniumHelper.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Tests\TestHelpers\SpaceUnitTest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\TestDummyObjectMaker.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Types\Account.py" />
-    <Compile Include="Types\Daily.py" />
-    <Compile Include="Types\Good.py" />
-    <Compile Include="Types\Habit.py" />
-    <Compile Include="Types\Hero.py" />
-    <Compile Include="Types\Monster.py" />
-    <Compile Include="Types\Todo.py" />
-    <Compile Include="Types\Zone.py" />
-    <Compile Include="Web Server\Controllers\AccountController.py" />
-    <Compile Include="Web Server\Controllers\AllDailiesController.py" />
-    <Compile Include="Web Server\Controllers\HeroController.py" />
     <Compile Include="Web Server\Controllers\LoginController.py" />
+    <Compile Include="Web Server\Controllers\MainController.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Web Server\Controllers\ValidationController.py">
       <SubType>Code</SubType>
     </Compile>

@@ -9,11 +9,13 @@ import time
 import requests
 import AuthenticationLayer
 import DatabaseLayer
+import DatabaseTestSetupCleanup as dbHelp
 
 class Test_LoginJSTest(SpaceUnitTest):
   
   @classmethod
   def setUpClass(cls):
+    DatabaseLayer.isUnitTestMode = True
     cls.server = SpaceHabitServer.HabitServer()
     cls.server.start()
     ticks = 0
@@ -26,8 +28,7 @@ class Test_LoginJSTest(SpaceUnitTest):
 
   @classmethod
   def tearDownClass(cls):
-    connection = DatabaseLayer.open_conn()
-    connection.drop_database("spacetest")
+    dbHelp.clean_up()
     cls.server.stop()
     ticks = 0
     while cherrypy.engine.state != cherrypy.engine.states.STOPPED:

@@ -4,7 +4,6 @@ import threading
 import cherrypy
 import time
 from selenium import webdriver
-import SeleniumHelper
 import requests
 import DatabaseTestSetupCleanup as dbHelp
 
@@ -14,6 +13,8 @@ class Test_LoginPageTest(SpaceUnitTest):
 
   @classmethod
   def setUpClass(cls):
+    import DatabaseLayer
+    DatabaseLayer.isUnitTestMode = True
     dbHelp.clean_up()
     cls.server = SpaceHabitServer.HabitServer()
     cls.server.start()

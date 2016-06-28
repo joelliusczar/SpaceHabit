@@ -7,6 +7,11 @@ import DatabaseLayer
 
 class Test_AuthenticationLayerTests(SpaceUnitTest):
 
+  @classmethod
+  def setUpClass(cls):
+    DatabaseLayer.isUnitTestMode = True
+    return super().setUpClass()
+
   def tearDown(self):
     dbHelp.clean_up()
     return super().tearDown()

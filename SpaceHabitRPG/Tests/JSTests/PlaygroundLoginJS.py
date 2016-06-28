@@ -6,13 +6,13 @@ import cherrypy
 import time
 import requests
 import DatabaseLayer
+import DatabaseTestSetupCleanup as dbHelp
 
 class Test_PlaygroundLoginJS(SpaceUnitTest):
 
   @classmethod
   def setUpClass(cls):
-    connection = DatabaseLayer.open_conn()
-    connection.drop_database("spacetest")
+    DatabaseLayer.isUnitTestMode = True
     cls.server = SpaceHabitServer.HabitServer()
     cls.server.start()
     ticks = 0
@@ -25,6 +25,7 @@ class Test_PlaygroundLoginJS(SpaceUnitTest):
 
   @classmethod
   def tearDownClass(cls):
+    dbHelp.clean_up()
     cls.server.stop()
     ticks = 0
     while cherrypy.engine.state != cherrypy.engine.states.STOPPED:

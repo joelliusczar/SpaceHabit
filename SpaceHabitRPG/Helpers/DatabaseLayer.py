@@ -8,6 +8,7 @@ import pymongo
 
 
 connection = None
+isUnitTestMode = False
 
 def open_conn():
   """
@@ -33,7 +34,10 @@ def get_table(tableName):
       a dataset upon which futher inquries can be done.
   """
   open_conn()
-  db = connection[ConfigLayer.get_db_name()]
+  if isUnitTestMode:
+    db = connection['test']
+  else:
+    db = connection[ConfigLayer.get_db_name()]
   return db[tableName]
 
 

@@ -1,3 +1,4 @@
+from HabitBaseModel import HabitBaseModel
 from datetime import datetime
 from datetime import timezone
 from Daily import Daily
@@ -7,8 +8,6 @@ import uuid
 
 
 class AccountFields:
-  COLLECTION_NAME = 'accounts'
-  ID_KEY = '_id'
   USER_ID = 'userId'
   REMINDER_TIME = 'reminderTime'
   DAY_START = 'dayStart'
@@ -40,39 +39,34 @@ def create_new_account(userId=None):
     AccountFields.PUBLIC_KEY: uuid.uuid4().hex,
     AccountFields.CREATE_DATE: datetime.now(timezone.utc)
     }
-  collection = DatabaseLayer.get_table(AccountFields.COLLECTION_NAME)
+  collection = DatabaseLayer.get_table(Account.COLLECTION_NAME)
   id = collection.insert_one(account).inserted_id
   return id
 
 #def get_account_by_userID(userID):
 #  dbResults = DatabaseLayer.get_sorted_stuff_by_search(
 
-class Account(object):
-  """description of class"""
-  def __init__(self,dict=None,id = None):
-    """Priority is given to dictionary object over id """
-    self._changes = {}
-    self._dailies = []
-    self._habits = []
-    self._todos = []
-    self._irlGoods = []
-    self._hero = None
-    if dict:
-      self._dict = dict
-      return
-    if id:
-      self._dict = DatabaseLayer.get_thing_by_id(id,COLLECTION_NAME)
-      return
-    raise ValueError("Either a reference to a dictionary or an id is required")
+class Account(HabitBaseModel):
+  """
+    This is a wrapper for the account data from the database
+  """
+  COLLECTION_NAME = 'accounts'
 
-  def save_changes(self):
-    collection = DatabaseLayer.get_table(AccountFields.COLLECTION_NAME)
-    collection.update_one({AccountFields.ID_KEY:self.id},self._changes)
-    self.changes = {}
+  def __init__(self,dict=None,id = None):
+    """
+      args:
+        dict:
+          loads the properties of the model from the dict.
+        id:
+          uses the id to load this model from the database.
+          If both a dict and id are supplied, the dict is used and the id is 
+          ignored. 
+          If nether are supplied then the model is empty
+    """
+    super().__init__(dict =dict,id =id)
 
   @property
   def id(self):
-    return self._dict[AccountFields.ID_KEY]
-
+    return self._dict[Account.ID_KEY]
 
       

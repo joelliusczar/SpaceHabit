@@ -81,8 +81,6 @@ def insert_new_user(login,pw,shipName=""):
   return (id,accountId,heroId)
 
 
-
-
 def safe_insert_new_user(login,pw):
   """
     This used during the create new user process.

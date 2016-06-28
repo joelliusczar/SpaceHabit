@@ -6,12 +6,14 @@ import cherrypy
 import time
 import requests
 import json
+import DatabaseTestSetupCleanup as dbHelp
 
 
 class Test_LoginSaveNewUserWithRequests(SpaceUnitTest):
 
   @classmethod
   def setUpClass(cls):
+    DatabaseLayer.isUnitTestMode = True
     cls.server = SpaceHabitServer.HabitServer()
     cls.server.start()
     ticks = 0
@@ -24,6 +26,7 @@ class Test_LoginSaveNewUserWithRequests(SpaceUnitTest):
 
   @classmethod
   def tearDownClass(cls):
+    dbHelp.clean_up()
     cls.server.stop()
     ticks = 0
     while cherrypy.engine.state != cherrypy.engine.states.STOPPED:
@@ -74,6 +77,7 @@ class Test_LoginSaveNewUserWithRequests(SpaceUnitTest):
     self.assertEqual(data['success'], False)
 
   def test_send_taken_email(self):
+    dbHelp.insert_one_user()
     s = requests.Session()
     r = s.post("http://127.0.0.1:8080/login/save_new_user/",params={'email1':"a@b.c",
           'email2':"a@b.c",'pw1':"123456",'pw2':"123456",'shipName':""})

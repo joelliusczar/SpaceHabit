@@ -1,9 +1,8 @@
+from HabitBaseModel import HabitBaseModel
 import DatabaseLayer
 
 
 class DailyFields:
-  COLLECTION_NAME = 'dailies'
-  ID_KEY = '_id'
   NAME = 'name'
   NOTE = 'note'
   URGENCY = 'urgency'
@@ -15,29 +14,30 @@ class DailyFields:
   PUBLIC_KEY = 'PublicKey'
 
 def get_dailies_by_account(id,isCompleted=False):
-  collection = DatabaseLayer.get_table(DailyFields.COLLECTION_NAME)
-  return collection.find({DailyFields.ID_KEY:id,'isCompleted':isCompleted})\
+  collection = DatabaseLayer.get_table(Daily.COLLECTION_NAME)
+  return collection.find({Daily.ID_KEY:id,'isCompleted':isCompleted})\
     .sort(DailyFields.SORT_KEY,1)
 
-class Daily(object):
-  """description of class"""
+class Daily(HabitBaseModel):
+  """
+    This is a wrapper for the daily data from the database
+  """
+
+  COLLECTION_NAME = 'dailies'
+
   def __init__(self,dict=None,id = None):
-    """Priority is given to dictionary object over id """
-    self._changes = {}
-    if dict:
-      self._dict = dict
-      return
-    if id:
-      collection = DatabaseLayer.get_table(DailyFields.COLLECTION_NAME)
-      self._dict = collection.find_one({DailyFields.ID_KEY:id})
-      return
-    raise ValueError("Either a reference to a dictionary or an id is required")
+    """
+      args:
+        dict:
+          loads the properties of the model from the dict.
+        id:
+          uses the id to load this model from the database.
+          If both a dict and id are supplied, the dict is used and the id is 
+          ignored. 
+          If nether are supplied then the model is empty
+    """
+    super().__init__(dict =dict,id =id)
 
-
-  def save_changes(self):
-    collection = DatabaseLayer.get_table(DailyFields.COLLECTION_NAME)
-    collection.update_one({DailyFields.ID_KEY:self.id},self._changes)
-    self._changes = {}
 
   @property
   def id(self):

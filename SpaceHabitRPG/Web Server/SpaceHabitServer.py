@@ -1,8 +1,7 @@
-import cherrypy
-from HeroController import HeroController
 from LoginController import LoginController
 from ValidationController import ValidationController
 import EverywhereConstants
+import cherrypy
 import os
 import AuthenticationLayer
 
@@ -62,7 +61,6 @@ class HabitServer(threading.Thread):
             webapp = SpaceHabitHome()
             webapp.login = LoginController()
             webapp.login.validate = ValidationController()
-            webapp.hero = HeroController()
             cherrypy.tree.mount(webapp,"/",self.conf)
             cherrypy.engine.start()
         cherrypy.engine.block()
