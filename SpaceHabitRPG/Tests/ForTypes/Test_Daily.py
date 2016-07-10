@@ -1,11 +1,11 @@
 from SpaceUnitTest import SpaceUnitTest
-from Account  import Account
-from Daily import Daily
+from Account  import AccountFields
+from Daily import DailyDbFields
 import DatabaseLayer
 import random
 
-TABLE_ACCOUNT = Account.COLLECTION_NAME
-TABLE_DAILIES = Daily.COLLECTION_NAME
+TABLE_ACCOUNT = AccountFields.COLLECTION_NAME
+TABLE_DAILIES = DailyDbFields.COLLECTION_NAME
 
 class Test_Daily(SpaceUnitTest):
   
@@ -47,7 +47,7 @@ class Test_Daily(SpaceUnitTest):
   
 
   def test_db_daily_sorting(self):
-    import Daily
+    from Daily import Daily
     dailies = Daily.get_dailies_by_account(self.accountId)
     for d,c in zip(dailies,self.controlList):
       self.assertEqual(d['daysUntilTrigger'],c.daysUntilTrigger)

@@ -83,7 +83,7 @@ class Test_LoginPageNewUserTests(SpaceUnitTest):
 
 
   def test_taken_email(self):
-    dbHelp.insert_one_user()
+    dbHelp.insert_one_test_login()
     self.input1.send_keys("a@b.c")
     self.modal.click()
 

@@ -3,23 +3,15 @@
   are correct. 
 
 """
-
+from AllDBFields import BaseFields
+from AllDBFields import AuthenticationFields
 import CryptKeeper
 import DatabaseLayer
-import Account
-import Hero
 import re
 import cherrypy
-import EverywhereConstants as consts
 
-class AuthenticationFields:
-  """
-    Just a collection of strings that function as constants
-  """
-  COLLECTION_NAME = 'users'
-  USER_LOGIN = 'login'
-  USER_PASSWORD = 'pw'
-  USER_DESC = 'desc'
+
+
 
 
 def is_login_taken(login):
@@ -73,12 +65,15 @@ def insert_new_user(login,pw,shipName=""):
       User table, the primary key of the account created for the new user,
       and the primary key of the hero created for the new user.
   """
+  from Account import Account
+  from Hero import Hero
+
   if is_login_taken(login):
     raise FileExistsError("That email is already taken")
-  id = safe_insert_new_user(login,pw)
-  accountId = Account.create_new_account(id)
-  heroId = Hero.create_new_hero(accountId,shipName)
-  return (id,accountId,heroId)
+  loginPk = safe_insert_new_user(login,pw)
+  accountId = Account.create_new_account_in_db(loginPk)
+  heroId = Hero.construct_new_hero_in_db(accountId,shipName)
+  return (loginPk,accountId,heroId)
 
 
 def safe_insert_new_user(login,pw):
@@ -137,6 +132,47 @@ def authenticate_user(login,pw):
   resultDict['success'] = True
   return resultDict
 
+def get_loginPk_by_login(validLogin):
+  """
+    args:
+      validLogin:
+        I'm gonna assume that this login has already been vetted earlier
+        in the program.
+      return:
+        an objectId to the users collection
+  """
+  collection = DatabaseLayer.get_table(AuthenticationFields.COLLECTION_NAME)
+  login = collection.find_one({AuthenticationFields.USER_LOGIN: validLogin})
+  return login[BaseFields.PK_KEY]
+  
+
+def get_accountPk_by_loginPk(loginPk):
+  """
+    args:
+      loginPk:
+        an fk to the user collection
+      return:
+        an objectId to the account collection
+  """
+  from AllDBFields import AccountFields
+  collection = DatabaseLayer.get_table(AccountFields.COLLECTION_NAME)
+  account = collection.find_one({AccountFields.LOGIN_PK_KEY:loginPk})
+  return account[AccountFields.PK_KEY]
+
+def get_heroPk_by_accountPk(accountPk):
+  """
+    args:
+      userId:
+        an fk to the account collection
+      return:
+        an objectId to the hero collection
+  """
+  from AllDBFields import HeroDbFields
+  collection = DatabaseLayer.get_table(HeroDbFields.COLLECTION_NAME)
+  hero = collection.find_one({HeroDbFields.ACCOUNT_PK_KEY:accountPk})
+  return hero[HeroDbFields.PK_KEY]
+
+
 
 def validate_email(email):
   """
@@ -163,7 +199,8 @@ def validate_email(email):
   return {'success': True,'messages':["#good_email"]}
 
 
-def check_all_new_user_validations(email1,email2,pw1,pw2,shipName):
+
+def check_all_validations_for_new_login(email1,email2,pw1,pw2,shipName):
   """
     This used during the create new user process.
     This method calls other validation methods and baically determines
@@ -217,9 +254,13 @@ def check_all_new_user_validations(email1,email2,pw1,pw2,shipName):
     flags.append("#shipname_too_long")
   return flags
 
+
+
 #disableAuthenticationRedirects should only ever be used in testing.
 #Never in production
 disableAuthenticationRedirects = False
+
+
 
 def redirect_unauthenticated():
   """
@@ -230,7 +271,7 @@ def redirect_unauthenticated():
   """
   if disableAuthenticationRedirects:
     return
-  username = cherrypy.session.get(consts.SESSION_KEY)
+  username = cherrypy.session.get(BaseFields.SESSION_KEY)
   if not username:
     raise cherrypy.HTTPRedirect("/login")
 
@@ -242,7 +283,7 @@ def redirect_authenticated():
   """
   if disableAuthenticationRedirects:
     return
-  username = cherrypy.session.get(consts.SESSION_KEY)
+  username = cherrypy.session.get(BaseFields.SESSION_KEY)
   if username:
     raise cherrypy.HTTPRedirect("/")
 

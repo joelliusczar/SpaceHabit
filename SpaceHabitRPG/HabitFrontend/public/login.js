@@ -237,7 +237,7 @@ function loginAjaxSuccess(data) {
         window.location.replace("/")
     }
     else {
-        var errors = data['errors'];
+        var errors = data['messages'];
         for(var i = 0; i < errors.length; i++){
             $(errors[i]).removeClass("hidden");
         }

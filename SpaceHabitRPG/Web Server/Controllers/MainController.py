@@ -1,3 +1,7 @@
+from AllDBFields import BaseFields
+from Hero import Hero
+from Account import Account
+import StartUpRoutine
 import cherrypy
 import AuthenticationLayer
 
@@ -10,9 +14,13 @@ class MainController(object):
 
   @cherrypy.expose
   @cherrypy.tools.json_out()
-  @cherrypy.tools.allow(methods=['POST'])
   @cherrypy.tools.redirect_unauthenticated()
-  def check_in(self):
+  def checkin(self,utcElapsedTime,utcOffset):
     """
       this is called by the main page when the site loads.
     """
+    heroId = cherrypy.session.get(BaseFields.HERO_PK_KEY)
+    accountId = cherrypy.session.get(BaseFields.ACCOUNT_PK_KEY)
+    messages = StartUpRoutine.\
+      check_in_and_get_notices(heroId,accountId,utcElapsedTime,utcOffset)
+    return messages

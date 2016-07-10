@@ -1,6 +1,6 @@
 from LoginController import LoginController
 from ValidationController import ValidationController
-import EverywhereConstants
+from MainController import MainController
 import cherrypy
 import os
 import AuthenticationLayer
@@ -61,6 +61,7 @@ class HabitServer(threading.Thread):
             webapp = SpaceHabitHome()
             webapp.login = LoginController()
             webapp.login.validate = ValidationController()
+            webapp.main = MainController()
             cherrypy.tree.mount(webapp,"/",self.conf)
             cherrypy.engine.start()
         cherrypy.engine.block()

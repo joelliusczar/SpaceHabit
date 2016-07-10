@@ -1,27 +1,34 @@
 $(function () {
-
+    localDate = new Date()
+    $.ajax({
+        url: "main/checkin",
+        type: 'get',
+        dataType: 'json',
+        data: { 'utcElapsedTime': Date.now(), 'utcOffset': localDate.getTimezoneOffset() },
+        success: onCheckInSuccess
+    });
 });
 
-function onGetDataFromServerSuccess(data) {
-    
+function onCheckInSuccess(data) {
+    console.log(data);
 }
 
 //$(function(){
     
-//    //$.ajax({
-//    //    url: "/hero",
-//    //    type: 'get',
-//    //    dataType: 'json',
-//    //    error: function (p1,p2,p3) {
-//    //        //alert(p3);
-//    //    },
-//    //    success: function (data) {
-//    //        //heroFromJson = JSON.parse(data);
+    //$.ajax({
+    //    url: "/hero",
+    //    type: 'get',
+    //    dataType: 'json',
+    //    error: function (p1,p2,p3) {
+    //        //alert(p3);
+    //    },
+    //    success: function (data) {
+    //        //heroFromJson = JSON.parse(data);
             
 
-//    //        //ko.applyBindings(new SpaceHabitModel(heroFromJson));
-//    //    }
-//    //});
+    //        //ko.applyBindings(new SpaceHabitModel(heroFromJson));
+    //    }
+    //});
   
 //  function clearDailyEditInputs(){
 //    $('#edit_daily_box input').val("");

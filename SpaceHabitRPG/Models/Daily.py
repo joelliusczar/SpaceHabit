@@ -1,107 +1,85 @@
 from HabitBaseModel import HabitBaseModel
+from AllDBFields import DailyDbFields
 import DatabaseLayer
 
 
-class DailyFields:
-  NAME = 'name'
-  NOTE = 'note'
-  URGENCY = 'urgency'
-  DIFFICULTY = 'difficulty'
-  TRIGGER_PERIOD_LENGTH = 'triggerPeriodLength'
-  DAYS_UNTIL_TRIGGER = 'daysUntilTrigger'
-  SORT_KEY = 'sortKey'
-  ACTIVE_DAYS = 'activeDays'
-  PUBLIC_KEY = 'PublicKey'
 
-def get_dailies_by_account(id,isCompleted=False):
-  collection = DatabaseLayer.get_table(Daily.COLLECTION_NAME)
-  return collection.find({Daily.ID_KEY:id,'isCompleted':isCompleted})\
-    .sort(DailyFields.SORT_KEY,1)
+
 
 class Daily(HabitBaseModel):
   """
     This is a wrapper for the daily data from the database
   """
 
-  COLLECTION_NAME = 'dailies'
+  @classmethod
+  def get_dailies_by_account(cls,accountPk,isCompleted=False):
+    collection = DatabaseLayer.get_table(cls.get_dbFields().COLLECTION_NAME)
+    return collection.find({cls.get_dbFields().ACCOUNT_PK_KEY:accountPk,'isCompleted':isCompleted})\
+      .sort(DailyDbFields.SORT_KEY,1)
 
-  def __init__(self,dict=None,id = None):
-    """
-      args:
-        dict:
-          loads the properties of the model from the dict.
-        id:
-          uses the id to load this model from the database.
-          If both a dict and id are supplied, the dict is used and the id is 
-          ignored. 
-          If nether are supplied then the model is empty
-    """
-    super().__init__(dict =dict,id =id)
-
-
-  @property
-  def id(self):
-    return self._dict[DailyFields.ID_KEY]
+  @classmethod
+  def get_dbFields(cls):
+    return DailyDbFields
 
   @property
   def name(self):
-    return self._dict[DailyFields.NAME]
+    return self._dict[DailyDbFields.NAME]
 
   @name.setter
   def name(self,value):
-    self._dict[DailyFields.NAME] = value
-    self._changes[DailyFields.NAME] = value
+    self._dict[DailyDbFields.NAME] = value
+    self._changes[DailyDbFields.NAME] = value
 
   @property
   def note(self):
-    return self._dict[DailyFields.NOTE]
+    return self._dict[DailyDbFields.NOTE]
 
   @note.setter
   def note(self,value):
-    self._dict[DailyFields.NOTE] = value
-    self._changes[DailyFields.NOTE] = value
+    self._dict[DailyDbFields.NOTE] = value
+    self._changes[DailyDbFields.NOTE] = value
 
   @property
   def urgency(self):
-    return self._dict[DailyFields.URGENCY]
+    return self._dict[DailyDbFields.URGENCY]
 
   @urgency.setter
   def urgency(self,value):
-    self._dict[DailyFields.URGENCY] = value
-    self._changes[DailyFields.URGENCY] = value
+    self._dict[DailyDbFields.URGENCY] = value
+    self._changes[DailyDbFields.URGENCY] = value
 
   @property
   def difficulty(self):
-    return self._dict[DailyFields.DIFFICULTY]
+    return self._dict[DailyDbFields.DIFFICULTY]
 
   @difficulty.setter
   def difficulty(self,value):
-    self._dict[DailyFields.DIFFICULTY] = value
-    self._changes[DailyFields.DIFFICULTY] = value
+    self._dict[DailyDbFields.DIFFICULTY] = value
+    self._changes[DailyDbFields.DIFFICULTY] = value
 
   @property
   def triggerPeriodLength(self):
-    return self._dict[DailyFields.TRIGGER_PERIOD_LENGTH]
+    return self._dict[DailyDbFields.TRIGGER_PERIOD_LENGTH]
 
   @triggerPeriodLength.setter
   def triggerPeriodLength(self,value):
-    self._dict[DailyFields.TRIGGER_PERIOD_LENGTH] = value
-    self._changes[DailyFields.TRIGGER_PERIOD_LENGTH] = value
+    self._dict[DailyDbFields.TRIGGER_PERIOD_LENGTH] = value
+    self._changes[DailyDbFields.TRIGGER_PERIOD_LENGTH] = value
 
   @property
   def daysUntilTrigger(self):
-    return self._dict[DailyFields.DAYS_UNTIL_TRIGGER]
+    return self._dict[DailyDbFields.DAYS_UNTIL_TRIGGER]
 
   @daysUntilTrigger.setter
   def daysUntilTrigger(self,value):
-    self._dict[DailyFields.DAYS_UNTIL_TRIGGER] = value
-    self._changes[DailyFields.DAYS_UNTIL_TRIGGER] = value
+    self._dict[DailyDbFields.DAYS_UNTIL_TRIGGER] = value
+    self._changes[DailyDbFields.DAYS_UNTIL_TRIGGER] = value
 
   @property
   def activeDays(self):
-    return self._dict[DailyFields.ACTIVE_DAYS]
+    return self._dict[DailyDbFields.ACTIVE_DAYS]
 
   @activeDays.setter
   def activeDays(self,value):
-    self._dict[DailyFields.ACTIVE_DAYS] = value
-    self._changes[DailyFields.ACTIVE_DAYS] = value
+    self._dict[DailyDbFields.ACTIVE_DAYS] = value
+    self._changes[DailyDbFields.ACTIVE_DAYS] = value

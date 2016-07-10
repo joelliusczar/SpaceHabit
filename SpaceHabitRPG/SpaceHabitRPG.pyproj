@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>60383a39-fa97-4e70-a3b7-20aa3969670b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Tests\ForCoreGame\Test_Progression.py</StartupFile>
+    <StartupFile>Web Server\SpaceHabitServer.py</StartupFile>
     <SearchPath>CoreGame\;HabitFrontend\;Helpers\;Story\;Tests\;Types\;Web Server\;Web Server\Controllers\;Tests\TestHelpers\;Tests\ForCoreGame\;Tests\ForHelpers\;Tests\ForTestHelpers\;Tests\ForTypes\;Tests\JSTests\;Models\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -104,9 +104,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreGame\DamageReward.py" />
-    <Compile Include="CoreGame\Progression.py" />
     <Compile Include="CoreGame\StartUpRoutine.py" />
     <Compile Include="CoreGame\TaskCompleters.py" />
+    <Compile Include="Helpers\AllDBFields.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\AuthenticationLayer.py">
       <SubType>Code</SubType>
     </Compile>
@@ -115,27 +117,43 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\DatabaseLayer.py" />
-    <Compile Include="Helpers\EverywhereConstants.py">
+    <Compile Include="Helpers\GeneralUtilities.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\Heap.py" />
+    <Compile Include="Helpers\OrphanedModelException.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Account.py" />
+    <Compile Include="Models\BaseModel.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Daily.py" />
     <Compile Include="Models\HabitBaseModel.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Hero.py" />
+    <Compile Include="Models\Monster.py" />
+    <Compile Include="Models\StoryModels.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Zone.py" />
+    <Compile Include="Story\Defintions.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Story\MonsterDefinitions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Story\StoryEvents.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Story\ZoneDefinitions.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\ForCoreGame\Test_Progression.py">
+    <Compile Include="Tests\ForHelpers\Test_AuthenticationLayer.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\ForHelpers\Test_AuthenticationLayer.py">
+    <Compile Include="Tests\ForHelpers\Test_GeneralUtilities.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\ForHelpers\Test_Heap.py">
@@ -148,6 +166,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\ForTypes\Test_HabitBaseModel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTypes\Test_Hero.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTypes\Test_Monster.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\ForTypes\Test_Zone.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\Frontend\LoginPageNewUserTests.py">
@@ -172,6 +199,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\DatabaseTestSetupCleanup.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\MonkeyPatches.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\SpaceUnitTest.py">

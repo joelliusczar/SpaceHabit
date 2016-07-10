@@ -153,7 +153,7 @@ class Test_LoginJSTest(SpaceUnitTest):
 
   def test_loginAjaxSuccessSession(self):
     AuthenticationLayer.disableAuthenticationRedirects = True
-    self.driver.execute_script("loginAjaxSuccess({'errors':[\"#bad_login\",\"#bad_login_pw\"],'success':false});")
+    self.driver.execute_script("loginAjaxSuccess({'messages':[\"#bad_login\",\"#bad_login_pw\"],'success':false});")
     
     self.assertEqual(self.driver.title,"Login to Space Habit Frontier")
     elem = self.driver.find_element_by_id("bad_login")
@@ -161,7 +161,7 @@ class Test_LoginJSTest(SpaceUnitTest):
     elem = self.driver.find_element_by_id("bad_login_pw")
     self.assertTrue(elem.is_displayed())
 
-    self.driver.execute_script("loginAjaxSuccess({'errors':[\"#bad_login_pw\"],'success':false});")
+    self.driver.execute_script("loginAjaxSuccess({'messages':[\"#bad_login_pw\"],'success':false});")
     
     self.assertEqual(self.driver.title,"Login to Space Habit Frontier")
     elem = self.driver.find_element_by_id("bad_login")
@@ -169,7 +169,7 @@ class Test_LoginJSTest(SpaceUnitTest):
     elem = self.driver.find_element_by_id("bad_login_pw")
     self.assertTrue(elem.is_displayed())
 
-    self.driver.execute_script("loginAjaxSuccess({'errors':[],'success':true});")
+    self.driver.execute_script("loginAjaxSuccess({'messages':[],'success':true});")
     #WebDriverWait(self.driver,10).until(EC.title_is("Space Habit Frontier!"))
     self.assertEqual(self.driver.title,"Space Habit Frontier!")
 

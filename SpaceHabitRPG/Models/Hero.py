@@ -1,173 +1,188 @@
 from HabitBaseModel import HabitBaseModel
+from AllDBFields import HeroDbFields
 from Zone import Zone
-import DatabaseLayer
-import uuid
+from Monster import Monster
 
 
 
-class HeroFields:
-  ACCOUNT_ID = 'accountId'
-  SHIP_NAME = 'shipName'
-  LVL = 'lvl'
-  GOLD = 'gold'
-  MAX_HP = 'maxHp'
-  NOW_HP = 'nowHp'
-  MAX_XP = 'maxXp'
-  NOW_XP = 'nowXp'
-  ATTACK_LVL = 'attackLvl'
-  DEFENSE_LVL = 'defenseLvl'
-  ZONE_VISIT_COUNTS = 'zoneVisitCounts'
-  PUBLIC_KEY = 'PublicKey'
-  HAS_LEFT_PORT = 'hasLeftPort'
-  ZONE = 'zone'
 
 
 
-def create_new_hero(accountId = None,shipName = ""):
-  hero = {
-    HeroFields.ACCOUNT_ID: accountId,
-    HeroFields.SHIP_NAME: shipName,
-    HeroFields.LVL:1,
-    HeroFields.GOLD:0,
-    HeroFields.MAX_HP: 100,
-    HeroFields.NOW_HP: 100,
-    HeroFields.MAX_XP: 50,
-    HeroFields.NOW_XP: 0,
-    HeroFields.ATTACK_LVL: 1,
-    HeroFields.DEFENSE_LVL: 1,
-    HeroFields.PUBLIC_KEY: uuid.uuid4().hex
 
-  }
-  collection = DatabaseLayer.get_table(Hero.COLLECTION_NAME)
-  id = collection.insert_one(hero).inserted_id
-  return id
 
 class Hero(HabitBaseModel):
   """
     This is a wrapper for the hero data from the database
   """
-
-  COLLECTION_NAME = 'heros'
-  _zone = None
-
-  def __init__(self,dict=None,id = None):
-    """
-      args:
-        dict:
-          loads the properties of the model from the dict.
-        id:
-          uses the id to load this model from the database.
-          If both a dict and id are supplied, the dict is used and the id is 
-          ignored. 
-          If nether are supplied then the model is empty
-    """
-
-    super().__init__(dict =dict,id =id)
   
 
-  @property
-  def id(self):
-    return self._dict[Hero.ID_KEY]
+  @classmethod
+  def construct_new_hero_in_db(cls,accountId = None,shipName = ""):
+    import uuid
+    zoneVisitCounts = {}
+    homeZone = Zone.get_home_zone()
+    zones = []
+    zones.append(Zone.construct_new_zone(1,zoneVisitCounts,True).dict)
+    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).dict)
+    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).dict)
+    homeZone.nextZoneReferenceList = zones
+    hero = {
+      HeroDbFields.ACCOUNT_PK_KEY: accountId,
+      HeroDbFields.SHIP_NAME: shipName,
+      HeroDbFields.LVL:1,
+      HeroDbFields.GOLD:0,
+      HeroDbFields.MAX_HP: 100,
+      HeroDbFields.NOW_HP: 100,
+      HeroDbFields.MAX_XP: 50,
+      HeroDbFields.NOW_XP: 0,
+      HeroDbFields.ATTACK_LVL: 1,
+      HeroDbFields.DEFENSE_LVL: 1,
+      HeroDbFields.PUBLIC_KEY: uuid.uuid4().hex,
+      HeroDbFields.ZONE_VISIT_COUNTS: zoneVisitCounts,
+      HeroDbFields.IS_IN_ZONE_LIMBO: True
+    }
+    heroObj = cls.create_model_from_dict(hero)
+    heroObj.zone = homeZone
+    heroObj.save_changes()
+    return heroObj.get_pk()
+
+  def __init__(self):
+    self._zone = None
+    self._monster = None
+    super().__init__()
+
+  @classmethod
+  def get_dbFields(cls):
+    return HeroDbFields
+
+  def save_changes(self):
+    super().save_changes()
+    self.zone.save_changes(self.get_pk())
+    if self.monster:
+      self.monster.save_changes(self.get_pk())
+
+
+
 
 
   @property
   def lvl(self):
-    return self._dict[HeroFields.LVL]
+    return self.dict[self.get_dbFields().LVL]
 
   @lvl.setter
   def lvl(self,value):
-    self._dict[HeroFields.LVL] = value
-    self._changes[HeroFields.LVL] = value
+    self.dict[self.get_dbFields().LVL] = value
+    self._changes[self.get_dbFields().LVL] = value
 
   @property
   def maxHp(self):
-    return self._dict[HeroFields.MAX_HP]
+    return self.dict[self.get_dbFields().MAX_HP]
 
   @maxHp.setter
   def maxHp(self,value):
-    self._dict[HeroFields.MAX_HP] = value
-    self._changes[HeroFields.MAX_HP] = value
+    self.dict[self.get_dbFields().MAX_HP] = value
+    self._changes[self.get_dbFields().MAX_HP] = value
 
   @property
   def nowHp(self):
-    return self._dict[HeroFields.NOW_HP]
+    return self.dict[self.get_dbFields().NOW_HP]
 
   @nowHp.setter
   def nowHp(self,value):
-    self._dict[HeroFields.NOW_HP] = value
-    self._changes[HeroFields.NOW_HP] = value
+    self.dict[self.get_dbFields().NOW_HP] = value
+    self._changes[self.get_dbFields().NOW_HP] = value
 
   @property
   def maxXp(self):
-    return self._dict[HeroFields.MAX_XP]
+    return self.dict[self.get_dbFields().MAX_XP]
 
   @maxXp.setter
   def maxXp(self,value):
-    self._dict[HeroFields.MAX_XP] = value
-    self._changes[HeroFields.MAX_XP] = value
+    self.dict[self.get_dbFields().MAX_XP] = value
+    self._changes[self.get_dbFields().MAX_XP] = value
 
   @property
   def nowXp(self):
-    return self._dict[HeroFields.NOW_XP]
+    return self.dict[self.get_dbFields().NOW_XP]
 
   @nowXp.setter
   def nowXp(self,value):
-    self._dict[HeroFields.NOW_XP] = value
-    self._changes[HeroFields.NOW_XP] = value
+    self.dict[self.get_dbFields().NOW_XP] = value
+    self._changes[self.get_dbFields().NOW_XP] = value
 
   @property
   def gold(self):
-    return self._dict[HeroFields.GOLD]
+    return self.dict[self.get_dbFields().GOLD]
 
   @gold.setter
   def gold(self,value):
-    self._dict[HeroFields.GOLD] = value
-    self._changes[HeroFields.GOLD] = value
+    self.dict[self.get_dbFields().GOLD] = value
+    self._changes[self.get_dbFields().GOLD] = value
 
   @property
   def attackLvl(self):
-    return self._dict[HeroFields.ATTACK_LVL]
+    return self.dict[self.get_dbFields().ATTACK_LVL]
 
   @attackLvl.setter
   def attackLvl(self,value):
-    self._dict[HeroFields.ATTACK_LVL] = value
-    self._changes[HeroFields.ATTACK_LVL] = value
+    self.dict[self.get_dbFields().ATTACK_LVL] = value
+    self._changes[self.get_dbFields().ATTACK_LVL] = value
 
   @property
   def defenseLvl(self):
-    return self._dict[HeroFields.DEFENSE_LVL]
+    return self.dict[self.get_dbFields().DEFENSE_LVL]
 
   @defenseLvl.setter
   def defenseLvl(self,value):
-    self._dict[HeroFields.DEFENSE_LVL] = value
-    self._changes[HeroFields.DEFENSE_LVL] = value
+    self.dict[self.get_dbFields().DEFENSE_LVL] = value
+    self._changes[self.get_dbFields().DEFENSE_LVL] = value
 
   @property
   def zoneVisitCounts(self):
-    return self._dict[HeroFields.ZONE_VISIT_COUNTS]
+    return self.dict[self.get_dbFields().ZONE_VISIT_COUNTS]
 
   @zoneVisitCounts.setter
   def zoneVisitCounts(self,value):
-    self._dict[HeroFields.ZONE_VISIT_COUNTS] = value
-    self._changes[HeroFields.ZONE_VISIT_COUNTS] = value
+    self.dict[self.get_dbFields().ZONE_VISIT_COUNTS] = value
+    self._changes[self.get_dbFields().ZONE_VISIT_COUNTS] = value
 
   
   @property
   def zone(self):
     if not self._zone:
-      self._zone = Zone(self.id,self._dict[HeroFields.ZONE])
+      self._zone = Zone.construct_model_from_dict(self.dict[self.get_dbFields().ZONE])
+
     return self._zone
-    
+
+  @zone.setter
+  def zone(self,value):  
+    self.dict[self.get_dbFields().ZONE] = value.dict
+    self._changes[self.get_dbFields().ZONE] = value.dict
+    self._zone = Zone.construct_model_from_dict(self.dict[self.get_dbFields().ZONE])
 
 
   @property
-  def hasLeftPort(self):
-    if HeroFields.HAS_LEFT_PORT in self._dict:
-      return self._dict[HeroFields.HAS_LEFT_PORT]
+  def isInZoneLimbo(self):
+    if self.get_dbFields().IS_IN_ZONE_LIMBO in self.dict:
+      return self.dict[self.get_dbFields().IS_IN_ZONE_LIMBO]
     else:
-      return False
+      return True
 
-  @hasLeftPort.setter
-  def hasLeftPort(self,value):
-    self._dict[HeroFields.HAS_LEFT_PORT] = value
-    self._changes[HeroFields.HAS_LEFT_PORT] = value
+  @isInZoneLimbo.setter
+  def isInZoneLimbo(self,value):
+    self.dict[self.get_dbFields().IS_IN_ZONE_LIMBO] = value
+    self._changes[self.get_dbFields().IS_IN_ZONE_LIMBO] = value
+
+  @property
+  def monster(self):
+    if self.isInZoneLimbo:
+      return None
+    if not self._monster:
+      self._monster = Monster.construct_model_from_dict(self.dict[self.get_dbFields().MONSTER])
+    return self._monster
+
+  @monster.setter
+  def monster(self,value):
+    self.dict[self.get_dbFields().MONSTER] = value.dict
+    self._changes[self.get_dbFields().MONSTER] = value.dict
+    self._monster = Monster.construct_model_from_dict(self.dict[self.get_dbFields().MONSTER])

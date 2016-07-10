@@ -33,6 +33,7 @@ def get_table(tableName):
     returns:
       a dataset upon which futher inquries can be done.
   """
+  global isUnitTestMode
   open_conn()
   if isUnitTestMode:
     db = connection['test']
