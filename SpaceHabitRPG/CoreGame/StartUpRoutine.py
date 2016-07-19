@@ -17,20 +17,21 @@ def build_first_time_checkin_messages(hero):
 
     return:
       a dict with two keys: 
-        key1: messages: 
-        value1: a list of messages to display at the user
-        key2: zonePrompt:
-        value2: a small list of dicts that the zone info that the user can
+        key1: storyNotice: 
+        value1: a story element to display at the user
+        key2: zoneNotice: 
+        value2: the new zone description
+        key3: zonePrompt:
+        value3: a small list of dicts that the zone info that the user can
         choose
   """
   result = {}
-  result['notices'] = []
-  result['notices'].append(insert_ship_name_into_intro(hero.shipName))
-  result['notices'].append(hero.zone.get_description())
+  result['storyNotice'] = get_intro_with_shipName_included(hero.shipName)
+  result['zoneNotice'] = hero.zone.get_description()
   result['zonePrompt'] = hero.zone.nextZoneReferenceList
   return result
 
-def insert_ship_name_into_intro(shipName):
+def get_intro_with_shipName_included(shipName):
   """
     we want to check if the user gave their ship a name and then add it to the
     story. And if they didn't, then we'll modify accordingly.

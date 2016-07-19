@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 phantomjs-2.1.1-windows/
+*.idb
 
 # C extensions
 *.so

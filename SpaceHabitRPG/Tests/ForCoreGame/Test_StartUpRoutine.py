@@ -8,13 +8,13 @@ import random
 class Test_StartUpRoutine(SpaceUnitTest):
   
   def test_insert_ship_name_into_intro(self):
-    s = StartUpRoutine.insert_ship_name_into_intro("USS TestTest")
+    s = StartUpRoutine.get_intro_with_shipName_included("USS TestTest")
     self.assertEqual(len(s),678)
     self.assertNotEqual(s.find("USS TestTest"),-1)
-    s = StartUpRoutine.insert_ship_name_into_intro("")
+    s = StartUpRoutine.get_intro_with_shipName_included("")
     self.assertEqual(len(s),758)
     self.assertNotEqual(s.find("USS Placeholder"),-1)
-    s = StartUpRoutine.insert_ship_name_into_intro(None)
+    s = StartUpRoutine.get_intro_with_shipName_included(None)
     self.assertEqual(len(s),758)
     self.assertNotEqual(s.find("USS Placeholder"),-1)
 
