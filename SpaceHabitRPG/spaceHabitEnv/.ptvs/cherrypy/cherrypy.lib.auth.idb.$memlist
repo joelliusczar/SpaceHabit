@@ -1,5 +1,0 @@
-httpauth
-basic_auth
-cherrypy
-check_auth
-digest_auth

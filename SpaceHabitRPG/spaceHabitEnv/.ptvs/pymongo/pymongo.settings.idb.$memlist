@@ -1,9 +1,0 @@
-PoolOptions
-SERVER_SELECTION_TIMEOUT
-LOCAL_THRESHOLD_MS
-threading
-TOPOLOGY_TYPE
-pool
-TopologySettings
-ServerDescription
-monitor
