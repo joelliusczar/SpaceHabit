@@ -22,9 +22,9 @@ class Hero(HabitBaseModel):
     zoneVisitCounts = {}
     homeZone = Zone.get_home_zone()
     zones = []
-    zones.append(Zone.construct_new_zone(1,zoneVisitCounts,True).dict)
-    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).dict)
-    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).dict)
+    zones.append(Zone.construct_new_zone(1,zoneVisitCounts,True).get_full_model_info())
+    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).get_full_model_info())
+    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).get_full_model_info())
     homeZone.nextZoneReferenceList = zones
     hero = {
       HeroDbFields.ACCOUNT_PK_KEY: accountId,
@@ -186,3 +186,12 @@ class Hero(HabitBaseModel):
     self.dict[self.get_dbFields().MONSTER] = value.dict
     self._changes[self.get_dbFields().MONSTER] = value.dict
     self._monster = Monster.construct_model_from_dict(self.dict[self.get_dbFields().MONSTER])
+
+  @property
+  def shipName(self):
+    return self.dict[self.get_dbFields().SHIP_NAME]
+
+  @shipName.setter
+  def shipName(self,value):
+    self.dict[self.get_dbFields().SHIP_NAME] = value
+    self._changes[self.get_dbFields().SHIP_NAME] = value

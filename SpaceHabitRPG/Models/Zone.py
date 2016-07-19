@@ -106,7 +106,7 @@ class Zone(StoryModels):
   def get_description(self):
     if not self._definition:
       self._definition = ZoneDefinition(self.definitionKey)
-    return self._definition.get_name()
+    return self._definition.get_description()
 
   @property
   def previousZoneReference(self):
@@ -204,6 +204,7 @@ class Zone(StoryModels):
       zone.lvl = gu.calculate_lvl(heroLvl,10)
     return zone
 
+
   @classmethod
   def get_random_zone_definitionKey(cls,heroLvl):
     """
@@ -220,6 +221,7 @@ class Zone(StoryModels):
     selectedZoneGroupKey = random.choice(zoneGroupKeys)
     zoneList = list(AllZones[selectedZoneGroupKey].keys())
     return random.choice(zoneList)
+
 
   @classmethod 
   def generate_full_zone_name_suffix(cls,visitCount):
@@ -275,6 +277,7 @@ class Zone(StoryModels):
       numericSuffix = Zone.get_numeric_suffix(visitCount,len(symbols))
       visitCount = Zone.adjust_visitCount_for_extremely_huge_counts(visitCount,len(symbols))
     return {'numericSuffix':numericSuffix,'visitCount':visitCount}
+
 
   @classmethod
   def get_symbol_suffix(cls,visitCount,symbols):

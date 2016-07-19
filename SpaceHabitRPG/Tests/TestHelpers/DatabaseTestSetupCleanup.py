@@ -16,8 +16,8 @@ def clean_up():
 
 def insert_test_user():
   loginPk = insert_one_test_login()
-  accountPk = insert_one_test_account(loginPk)
-  heroPk = insert_one_test_hero(accountPk)
+  accountPk = insert_one_default_account(loginPk)
+  heroPk = insert_one_default_hero(accountPk)
   return {'loginPk':loginPk,'accountPk':accountPk,'heroPk':heroPk}
 
 def insert_one_test_login():
@@ -26,10 +26,15 @@ def insert_one_test_login():
     "a@b.c",authFields.USER_PASSWORD:CryptKeeper.encrypt_str("123456")}).inserted_id
   return pk
 
-def insert_one_test_account(loginPk=None):
+def insert_one_default_account(loginPk=None):
   from Account import Account
   accountPk = Account.create_new_account_in_db(loginPk)
   return accountPk
+
+def insert_one_default_hero(accountPk = None):
+  from Hero import Hero
+  pk = Hero.construct_new_hero_in_db(accountPk,"")
+  return pk
 
 def insert_one_test_hero(accountPk = None):
   from Hero import HeroDbFields

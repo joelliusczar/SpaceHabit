@@ -9,8 +9,8 @@ class Test_HabitBaseModel(SpaceUnitTest):
 
   @classmethod
   def setUpClass(cls):
-    dbtestHelp.clean_up()
     DatabaseLayer.isUnitTestMode = True
+    dbtestHelp.clean_up()
     return super().setUpClass()
 
   def tearDown(self):

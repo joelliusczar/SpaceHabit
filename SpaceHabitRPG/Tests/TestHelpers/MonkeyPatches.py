@@ -44,17 +44,7 @@ def mock_choice_first_index(array):
 
 
 def mock_choice(array):
-  """
-    this will be used to replace the default random.choice method.
-    We need a test method that will act consistently.
-
-    args:
-      array
-        this is the list from which values will be selected
-
-      returns:
-        an item from the list. You know what you put in there.
-  """
+  
   s = sorted(array)
   global testZoneGroup
   if s[0] == "lvl1Zones":
@@ -65,3 +55,5 @@ def mock_choice(array):
     testRandomIterDict[s[0]] = iter(s)
 
   return next(testRandomIterDict[s[0]])
+
+

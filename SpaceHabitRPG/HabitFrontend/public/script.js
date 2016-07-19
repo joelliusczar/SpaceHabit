@@ -10,7 +10,13 @@ $(function () {
 });
 
 function onCheckInSuccess(data) {
-    console.log(data);
+    var notices = data['notices']
+
+    for (var i = 0; i < notices.length; i++) {
+        $("#notice_content").html(notices[i]);
+        $('#notice_content').modal('show');
+        console.log(i);
+    }
 }
 
 //$(function(){

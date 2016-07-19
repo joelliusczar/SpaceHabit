@@ -13,7 +13,6 @@ TestCallerModule
 TestFSAssetDescriptor
 DummyPackageOrModule
 here
-__abspath__
 TestResolver
 TestPackagePath
 TestPkgResourcesAssetDescriptor

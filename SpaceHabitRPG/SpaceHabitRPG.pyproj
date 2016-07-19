@@ -150,6 +150,9 @@
     <Compile Include="Story\ZoneDefinitions.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\ForCoreGame\Test_StartUpRoutine.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\ForHelpers\Test_AuthenticationLayer.py">
       <SubType>Code</SubType>
     </Compile>

@@ -4,14 +4,16 @@ from Zone import Zone
 from Monster import Monster
 import random
 
-def build_first_time_checkin_messages(zone):
+def build_first_time_checkin_messages(hero):
   """
     We want to build a dict that can be sent back to the client when they
     create a hero
 
     args:
-      zone: an object of the zone model. We want to iterate through the
-      zone options for where to go next
+      hero: 
+        an object of the hero model. We want to iterate through the
+        zone options for where to go next and we need the shipname from 
+        the hero.
 
     return:
       a dict with two keys: 
@@ -23,23 +25,40 @@ def build_first_time_checkin_messages(zone):
   """
   result = {}
   result['notices'] = []
-  result['notices'].append(storyEvents['newUser'])
-  result['notices'].append(zone.get_description())
-  result['zonePrompt'] = zone.nextZoneReferenceList
+  result['notices'].append(insert_ship_name_into_intro(hero.shipName))
+  result['notices'].append(hero.zone.get_description())
+  result['zonePrompt'] = hero.zone.nextZoneReferenceList
   return result
 
+def insert_ship_name_into_intro(shipName):
+  """
+    we want to check if the user gave their ship a name and then add it to the
+    story. And if they didn't, then we'll modify accordingly.
+    
+    args:
+      shipName:
+        string, name of the ship, duh!
+
+    return:
+      modified story element
+  """
+  storyElement = storyEvents['newUser']['description']
+  if shipName:
+    return storyElement.format(shipName)
+  else:
+    return storyElement.format(storyEvents['noShipNameIntro']['description'])
 
 
 
-def check_in_and_get_notices(heroId,accountId,checkinTimeUtc,utcOffset):
+def check_in_and_get_notices(heroPk,accountPk,checkinTimeUtc,utcOffset):
   """
     this should be called on page load and should be used to get any notices
     for the use
 
     args:
-      heroId:
+      heroPk:
         we want a  pymongo objectId for the hero table
-      accountId:
+      accountPk:
         we want a  pymongo objectId for the hero table
       checkinTimeUtc:
         this needs to be that the user check in and it needs to be utc
@@ -55,15 +74,15 @@ def check_in_and_get_notices(heroId,accountId,checkinTimeUtc,utcOffset):
   """
   from Hero import Hero
   from Account import Account
-  hero = Hero.create_model_from_pk(heroId)
-  account = Account.create_model_from_pk(accountId)
+  hero = Hero.create_model_from_pk(heroPk)
+  account = Account.create_model_from_pk(accountPk)
 
   lastCheckinTime = account.lastCheckInTime
   account.lastCheckInTime = checkinTimeUtc
   account.save_changes()
 
   if not lastCheckinTime:
-    messages = build_first_time_checkin_messages(hero.zone)
+    messages = build_first_time_checkin_messages(hero)
     hero.isInZoneLimbo = True
     hero.save_changes()
     return messages

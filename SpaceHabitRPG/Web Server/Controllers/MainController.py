@@ -4,6 +4,7 @@ from Account import Account
 import StartUpRoutine
 import cherrypy
 import AuthenticationLayer
+import GeneralUtilities as gu
 
 class MainController(object):
   """
@@ -19,8 +20,9 @@ class MainController(object):
     """
       this is called by the main page when the site loads.
     """
-    heroId = cherrypy.session.get(BaseFields.HERO_PK_KEY)
-    accountId = cherrypy.session.get(BaseFields.ACCOUNT_PK_KEY)
+    heroPk = cherrypy.session.get(BaseFields.HERO_PK_KEY)
+    accountPk = cherrypy.session.get(BaseFields.ACCOUNT_PK_KEY)
+    utcElapsedTime = gu.adjust_timestamp_from_js_to_python(utcElapsedTime)
     messages = StartUpRoutine.\
-      check_in_and_get_notices(heroId,accountId,utcElapsedTime,utcOffset)
+      check_in_and_get_notices(heroPk,accountPk,utcElapsedTime,utcOffset)
     return messages

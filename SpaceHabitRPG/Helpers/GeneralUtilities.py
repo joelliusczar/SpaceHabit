@@ -39,6 +39,7 @@ def adjust_timestamp_from_js_to_python(jsTimestamp):
         converted timestamp
 
   """
-  return jsTimestamp/1000
+  
+  return float(jsTimestamp)/1000
 
 
