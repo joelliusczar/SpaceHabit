@@ -6,6 +6,7 @@
 from AuthenticationLayer import AuthenticationFields as authFields
 import DatabaseLayer
 import CryptKeeper
+import MonkeyPatches
 
 def clean_up():
   """
@@ -14,7 +15,7 @@ def clean_up():
   connection = DatabaseLayer.open_conn()
   connection.drop_database("test")
 
-def insert_test_user():
+def insert_total_test_user():
   loginPk = insert_one_test_login()
   accountPk = insert_one_default_account(loginPk)
   heroPk = insert_one_default_hero(accountPk)
@@ -31,10 +32,14 @@ def insert_one_default_account(loginPk=None):
   accountPk = Account.create_new_account_in_db(loginPk)
   return accountPk
 
+
 def insert_one_default_hero(accountPk = None):
   from Hero import Hero
-  pk = Hero.construct_new_hero_in_db(accountPk,"")
-  return pk
+  MonkeyPatches.set_mock_choice()
+  h = Hero.construct_unsaved_hero(accountPk,"")
+  MonkeyPatches.reset_choice()
+  h.save_changes()
+  return h.get_pk()
 
 def insert_one_test_hero(accountPk = None):
   from Hero import HeroDbFields

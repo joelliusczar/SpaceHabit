@@ -26,3 +26,11 @@ class MainController(object):
     messages = StartUpRoutine.\
       check_in_and_get_notices(heroPk,accountPk,utcElapsedTime,utcOffset)
     return messages
+
+  @cherrypy.expose
+  @cherrypy.tools.redirect_unauthenticated()
+  def disable_popups(self):
+    accountPk = cherrypy.session.get(BaseFields.ACCOUNT_PK_KEY)
+    account = Account.create_model_from_pk(accountPk)
+    account.preventPopups = True
+    account.save_changes()

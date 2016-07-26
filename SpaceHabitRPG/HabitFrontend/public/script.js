@@ -1,5 +1,12 @@
 $(function () {
-    localDate = new Date()
+    var localDate = new Date()
+    var noticeData = null;
+    var preventPopUps = false;
+
+    $("button[name='story_intro_ok']").click(introCloseClick);
+
+    $("#story_notices").on('hidden.bs.modal', onStoryIntroHide);
+
     $.ajax({
         url: "main/checkin",
         type: 'get',
@@ -7,17 +14,49 @@ $(function () {
         data: { 'utcElapsedTime': Date.now(), 'utcOffset': localDate.getTimezoneOffset() },
         success: onCheckInSuccess
     });
+
+    function onStoryIntroHide() {
+        if (preventPopUps) {
+            return;
+        }
+        
+        $("#zone_notice_content").html(noticeData['zoneNotice']);
+        $('#zone_notices').modal('show');
+    }
+
+    function onCheckInSuccess(data) {
+        noticeData = data;
+        $("#story_notice_content").html(data['storyNotice']);
+        $('#story_notices').modal('show');
+    }
+
+    function generalAjaxSuccess() {
+        console.log("success");
+    }
+
+    function introCloseClick() {
+        checkPreventPopupsCheckbox();
+        $('#story_notices').modal('hide');
+    }
+
+    function zoneCloseClick() {
+        checkPreventPopupsCheckbox();
+        $('#zone_notices').modal('hide');
+    }
+
+    function checkPreventPopupsCheckbox() {
+        if ($('#no_popups_check').prop('checked')) {
+            preventPopUps = true;
+            $.ajax({
+                url: "main/disable_popups",
+                type: "get",
+                success: generalAjaxSuccess
+            });
+        }
+    }
 });
 
-function onCheckInSuccess(data) {
-    var notices = data['notices']
 
-    for (var i = 0; i < notices.length; i++) {
-        $("#notice_content").html(notices[i]);
-        $('#notice_content').modal('show');
-        console.log(i);
-    }
-}
 
 //$(function(){
     

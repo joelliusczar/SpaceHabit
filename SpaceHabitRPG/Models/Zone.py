@@ -42,8 +42,8 @@ class Zone(StoryModels):
       collection = DatabaseLayer.get_table(self.get_dbFields().COLLECTION_NAME)
       nestedZone = {HeroDbFields.ZONE:self.dict}
       ownerCollection.update_one({self.get_dbFields().PK_KEY:heroId},{'$set':nestedZone})
-      id = collection.insert_one(self.dict).inserted_id
-      self.dict[self.get_dbFields().PK_KEY] = id
+      pk = collection.insert_one(self.dict).inserted_id
+      self.dict[self.get_dbFields().PK_KEY] = pk
     self._changes = {}
 
 

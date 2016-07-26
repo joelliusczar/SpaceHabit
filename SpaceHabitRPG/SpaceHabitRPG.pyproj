@@ -192,6 +192,9 @@
     <Compile Include="Tests\Frontend\LoginSaveNewUser.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\Frontend\MainPageRequests.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\Frontend\PlaygroundLoad.py">
       <SubType>Code</SubType>
     </Compile>
@@ -205,6 +208,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\MonkeyPatches.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\SeleniumHelper.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\SpaceUnitTest.py">

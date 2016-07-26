@@ -31,25 +31,19 @@ class Account(HabitBaseModel):
       AccountFields.DEATH_GOLD_PENALTY: .25,
       AccountFields.HERO_LVL_PENALTY: 0,
       AccountFields.ZONE_LVL_PENALTY: "LVLRESTART",
-      AccountFields.ENEMY_HEALED_ON_ATTACK: False,
-      AccountFields.SELF_HEALED_ON_ATTACK: False,
       AccountFields.PERMA_DEATH: False,
       AccountFields.PUBLIC_ACCOUNT: False,
       AccountFields.PUBLIC_KEY: uuid.uuid4().hex,
-      AccountFields.CREATE_DATE: datetime.utcnow().timestamp()
+      AccountFields.CREATE_DATE: datetime.utcnow().timestamp(),
+      AccountFields.PREVENT_POPUPS: False
     }
     collection = DatabaseLayer.get_table(cls.get_dbFields().COLLECTION_NAME)
-    id = collection.insert_one(account).inserted_id
-    return id
+    pk = collection.insert_one(account).inserted_id
+    return pk
 
   @classmethod
   def get_dbFields(cls):
     return AccountFields
-
-  @property
-  def id(self):
-    return self.dict[self.get_dbFields().PK_KEY]
-
       
   @property
   def lastCheckInTime(self):
@@ -61,3 +55,11 @@ class Account(HabitBaseModel):
   @lastCheckInTime.setter
   def lastCheckInTime(self,value):
     self.dict[self.get_dbFields().LAST_CHECKIN_TIME] = value
+
+  @property
+  def preventPopups(self):
+    return self.dict[self.get_dbFields().PREVENT_POPUPS]
+
+  @preventPopups.setter
+  def preventPopups(self,value):
+    self.dict[self.get_dbFields().PREVENT_POPUPS] = value

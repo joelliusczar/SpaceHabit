@@ -28,14 +28,13 @@ class AccountFields(BaseFields):
   DEATH_GOLD_PENALTY = 'deathGoldPenalty'
   HERO_LVL_PENALTY = 'heroLvlPenalty'
   ZONE_LVL_PENALTY = 'zoneLvlPenalty'
-  ENEMY_HEALED_ON_ATTACK = 'enemyHealedOnAttack'
-  SELF_HEALED_ON_ATTACK = 'selfHealedOnAttack'
   PERMA_DEATH = 'permaDeath'
   STORY_MODE_IS_ON = 'storyModeIsOn'
   LAST_CHECKIN_TIME = 'lastCheckinTime'
   PUBLIC_ACCOUNT = 'publicAccount'
   PUBLIC_KEY = 'PublicKey'
   CREATE_DATE = 'creationDate'
+  PREVENT_POPUPS = 'preventPopups'
 
 class DailyDbFields(BaseFields):
   COLLECTION_NAME = 'dailies'

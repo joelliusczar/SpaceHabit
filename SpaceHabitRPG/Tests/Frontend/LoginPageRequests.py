@@ -36,12 +36,6 @@ class Test_LoginSaveNewUserWithRequests(SpaceUnitTest):
         raise TimeoutError("ran out of time")
     return super().tearDownClass()
 
-  def setUp(self):
-    
-    return super().setUp()
-
-   
-
 
   def test_send_success(self):
     s = requests.Session()

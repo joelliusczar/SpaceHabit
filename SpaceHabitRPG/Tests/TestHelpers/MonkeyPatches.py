@@ -1,6 +1,10 @@
+import random
+
 testRandomNum = 0
 testRandomIterDict = {}
 testZoneGroup = "lvl1Zones"
+random_choice = random.choice
+random_randint = random.randint
 
 def mock_randint(lowerBound,upperBound):
   """
@@ -23,7 +27,6 @@ def mock_randint(lowerBound,upperBound):
   return testRandomNum -1
 
 
-
 def mock_choice_first_index(array):
   """
     this will be used to replace the default random.choice method.
@@ -39,10 +42,6 @@ def mock_choice_first_index(array):
   return s[0]
 
 
-
-
-
-
 def mock_choice(array):
   
   s = sorted(array)
@@ -55,5 +54,22 @@ def mock_choice(array):
     testRandomIterDict[s[0]] = iter(s)
 
   return next(testRandomIterDict[s[0]])
+
+
+def set_mock_choice():
+  random.choice = mock_choice
+
+def set_mock_choice_first_index():
+  random.choice = mock_choice_first_index
+
+def set_mock_randint():
+  random.randint = mock_randint
+
+def reset_choice():
+  random.choice = random_choice
+
+def reset_randint():
+  random.randint = random_randint
+
 
 

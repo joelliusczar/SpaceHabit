@@ -1,5 +1,5 @@
 from SpaceUnitTest import SpaceUnitTest
-from selenium import webdriver
+import SeleniumHelper
 import SpaceHabitServer
 import threading
 import cherrypy
@@ -36,7 +36,7 @@ class Test_LoginPageNewUserTests(SpaceUnitTest):
     return super().tearDownClass()
 
   def setUp(self):
-    self.driver = webdriver.Firefox()
+    self.driver = SeleniumHelper.get_customized_firefox_driver()
     self.driver.implicitly_wait(5)
     self.driver.get("http://127.0.0.1:8080")
     self.open_new_user_box()

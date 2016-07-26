@@ -4,34 +4,45 @@ import StartUpRoutine
 import DatabaseTestSetupCleanup as dbHelp
 import MonkeyPatches
 import random
+import DatabaseLayer
 
 class Test_StartUpRoutine(SpaceUnitTest):
+
+  EXPECTED_CHAR_COUNT_PLACEHOLDER = 879
+  EXPECTED_CHAR_COUNT_TEST = 799
+
+  @classmethod
+  def setUpClass(cls):
+    DatabaseLayer.isUnitTestMode = True
+    dbHelp.clean_up()
+    return super().setUpClass()
+
+  def tearDown(self):
+    dbHelp.clean_up()
+    return super().tearDown()
   
   def test_insert_ship_name_into_intro(self):
     s = StartUpRoutine.get_intro_with_shipName_included("USS TestTest")
-    self.assertEqual(len(s),678)
+    self.assertEqual(len(s),self.EXPECTED_CHAR_COUNT_TEST)
     self.assertNotEqual(s.find("USS TestTest"),-1)
     s = StartUpRoutine.get_intro_with_shipName_included("")
-    self.assertEqual(len(s),758)
+    self.assertEqual(len(s),self.EXPECTED_CHAR_COUNT_PLACEHOLDER)
     self.assertNotEqual(s.find("USS Placeholder"),-1)
     s = StartUpRoutine.get_intro_with_shipName_included(None)
-    self.assertEqual(len(s),758)
+    self.assertEqual(len(s),self.EXPECTED_CHAR_COUNT_PLACEHOLDER)
     self.assertNotEqual(s.find("USS Placeholder"),-1)
 
   def test_build_first_time_checkin_messages(self):
     from ZoneDefinitions import ZoneDefinition
     from AllDBFields import ZoneDefinitionFields
     from AllDBFields import ZoneDBFields
-    pk = dbHelp.insert_one_test_hero()
-    random.choice = MonkeyPatches.mock_choice
-    hero = Hero.create_model_from_pk(pk)
+    pkStruct = dbHelp.insert_total_test_user()
+    hero = Hero.create_model_from_pk(pkStruct['heroPk'])
     m = StartUpRoutine.build_first_time_checkin_messages(hero)
-    n = m['notices']
-    self.assertEqual(len(n),2)
-    s0 = n[0]
-    self.assertEqual(len(s0),758)
+    s0 = m['storyNotice']
+    self.assertEqual(len(s0),self.EXPECTED_CHAR_COUNT_PLACEHOLDER)
     self.assertNotEqual(s0.find("USS Placeholder"),-1)
-    s1 = n[1]
+    s1 = m['zoneNotice']
     zdef = ZoneDefinition(ZoneDefinitionFields.HOME)
     self.assertEqual(s1,zdef.get_description())
     zPs = m['zonePrompt']

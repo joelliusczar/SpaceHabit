@@ -1,4 +1,8 @@
 
+.indent {
+    margin-left: 1em;
+}
+
 .fill_label{
 	font-size: 12px;
 }
@@ -30,8 +34,21 @@
 
 
 .task_modal_content{
+    
 	padding-left:25px;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .notice_content {
+        font-size:.9em;
+    }
+}
+
+.notice_content {
+    padding: 1em;
+}
+
+
 
 #hero_info_row{
 	background-color: #AA2886;

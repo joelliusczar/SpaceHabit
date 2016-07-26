@@ -15,9 +15,17 @@ class Hero(HabitBaseModel):
     This is a wrapper for the hero data from the database
   """
   
-
   @classmethod
-  def construct_new_hero_in_db(cls,accountId = None,shipName = ""):
+  def construct_unsaved_hero(cls,accountPk = None,shipName = ""):
+    """
+      args:
+        accountPk: 
+          an objectId for the accounts collection
+        shipName:
+          string. self-explainatory
+      returns:
+        an instance of the Hero class. Doesn't exist in db
+    """
     import uuid
     zoneVisitCounts = {}
     homeZone = Zone.get_home_zone()
@@ -27,7 +35,7 @@ class Hero(HabitBaseModel):
     zones.append(Zone.construct_new_zone(1,zoneVisitCounts).get_full_model_info())
     homeZone.nextZoneReferenceList = zones
     hero = {
-      HeroDbFields.ACCOUNT_PK_KEY: accountId,
+      HeroDbFields.ACCOUNT_PK_KEY: accountPk,
       HeroDbFields.SHIP_NAME: shipName,
       HeroDbFields.LVL:1,
       HeroDbFields.GOLD:0,
@@ -43,6 +51,20 @@ class Hero(HabitBaseModel):
     }
     heroObj = cls.create_model_from_dict(hero)
     heroObj.zone = homeZone
+    return heroObj
+
+  @classmethod
+  def construct_new_hero_in_db(cls,accountPk = None,shipName = ""):
+    """
+      args:
+        accountPk: 
+          an objectId for the accounts collection
+        shipName:
+          string. self-explainatory
+      returns:
+        an objectId for the heros collection
+    """
+    heroObj = Hero.construct_unsaved_hero(accountPk,shipName)
     heroObj.save_changes()
     return heroObj.get_pk()
 
@@ -189,7 +211,10 @@ class Hero(HabitBaseModel):
 
   @property
   def shipName(self):
-    return self.dict[self.get_dbFields().SHIP_NAME]
+    if self.get_dbFields().SHIP_NAME in self.dict:
+      return self.dict[self.get_dbFields().SHIP_NAME]
+    else:
+      return ""
 
   @shipName.setter
   def shipName(self,value):

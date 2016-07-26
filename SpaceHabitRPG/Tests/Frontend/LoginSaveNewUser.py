@@ -75,7 +75,7 @@ class Test_LoginSaveNewUser(SpaceUnitTest):
 
   def test_login(self):
     from selenium.common.exceptions import TimeoutException
-    dbHelp.insert_test_user()
+    dbHelp.insert_total_test_user()
     self.loginEmail.send_keys("a@b.c")
     self.loginPw.send_keys("123456")
     self.loginButton.click()
