@@ -1,8 +1,13 @@
 from SpaceUnitTest import SpaceUnitTest
 from Zone import Zone
+from AllDBFields import ZoneDBFields
+from AllDBFields import ZoneDefinitionFields
+from ZoneDefinitions import ZoneDefinition
 import random
 import MonkeyPatches
+import TestUtilities as tu
 import DatabaseTestSetupCleanup as dbHelp
+
 
 class Test_Zone(SpaceUnitTest):
     
@@ -55,21 +60,21 @@ class Test_Zone(SpaceUnitTest):
     random.randint = lambda l,u: 5
     lvl = 6
     visited = {}
-    z = Zone.construct_new_zone(lvl,visited)
-    self.assertEqual(z.get_fullName(),"Empty Space")
-    self.assertEqual(z.lvl,11)
-    self.assertEqual(z.maxMonsters,5)
+    z = Zone.construct_next_zone_choice(lvl,visited)
+    self.assertEqual(z[ZoneDBFields.FULL_NAME],"Empty Space")
+    self.assertEqual(z[ZoneDBFields.LVL],11)
+    self.assertEqual(z[ZoneDBFields.MAX_MONSTERS],5)
     self.assertEqual(len(visited),1)
     self.assertEqual(visited['emptySpace'],1)
-    z = Zone.construct_new_zone(lvl,visited)
+    z = Zone.construct_next_zone_choice(lvl,visited)
     self.assertEqual(len(visited),1)
     self.assertEqual(visited['emptySpace'],2)
-    self.assertEqual(z.get_fullName(),"Empty Space Alpha")
-    z = Zone.construct_new_zone(lvl,visited,True)
-    self.assertEqual(z.lvl,6)
+    self.assertEqual(z[ZoneDBFields.FULL_NAME],"Empty Space Alpha")
+    z = Zone.construct_next_zone_choice(lvl,visited,True)
+    self.assertEqual(z[ZoneDBFields.LVL],6)
     self.assertEqual(len(visited),1)
     self.assertEqual(visited['emptySpace'],3)
-    self.assertEqual(z.get_fullName(),"Empty Space Beta")
+    self.assertEqual(z[ZoneDBFields.FULL_NAME],"Empty Space Beta")
 
 
   def test_get_random_zone_definitionKey_lvl5(self):
@@ -198,7 +203,7 @@ class Test_Zone(SpaceUnitTest):
 
   def test_load_zone_from_pk(self):
     
-    pk = dbHelp.insert_one_test_hero()
+    pk = dbHelp.create_test_hero_using_test_values()
     z1 = Zone("gas")
     z1.maxMonsters = 10
     z1.lvl = 10
@@ -211,14 +216,83 @@ class Test_Zone(SpaceUnitTest):
 
   def test_that_zone_save_changes_does_not_overwrite_hero(self):
     from Hero import Hero
-    from AllDBFields import ZoneDBFields
-    id = dbHelp.insert_one_test_hero()
-    h = Hero.create_model_from_pk(id)
+    
+    id = dbHelp.create_test_hero_using_test_values()
+    h = Hero.construct_model_from_pk(id)
     h.zone.maxMonsters = 1000
     h.zone.save_changes(id)
     self.assertNotIn(ZoneDBFields.MAX_MONSTERS,h.dict)
-    h2 = Hero.create_model_from_pk(id)
+    h2 = Hero.construct_model_from_pk(id)
     self.assertNotIn(ZoneDBFields.MAX_MONSTERS,h2.dict)
+
+  def test_zone_properties_default(self):
+    testZoneKey = ZoneDefinitionFields.EMPTY_SPACE
+    z = Zone(testZoneKey)
+    z.suffix = "Alpha"
+    z.monstersKilled = 5
+    z.maxMonsters = 10
+    z.lvl = 4
+    pZPk = dbHelp.create_test_zone_obj(ZoneDefinitionFields.HOME).get_pk()
+    z.previousZoneReferencePK = pZPk
+    z.nextZoneReferenceList = [dbHelp.create_test_zone_dict(ZoneDefinitionFields.ASTEROID_FIELD),
+                               dbHelp.create_test_zone_dict(ZoneDefinitionFields.GAS),
+                               dbHelp.create_test_zone_dict(ZoneDefinitionFields.NEBULA)]
+
+    self.assertEqual(z.definitionKey, testZoneKey)
+    self.assertEqual(z.get_fullName(), ZoneDefinition.get_name_for_key(testZoneKey) + " Alpha")
+    self.assertEqual(z.suffix,"Alpha")
+    self.assertEqual(z.monstersKilled, 5)
+    self.assertEqual(z.maxMonsters,10)
+    self.assertEqual(z.lvl, 4)
+    self.assertEqual(z.get_description(),ZoneDefinition.get_description_for_key(testZoneKey))
+    self.assertEqual(z.previousZoneReferencePK,pZPk)
+    self.assertListEqual(z.nextZoneReferenceList,[dbHelp.create_test_zone_dict(ZoneDefinitionFields.ASTEROID_FIELD),
+                               dbHelp.create_test_zone_dict(ZoneDefinitionFields.GAS),
+                               dbHelp.create_test_zone_dict(ZoneDefinitionFields.NEBULA)])
+
+
+  def test_zone_properties_from_dict(self):
+    hpk = dbHelp.setup_test_hero_using_default_values()
+    zd = dbHelp.create_test_zone_dict()
+    testZoneKey = ZoneDefinitionFields.EMPTY_SPACE
+    z = Zone.construct_model_from_dict(zd)
+    self.assertEqual(z.definitionKey, testZoneKey)
+    self.assertEqual(z.get_fullName(), ZoneDefinition.get_name_for_key(testZoneKey) + " Alpha")
+    self.assertEqual(z.suffix,"Alpha")
+    self.assertEqual(z.monstersKilled, 2)
+    self.assertEqual(z.maxMonsters,15)
+    self.assertEqual(z.lvl, 3)
+    self.assertEqual(z.get_description(),ZoneDefinition.get_description_for_key(testZoneKey))
+    oldCount = tu.get_record_count_from_table(ZoneDBFields.COLLECTION_NAME)
+    z.save_changes(hpk)
+    newCount = tu.get_record_count_from_table(ZoneDBFields.COLLECTION_NAME)
+    self.assertEqual(oldCount +1, newCount)
+
+    oldCount = tu.get_record_count_from_table(ZoneDBFields.COLLECTION_NAME)
+    z.save_changes(hpk)
+    newCount = tu.get_record_count_from_table(ZoneDBFields.COLLECTION_NAME)
+    self.assertEqual(oldCount, newCount)
+
+  def test_zone_properties_from_id(self):
+    hPk = dbHelp.setup_test_hero_using_default_values()
+    z = dbHelp.create_test_zone_obj()
+    testZoneKey = ZoneDefinitionFields.EMPTY_SPACE
+    z.save_changes(hPk)
+    zPk = z.get_pk()
+    z2 = z.construct_model_from_pk(zPk)
+    self.assertEqual(z.definitionKey, testZoneKey)
+    self.assertEqual(z.get_fullName(), ZoneDefinition.get_name_for_key(testZoneKey) + " Alpha")
+    self.assertEqual(z.suffix,"Alpha")
+    self.assertEqual(z.monstersKilled, 2)
+    self.assertEqual(z.maxMonsters,15)
+    self.assertEqual(z.lvl, 3)
+    self.assertEqual(z.get_description(),ZoneDefinition.get_description_for_key(testZoneKey))
+    oldCount = tu.get_record_count_from_table(ZoneDBFields.COLLECTION_NAME)
+    z.save_changes(hPk)
+    newCount = tu.get_record_count_from_table(ZoneDBFields.COLLECTION_NAME)
+    self.assertEqual(oldCount , newCount)
+
+
 
 
 if __name__ == '__main__':

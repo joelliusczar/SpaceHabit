@@ -1,10 +1,10 @@
 from SpaceUnitTest import SpaceUnitTest
-from Account  import AccountFields
+from Account  import AccountDbFields
 from Daily import DailyDbFields
 import DatabaseLayer
 import random
 
-TABLE_ACCOUNT = AccountFields.COLLECTION_NAME
+TABLE_ACCOUNT = AccountDbFields.COLLECTION_NAME
 TABLE_DAILIES = DailyDbFields.COLLECTION_NAME
 
 class Test_Daily(SpaceUnitTest):

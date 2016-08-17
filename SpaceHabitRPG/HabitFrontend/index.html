@@ -20,6 +20,7 @@
 
         }
     </script>
+    <script src="/static/HabitUtility.js"></script>
     <script src="/static/script.js"></script>
 </head>
 
@@ -594,9 +595,43 @@
                         </div>
                         <div id="zone_notices_footer" class="modal-footer">
                             <div id="prevent_notices">
-                                <input type="checkbox" id="no_popups_check" checked>Block these pop-ups in the future?
+                                <input type="checkbox" id="no_popups_check">Block these pop-ups in the future?
                             </div>
-                            <button type="button" name="ok">OK</button>
+                            <button type="button" name="zone_notice_ok">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="zone_choices" class="modal notices">
+        <div class="modal-dialog">
+            <div class="row">
+                <div class="col-md-7 col-xs-10">
+                    <div class="modal-content">
+                        <div id="zone_choice_list" class="notice_content" data-bind="foreach: choices">
+                            <div class="zone_item">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <button type="button" class="btn btn-default col-md-12 col-xs-12" data-bind="click: $root.onZoneChoiceClick.bind($data,$index())">
+                                            <div class="text-left">
+                                                <div class="zone_title" data-bind="text: name"></div>
+                                                <div class="zone_lvl">Lvl: <span data-bind="text: lvl"></span></div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="picked_zone_description" class="notice_content hidden">
+
+                        </div>
+                        <div id="zone_choices_footer" class="modal-footer">
+                            <div id="prevent_notices">
+                                <input type="checkbox" id="zone_choice_no_popups_check">Block these pop-ups in the future?
+                            </div>
+                            <button type="button" name="zone_choice_back" class="btn btn-default hidden">Go Back</button>
+                            <button type="button" name="zone_choice_ok" class="btn btn-default hidden">Ok</button>
                         </div>
                     </div>
                 </div>

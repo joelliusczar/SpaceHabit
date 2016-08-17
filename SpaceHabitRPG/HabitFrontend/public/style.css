@@ -1,4 +1,6 @@
 
+
+
 .indent {
     margin-left: 1em;
 }
@@ -47,8 +49,6 @@
 .notice_content {
     padding: 1em;
 }
-
-
 
 #hero_info_row{
 	background-color: #AA2886;
@@ -113,3 +113,6 @@
 #rate_input input{
 	width: 4em;
 }
+
+
+

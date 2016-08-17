@@ -1,5 +1,5 @@
 from Defintions import Defintions
-from AllDBFields import MonsterFields
+from AllDBFields import MonsterDbFields
 from AllDBFields import ZoneDefinitionFields
 from AllDBFields import MonsterDefinitionFields
 
@@ -7,180 +7,181 @@ from AllDBFields import MonsterDefinitionFields
 allMonsters = {
   ZoneDefinitionFields.ALL: {
     MonsterDefinitionFields.MECH:{
-      MonsterFields.NAME: "Mech",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Mech",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.PIRATES:{
-      MonsterFields.NAME: "Petty Space Pirates",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Petty Space Pirates",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.M_SCOUT:{
-      MonsterFields.NAME: "Malesterium Scouts",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Malesterium Scouts",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.SMALL_ASTEROID:{
-      MonsterFields.NAME: "Small Asteroid",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Small Asteroid",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.SPACE_SLIME:{
-      MonsterFields.NAME: "Space Slime",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Space Slime",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.SPACEMAN:{
-      MonsterFields.NAME: "Spaceman",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Spaceman",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     }
   },
   ZoneDefinitionFields.GAS: {
     MonsterDefinitionFields.CLOUD_FORTRESS:{
-      MonsterFields.NAME: "Cloud Fortress",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Cloud Fortress",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.POISON_CLOUD:{
-      MonsterFields.NAME: "Poison Cloud",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Poison Cloud",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     }
   },
   ZoneDefinitionFields.EMPTY_SPACE: {
     MonsterDefinitionFields.DREAD_PIRATES:{
-      MonsterFields.NAME: "Dread Pirates",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Dread Pirates",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.GRAVITY_HOLE:{
-      MonsterFields.NAME: "Gravity Hole",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Gravity Hole",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.SPACE_PARASITES:{
-      MonsterFields.NAME: "Space Parasite",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Space Parasite",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.ZOMBIE_FREIGHTER:{
-      MonsterFields.NAME: "Zombie Infested Freighter",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Zombie Infested Freighter",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     }
   },
   ZoneDefinitionFields.ASTEROID_FIELD: {
     MonsterDefinitionFields.BIG_ASTEROID:{
-      MonsterFields.NAME: "Big Ass Asteroid",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Big Ass Asteroid",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.MINER:{
-      MonsterFields.NAME: "Rogue Miner",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Rogue Miner",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.AMBUSH_PIRATES:{
-      MonsterFields.NAME: "Sneaky Ambush Pirates",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Sneaky Ambush Pirates",
+      MonsterDbFields.DESCRIPTION:"These Sneaky Pirates hide behind asteroids "
+        "and surprise you. They're sorta like deadlines.",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.SPACE_GOLEM:{
-      MonsterFields.NAME: "Space Golem",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Space Golem",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     },
     MonsterDefinitionFields.MOTHS:{
-      MonsterFields.NAME: "Asteroid Moths",
-      MonsterFields.DESCRIPTION:"",
-      MonsterFields.ATTACK_LVL:1,
-      MonsterFields.DEFENSE_LVL:0,
-      MonsterFields.BASE_XP_REWARD:1,
-      MonsterFields.BASE_HP:10,
-      MonsterFields.TRASURE_DROPS:[],
-      MonsterFields.TRASURE_DROP_RATE:.1
+      MonsterDbFields.NAME: "Asteroid Moths",
+      MonsterDbFields.DESCRIPTION:"",
+      MonsterDbFields.ATTACK_LVL:1,
+      MonsterDbFields.DEFENSE_LVL:0,
+      MonsterDbFields.BASE_XP_REWARD:1,
+      MonsterDbFields.BASE_HP:10,
+      MonsterDbFields.TRASURE_DROPS:[],
+      MonsterDbFields.TRASURE_DROP_RATE:.1
     }
   }
   }
@@ -231,13 +232,14 @@ class MonsterDefinitions(Defintions):
     }
 
   def get_baseXpReward(self):
-    return self._indexes[self._key][MonsterFields.BASE_XP_REWARD]
+    return self._indexes[self._key][MonsterDbFields.BASE_XP_REWARD]
 
   def get_base_attackLvl(self):
-    return self._indexes[self._key][MonsterFields.ATTACK_LVL]
+    #stop trying to use this stat. You haven't decided yet if you want to.
+    return self._indexes[self._key][MonsterDbFields.ATTACK_LVL]
 
   def get_treasureDrops(self):
-    return self._indexes[self._key][MonsterFields.TRASURE_DROPS]
+    return self._indexes[self._key][MonsterDbFields.TRASURE_DROPS]
 
   def get_dropRate(self):
-    return self._indexes[self._key][MonsterFields.TRASURE_DROP_RATE]
+    return self._indexes[self._key][MonsterDbFields.TRASURE_DROP_RATE]

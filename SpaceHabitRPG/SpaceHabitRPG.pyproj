@@ -81,6 +81,7 @@
     <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="HabitFrontend\public\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="HabitFrontend\public\HabitUtility.js" />
     <Content Include="HabitFrontend\public\jquery.min.js" />
     <Content Include="HabitFrontend\public\knockout-min.js" />
     <Content Include="HabitFrontend\public\login.css" />
@@ -95,6 +96,7 @@
     <Content Include="Helpers\__pycache__\OrderedDictionary.cpython-35.pyc" />
     <Content Include="Helpers\__pycache__\RpgTypeHelper.cpython-35.pyc" />
     <Content Include="Helpers\__pycache__\TypeCreators.cpython-35.pyc" />
+    <Content Include="requirements.txt" />
     <Content Include="Story\__pycache__\ZoneLookup.cpython-35.pyc" />
     <Content Include="Tests\__pycache__\MockDatabaseLayer.cpython-35.pyc" />
     <Content Include="Tests\__pycache__\ProgressionTests.cpython-35.pyc" />
@@ -217,6 +219,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\TestHelpers\TestDummyObjectMaker.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\TestHelpers\TestUtilities.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Web Server\Controllers\LoginController.py" />

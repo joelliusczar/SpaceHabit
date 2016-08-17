@@ -31,31 +31,32 @@ class Test_HabitBaseModel(SpaceUnitTest):
     self.assertIsNotNone(pk)
     hero.gold = 500
     hero.save_changes()
-    heroCopy = Hero.create_model_from_pk(pk)
+    heroCopy = Hero.construct_model_from_pk(pk)
     self.assertEqual(heroCopy.gold,500)
-    heroCopyFromDict = Hero.create_model_from_dict(hero.dict)
+    heroCopyFromDict = Hero.construct_model_from_dict(hero.dict)
     self.assertEqual(heroCopyFromDict.get_pk(),pk)
 
   def test_saving_zone_info(self):
-    pk = dbtestHelp.insert_one_test_hero()
-    hero = Hero.create_model_from_pk(pk)
+    pk = dbtestHelp.create_test_hero_using_test_values()
+    hero = Hero.construct_model_from_pk(pk)
     z1 = hero.zone
     z1.monstersKilled = 5
     z2 = hero.zone
     self.assertEqual(z2.monstersKilled,5)
     z1.save_changes(hero.get_pk())
-    hero2 = Hero.create_model_from_pk(pk)
+    hero2 = Hero.construct_model_from_pk(pk)
     z3 = hero.zone
     self.assertEqual(z3.monstersKilled,5)
 
-  def test_zone_replace(self):
-    pk = dbtestHelp.insert_one_test_hero()
-    hero = Hero.create_model_from_pk(pk)
-    hero.zone = dbtestHelp.create_different_zone_dict()
-    self.assertEqual(hero.zone.definitionKey,"gas")
+  def test_zone_on_hero_from_db(self):
+    from AllDBFields import ZoneDefinitionFields
+    pk = dbtestHelp.create_test_hero_using_test_values()
+    hero = Hero.construct_model_from_pk(pk)
+    hero.zone = dbtestHelp.create_test_zone_obj()
+    self.assertEqual(hero.zone.definitionKey,ZoneDefinitionFields.EMPTY_SPACE)
     hero.save_changes()
-    hero2 = Hero.create_model_from_pk(pk)
-    self.assertEqual(hero2.zone.definitionKey,"gas")
+    hero2 = Hero.construct_model_from_pk(pk)
+    self.assertEqual(hero2.zone.definitionKey,ZoneDefinitionFields.EMPTY_SPACE)
     
 
 

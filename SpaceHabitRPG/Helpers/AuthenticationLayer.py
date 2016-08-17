@@ -154,10 +154,10 @@ def get_accountPk_by_loginPk(loginPk):
       return:
         an objectId to the account collection
   """
-  from AllDBFields import AccountFields
-  collection = DatabaseLayer.get_table(AccountFields.COLLECTION_NAME)
-  account = collection.find_one({AccountFields.LOGIN_PK_KEY:loginPk})
-  return account[AccountFields.PK_KEY]
+  from AllDBFields import AccountDbFields
+  collection = DatabaseLayer.get_table(AccountDbFields.COLLECTION_NAME)
+  account = collection.find_one({AccountDbFields.LOGIN_PK_KEY:loginPk})
+  return account[AccountDbFields.PK_KEY]
 
 def get_heroPk_by_accountPk(accountPk):
   """

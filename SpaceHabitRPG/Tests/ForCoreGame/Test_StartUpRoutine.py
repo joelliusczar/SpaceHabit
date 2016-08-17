@@ -36,8 +36,8 @@ class Test_StartUpRoutine(SpaceUnitTest):
     from ZoneDefinitions import ZoneDefinition
     from AllDBFields import ZoneDefinitionFields
     from AllDBFields import ZoneDBFields
-    pkStruct = dbHelp.insert_total_test_user()
-    hero = Hero.create_model_from_pk(pkStruct['heroPk'])
+    pkStruct = dbHelp.create_test_user_using_default_values()
+    hero = Hero.construct_model_from_pk(pkStruct['heroPk'])
     m = StartUpRoutine.build_first_time_checkin_messages(hero)
     s0 = m['storyNotice']
     self.assertEqual(len(s0),self.EXPECTED_CHAR_COUNT_PLACEHOLDER)

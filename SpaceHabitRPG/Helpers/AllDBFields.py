@@ -21,7 +21,7 @@ class AuthenticationFields:
   USER_PASSWORD = 'pw'
   USER_DESC = 'desc'
 
-class AccountFields(BaseFields):
+class AccountDbFields(BaseFields):
   COLLECTION_NAME = 'accounts'
   REMINDER_TIME = 'reminderTime'
   DAY_START = 'dayStart'
@@ -62,43 +62,44 @@ class HeroDbFields(BaseFields):
   DEFENSE_LVL = 'defenseLvl'
   ZONE_VISIT_COUNTS = 'zoneVisitCounts'
   PUBLIC_KEY = 'PublicKey'
-  IS_IN_ZONE_LIMBO = 'isInZoneLimbo'
   ZONE = 'zone'
   MONSTER = 'monster'
 
 
-class MonsterFields(BaseFields):
+class StoryDbFields(BaseFields):
+  NAME = 'name'
+  DESCRIPTION = 'description'
+  DEFINITION_KEY = 'definitionKey'
+
+class MonsterDbFields(StoryDbFields):
   COLLECTION_NAME = 'monsters'
   OWNER_COLLECTION = 'heros'
-  NAME = 'name'
+  OWNER_PROPERTY = HeroDbFields.MONSTER #key in the Hero dict
   BASE_HP = 'baseHp'
   NOW_HP = 'nowHP'
   MAX_HP = 'maxHp'
   LVL = 'lvl'
-  DESCRIPTION = 'description'
   BASE_XP_REWARD = 'baseXpReward'
   TRASURE_DROP_RATE = 'treasureDropRate'
+  MAX_GOLD_DROP_PER_LVL = 'maxGoldDrop'
   TRASURE_DROPS = 'treasureDrops'
-  DEFINITION_KEY = 'definitionKey'
   ZONE_KEY = 'zoneKey'
   ATTACK_LVL = 'attackLvl'
   DEFENSE_LVL = 'defenseLvl'
 
 
-class ZoneDBFields(BaseFields):
+class ZoneDBFields(StoryDbFields):
   COLLECTION_NAME = 'zones'
   OWNER_COLLECTION = 'heros'
-  NAME = 'name'
+  OWNER_PROPERTY = HeroDbFields.ZONE #key in the Hero dict
   FULL_NAME = 'fullName'
-  DESCRIPTION = 'description'
   ALIASES = 'aliases'
   MONSTERS_KILLED = 'monstersKilled'
   MAX_MONSTERS = 'maxMonsters'
   LVL = 'lvl'
-  PREVIOUS_ZONE_REFERENCE = 'previousZoneReference'
+  PREVIOUS_ZONE_REFERENCE_PK = 'previousZoneReferencePK'
   NEXT_ZONE_REFERENCE_LIST = 'nextZoneReferenceList'
   SUFFIX = 'suffix'
-  DEFINITION_KEY = 'definitionKey'
   HERO_ID = 'heroId'
 
 class ZoneGroupFields:

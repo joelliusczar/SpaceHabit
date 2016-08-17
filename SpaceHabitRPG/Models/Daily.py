@@ -27,8 +27,7 @@ class Daily(HabitBaseModel):
 
   @name.setter
   def name(self,value):
-    self._dict[DailyDbFields.NAME] = value
-    self._changes[DailyDbFields.NAME] = value
+    self.set_common_property(self.get_dbFields().NAME,value)
 
   @property
   def note(self):
@@ -36,8 +35,7 @@ class Daily(HabitBaseModel):
 
   @note.setter
   def note(self,value):
-    self._dict[DailyDbFields.NOTE] = value
-    self._changes[DailyDbFields.NOTE] = value
+    self.set_common_property(self.get_dbFields().NOTE,value)
 
   @property
   def urgency(self):
@@ -45,8 +43,7 @@ class Daily(HabitBaseModel):
 
   @urgency.setter
   def urgency(self,value):
-    self._dict[DailyDbFields.URGENCY] = value
-    self._changes[DailyDbFields.URGENCY] = value
+    self.set_common_property(self.get_dbFields().URGENCY,value)
 
   @property
   def difficulty(self):
@@ -54,8 +51,7 @@ class Daily(HabitBaseModel):
 
   @difficulty.setter
   def difficulty(self,value):
-    self._dict[DailyDbFields.DIFFICULTY] = value
-    self._changes[DailyDbFields.DIFFICULTY] = value
+    self.set_common_property(self.get_dbFields().DIFFICULTY,value)
 
   @property
   def triggerPeriodLength(self):
@@ -63,8 +59,7 @@ class Daily(HabitBaseModel):
 
   @triggerPeriodLength.setter
   def triggerPeriodLength(self,value):
-    self._dict[DailyDbFields.TRIGGER_PERIOD_LENGTH] = value
-    self._changes[DailyDbFields.TRIGGER_PERIOD_LENGTH] = value
+    self.set_common_property(self.get_dbFields().TRIGGER_PERIOD_LENGTH,value)
 
   @property
   def daysUntilTrigger(self):
@@ -72,8 +67,7 @@ class Daily(HabitBaseModel):
 
   @daysUntilTrigger.setter
   def daysUntilTrigger(self,value):
-    self._dict[DailyDbFields.DAYS_UNTIL_TRIGGER] = value
-    self._changes[DailyDbFields.DAYS_UNTIL_TRIGGER] = value
+    self.set_common_property(self.get_dbFields().DAYS_UNTIL_TRIGGER,value)
 
   @property
   def activeDays(self):
@@ -81,5 +75,4 @@ class Daily(HabitBaseModel):
 
   @activeDays.setter
   def activeDays(self,value):
-    self._dict[DailyDbFields.ACTIVE_DAYS] = value
-    self._changes[DailyDbFields.ACTIVE_DAYS] = value
+    self.set_common_property(self.get_dbFields().ACTIVE_DAYS,value)

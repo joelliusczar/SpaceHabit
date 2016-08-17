@@ -24,6 +24,21 @@ class Zone(StoryModels):
     return super().__init__(definitionKey)
 
 
+  @classmethod
+  def construct_model_from_pk(cls,pk):
+    """
+      args:
+        id:
+          uses the id to load this model from the database.
+
+      return: an instance of the model on which this is called
+    """
+    
+    collection = DatabaseLayer.get_table(cls.get_dbFields().COLLECTION_NAME)
+    obj = cls(None)
+    obj.dict = collection.find_one({cls.get_dbFields().PK_KEY:pk})
+    return obj
+
   def save_changes(self,heroId):
     """
       args:
@@ -33,17 +48,16 @@ class Zone(StoryModels):
          
     """
     from AllDBFields import HeroDbFields
-    self.normalize_dict()
     ownerCollection = DatabaseLayer.get_table(self.get_dbFields().OWNER_COLLECTION)
     if self.get_pk():
       if self._changes:
         ownerCollection.update_one({self.get_dbFields().PK_KEY:heroId},{'$set':self._changes})
     else:
       collection = DatabaseLayer.get_table(self.get_dbFields().COLLECTION_NAME)
-      nestedZone = {HeroDbFields.ZONE:self.dict}
-      ownerCollection.update_one({self.get_dbFields().PK_KEY:heroId},{'$set':nestedZone})
       pk = collection.insert_one(self.dict).inserted_id
       self.dict[self.get_dbFields().PK_KEY] = pk
+      nestedZone = {HeroDbFields.ZONE:self.dict}
+      ownerCollection.update_one({self.get_dbFields().PK_KEY:heroId},{'$set':nestedZone})
     self._changes = {}
 
 
@@ -70,8 +84,8 @@ class Zone(StoryModels):
 
   @suffix.setter
   def suffix(self,value):
-    self.dict[self.get_dbFields().SUFFIX] = value
-    self._changes[self.get_dbFields().SUFFIX] = value
+    self.set_common_story_property(self.get_dbFields().SUFFIX,value)
+
 
   @property
   def monstersKilled(self):
@@ -82,8 +96,7 @@ class Zone(StoryModels):
 
   @monstersKilled.setter
   def monstersKilled(self,value):
-    self.dict[self.get_dbFields().MONSTERS_KILLED] = value
-    self._changes[self.get_dbFields().MONSTERS_KILLED] = value
+    self.set_common_story_property(self.get_dbFields().MONSTERS_KILLED,value)
 
   @property
   def maxMonsters(self):
@@ -91,8 +104,7 @@ class Zone(StoryModels):
 
   @maxMonsters.setter
   def maxMonsters(self,value):
-    self.dict[self.get_dbFields().MAX_MONSTERS] = value
-    self._changes[self.get_dbFields().MAX_MONSTERS] = value
+    self.set_common_story_property(self.get_dbFields().MAX_MONSTERS,value)
 
   @property
   def lvl(self):
@@ -100,8 +112,7 @@ class Zone(StoryModels):
 
   @lvl.setter
   def lvl(self,value):
-    self.dict[self.get_dbFields().LVL] = value
-    self._changes[self.get_dbFields().LVL] = value
+    self.set_common_story_property(self.get_dbFields().LVL,value)
 
   def get_description(self):
     if not self._definition:
@@ -109,15 +120,15 @@ class Zone(StoryModels):
     return self._definition.get_description()
 
   @property
-  def previousZoneReference(self):
-    if self.get_dbFields().PREVIOUS_ZONE_REFERENCE in self.dict:
-      return self.dict[self.get_dbFields().PREVIOUS_ZONE_REFERENCE]
+  def previousZoneReferencePK(self):
+    if self.get_dbFields().PREVIOUS_ZONE_REFERENCE_PK in self.dict:
+      return self.dict[self.get_dbFields().PREVIOUS_ZONE_REFERENCE_PK]
     return None
 
-  @previousZoneReference.setter
-  def previousZoneReference(self,value):
-    self.dict[self.get_dbFields().PREVIOUS_ZONE_REFERENCE] = value
-    self._changes[self.get_dbFields().PREVIOUS_ZONE_REFERENCE] = value
+  @previousZoneReferencePK.setter
+  def previousZoneReferencePK(self,value):
+    self.set_common_story_property(self.get_dbFields().PREVIOUS_ZONE_REFERENCE_PK,value)
+
 
   @property
   def nextZoneReferenceList(self):
@@ -125,8 +136,7 @@ class Zone(StoryModels):
 
   @nextZoneReferenceList.setter
   def nextZoneReferenceList(self,value):
-    self.dict[self.get_dbFields().NEXT_ZONE_REFERENCE_LIST] = value
-    self._changes[self.get_dbFields().NEXT_ZONE_REFERENCE_LIST] = value
+    self.set_common_story_property(self.get_dbFields().NEXT_ZONE_REFERENCE_LIST,value)
 
   @property
   def alias(self):
@@ -145,8 +155,7 @@ class Zone(StoryModels):
 
   @definitionKey.setter
   def definitionKey(self,value):
-    self.dict[self.get_dbFields().DEFINITION_KEY] = value
-    self._changes[self.get_dbFields().DEFINITION_KEY] = value
+    self.set_common_story_property(self.get_dbFields().DEFINITION_KEY,value)
 
   @classmethod
   def get_home_zone(cls):
@@ -162,14 +171,15 @@ class Zone(StoryModels):
       returns:
         a model of type zone with starting details
     """
-    zone = Zone('home')
+    from AllDBFields import ZoneDefinitionFields
+    zone = Zone(ZoneDefinitionFields.HOME)
 
     zone.maxMonsters = 0
     zone.skillLvl = 0
     return zone
 
   @classmethod
-  def construct_new_zone(cls,heroLvl,vistiedZones,matchHeroLvl = False):
+  def construct_next_zone_choice(cls,heroLvl,vistiedZones,matchHeroLvl = False):
 
     """
       generates a zone with unique name and randomlvl
@@ -192,16 +202,20 @@ class Zone(StoryModels):
     import GeneralUtilities as gu
 
     selectedZoneKey = Zone.get_random_zone_definitionKey(heroLvl)
-    zone = Zone(selectedZoneKey)
-    zone.lvl = heroLvl
-    zone.maxMonsters = random.randint(5,15) 
-    if zone.definitionKey in vistiedZones: #if we've visited it before
-      zone.suffix =  Zone.generate_full_zone_name_suffix(vistiedZones[zone.definitionKey])
-      vistiedZones[zone.definitionKey] += 1
+    definition = ZoneDefinition(selectedZoneKey)
+    zone = {ZoneDBFields.DEFINITION_KEY:selectedZoneKey,ZoneDBFields.LVL: heroLvl,
+            ZoneDBFields.MAX_MONSTERS: random.randint(5,15),ZoneDBFields.NAME: definition.get_name(),
+            ZoneDBFields.DESCRIPTION: definition.get_description()}
+    if selectedZoneKey in vistiedZones: #if we've visited it before
+      zone[ZoneDBFields.SUFFIX] =  Zone.generate_full_zone_name_suffix(vistiedZones[selectedZoneKey])
+      zone[ZoneDBFields.FULL_NAME] = \
+        "{0} {1}".format(zone[ZoneDBFields.NAME],zone[ZoneDBFields.SUFFIX]).rstrip()
+      vistiedZones[selectedZoneKey] += 1
     else:
-      vistiedZones[zone.definitionKey] = 1
+      zone[ZoneDBFields.FULL_NAME] = zone[ZoneDBFields.NAME]
+      vistiedZones[selectedZoneKey] = 1
     if not matchHeroLvl:
-      zone.lvl = gu.calculate_lvl(heroLvl,10)
+      zone[ZoneDBFields.LVL] = gu.calculate_lvl(heroLvl,10)
     return zone
 
 
@@ -415,28 +429,4 @@ class Zone(StoryModels):
     return availableZonesGroups
 
 
-  def get_full_model_info(self):
-    """
-      calling this is prefered over accessing dict because there are 
-      properties that I don't want to store in our inner storage nor
-      do I want to store them in the database. 
-
-      return:
-        returns dict but adds our special properties to the dict first
-    """
-    self.dict[ZoneDBFields.DESCRIPTION] = self.get_description()
-    self.dict[ZoneDBFields.FULL_NAME] = self.get_fullName()
-    return self.dict
-
-
-  def normalize_dict(self):
-    """
-      I can't imagine it causing much harm to save these guys to the database;
-      nevertheless, I don't want to give the code room for unexpected 
-      behavior so I'm clearing these guys before saving
-    """
-    if ZoneDBFields.DESCRIPTION in self.dict:
-      del self.dict[ZoneDBFields.DESCRIPTION]
-    if ZoneDBFields.FULL_NAME in self.dict:
-      del self.dict[ZoneDBFields.FULL_NAME]
 

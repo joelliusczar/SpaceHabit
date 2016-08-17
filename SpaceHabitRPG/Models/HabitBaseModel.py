@@ -16,7 +16,7 @@ class HabitBaseModel(BaseModel):
   
 
   @classmethod
-  def create_model_from_pk(cls,pk):
+  def construct_model_from_pk(cls,pk):
     """
       args:
         id:
@@ -34,7 +34,7 @@ class HabitBaseModel(BaseModel):
     
 
   @classmethod
-  def create_model_from_dict(cls,dict):
+  def construct_model_from_dict(cls,dict):
     """
       args:
         dict:

@@ -29,11 +29,11 @@ class Hero(HabitBaseModel):
     import uuid
     zoneVisitCounts = {}
     homeZone = Zone.get_home_zone()
-    zones = []
-    zones.append(Zone.construct_new_zone(1,zoneVisitCounts,True).get_full_model_info())
-    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).get_full_model_info())
-    zones.append(Zone.construct_new_zone(1,zoneVisitCounts).get_full_model_info())
-    homeZone.nextZoneReferenceList = zones
+    zonesChoices = []
+    zonesChoices.append(Zone.construct_next_zone_choice(1,zoneVisitCounts,True))
+    zonesChoices.append(Zone.construct_next_zone_choice(1,zoneVisitCounts))
+    zonesChoices.append(Zone.construct_next_zone_choice(1,zoneVisitCounts))
+    homeZone.nextZoneReferenceList = zonesChoices
     hero = {
       HeroDbFields.ACCOUNT_PK_KEY: accountPk,
       HeroDbFields.SHIP_NAME: shipName,
@@ -47,10 +47,9 @@ class Hero(HabitBaseModel):
       HeroDbFields.DEFENSE_LVL: 1,
       HeroDbFields.PUBLIC_KEY: uuid.uuid4().hex,
       HeroDbFields.ZONE_VISIT_COUNTS: zoneVisitCounts,
-      HeroDbFields.IS_IN_ZONE_LIMBO: True
+      HeroDbFields.ZONE: homeZone.dict
     }
-    heroObj = cls.create_model_from_dict(hero)
-    heroObj.zone = homeZone
+    heroObj = cls.construct_model_from_dict(hero)
     return heroObj
 
   @classmethod
@@ -79,7 +78,8 @@ class Hero(HabitBaseModel):
 
   def save_changes(self):
     super().save_changes()
-    self.zone.save_changes(self.get_pk())
+    if self.zone:
+      self.zone.save_changes(self.get_pk())
     if self.monster:
       self.monster.save_changes(self.get_pk())
 
@@ -93,8 +93,7 @@ class Hero(HabitBaseModel):
 
   @lvl.setter
   def lvl(self,value):
-    self.dict[self.get_dbFields().LVL] = value
-    self._changes[self.get_dbFields().LVL] = value
+    self.set_common_property(self.get_dbFields().LVL,value)
 
   @property
   def maxHp(self):
@@ -102,8 +101,7 @@ class Hero(HabitBaseModel):
 
   @maxHp.setter
   def maxHp(self,value):
-    self.dict[self.get_dbFields().MAX_HP] = value
-    self._changes[self.get_dbFields().MAX_HP] = value
+    self.set_common_property(self.get_dbFields().MAX_HP,value)
 
   @property
   def nowHp(self):
@@ -111,8 +109,7 @@ class Hero(HabitBaseModel):
 
   @nowHp.setter
   def nowHp(self,value):
-    self.dict[self.get_dbFields().NOW_HP] = value
-    self._changes[self.get_dbFields().NOW_HP] = value
+    self.set_common_property(self.get_dbFields().NOW_HP,value)
 
   @property
   def maxXp(self):
@@ -120,8 +117,7 @@ class Hero(HabitBaseModel):
 
   @maxXp.setter
   def maxXp(self,value):
-    self.dict[self.get_dbFields().MAX_XP] = value
-    self._changes[self.get_dbFields().MAX_XP] = value
+    self.set_common_property(self.get_dbFields().MAX_XP,value)
 
   @property
   def nowXp(self):
@@ -129,8 +125,7 @@ class Hero(HabitBaseModel):
 
   @nowXp.setter
   def nowXp(self,value):
-    self.dict[self.get_dbFields().NOW_XP] = value
-    self._changes[self.get_dbFields().NOW_XP] = value
+    self.set_common_property(self.get_dbFields().NOW_XP,value)
 
   @property
   def gold(self):
@@ -138,8 +133,7 @@ class Hero(HabitBaseModel):
 
   @gold.setter
   def gold(self,value):
-    self.dict[self.get_dbFields().GOLD] = value
-    self._changes[self.get_dbFields().GOLD] = value
+    self.set_common_property(self.get_dbFields().GOLD,value)
 
   @property
   def attackLvl(self):
@@ -147,8 +141,7 @@ class Hero(HabitBaseModel):
 
   @attackLvl.setter
   def attackLvl(self,value):
-    self.dict[self.get_dbFields().ATTACK_LVL] = value
-    self._changes[self.get_dbFields().ATTACK_LVL] = value
+    self.set_common_property(self.get_dbFields().ATTACK_LVL,value)
 
   @property
   def defenseLvl(self):
@@ -156,8 +149,7 @@ class Hero(HabitBaseModel):
 
   @defenseLvl.setter
   def defenseLvl(self,value):
-    self.dict[self.get_dbFields().DEFENSE_LVL] = value
-    self._changes[self.get_dbFields().DEFENSE_LVL] = value
+    self.set_common_property(self.get_dbFields().DEFENSE_LVL,value)
 
   @property
   def zoneVisitCounts(self):
@@ -165,14 +157,16 @@ class Hero(HabitBaseModel):
 
   @zoneVisitCounts.setter
   def zoneVisitCounts(self,value):
-    self.dict[self.get_dbFields().ZONE_VISIT_COUNTS] = value
-    self._changes[self.get_dbFields().ZONE_VISIT_COUNTS] = value
+    self.set_common_property(self.get_dbFields().ZONE_VISIT_COUNTS,value)
 
   
   @property
   def zone(self):
     if not self._zone:
-      self._zone = Zone.construct_model_from_dict(self.dict[self.get_dbFields().ZONE])
+      if self.get_dbFields().ZONE in self.dict:
+        self._zone = Zone.construct_model_from_dict(self.dict[self.get_dbFields().ZONE])
+      else:
+        return None
 
     return self._zone
 
@@ -184,23 +178,12 @@ class Hero(HabitBaseModel):
 
 
   @property
-  def isInZoneLimbo(self):
-    if self.get_dbFields().IS_IN_ZONE_LIMBO in self.dict:
-      return self.dict[self.get_dbFields().IS_IN_ZONE_LIMBO]
-    else:
-      return True
-
-  @isInZoneLimbo.setter
-  def isInZoneLimbo(self,value):
-    self.dict[self.get_dbFields().IS_IN_ZONE_LIMBO] = value
-    self._changes[self.get_dbFields().IS_IN_ZONE_LIMBO] = value
-
-  @property
   def monster(self):
-    if self.isInZoneLimbo:
-      return None
     if not self._monster:
-      self._monster = Monster.construct_model_from_dict(self.dict[self.get_dbFields().MONSTER])
+      if self.get_dbFields().MONSTER in self.dict:
+        self._monster = Monster.construct_model_from_dict(self.dict[self.get_dbFields().MONSTER])
+      else:
+        return None
     return self._monster
 
   @monster.setter
@@ -218,5 +201,4 @@ class Hero(HabitBaseModel):
 
   @shipName.setter
   def shipName(self,value):
-    self.dict[self.get_dbFields().SHIP_NAME] = value
-    self._changes[self.get_dbFields().SHIP_NAME] = value
+    self.set_common_property(self.get_dbFields().SHIP_NAME,value)

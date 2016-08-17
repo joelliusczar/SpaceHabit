@@ -1,4 +1,6 @@
 from SpaceUnitTest import SpaceUnitTest
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import SeleniumHelper
 import SpaceHabitServer
 import threading
@@ -83,7 +85,7 @@ class Test_LoginPageNewUserTests(SpaceUnitTest):
 
 
   def test_taken_email(self):
-    dbHelp.insert_one_test_login()
+    dbHelp.create_login_using_test_values()
     self.input1.send_keys("a@b.c")
     self.modal.click()
 

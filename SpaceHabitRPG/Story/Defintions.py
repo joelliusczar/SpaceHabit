@@ -17,7 +17,16 @@ class Defintions(object):
   def get_name(self):
     return self._indexes[self._key]['name']
 
+  @classmethod
+  def get_name_for_key(cls,definitionKey):
+    return cls._indexes[definitionKey]['name']
+
   def get_description(self):
     return self._indexes[self._key]['description']
+
+  @classmethod
+  def get_description_for_key(cls,definitionKey):
+    return cls._indexes[definitionKey]['description']
+
 
 

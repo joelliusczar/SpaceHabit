@@ -71,7 +71,7 @@ class Test_LoginSaveNewUserWithRequests(SpaceUnitTest):
     self.assertEqual(data['success'], False)
 
   def test_send_taken_email(self):
-    dbHelp.insert_one_test_login()
+    dbHelp.create_login_using_test_values()
     s = requests.Session()
     r = s.post("http://127.0.0.1:8080/login/save_new_user/",params={'email1':"a@b.c",
           'email2':"a@b.c",'pw1':"123456",'pw2':"123456",'shipName':""})

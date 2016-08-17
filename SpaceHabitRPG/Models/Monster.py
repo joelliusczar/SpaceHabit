@@ -1,7 +1,7 @@
 from MonsterDefinitions import allMonsters
 from MonsterDefinitions import MonsterDefinitions
 from StoryModels import StoryModels
-from AllDBFields import MonsterFields
+from AllDBFields import MonsterDbFields
 import DatabaseLayer
 
 
@@ -30,85 +30,84 @@ class Monster(StoryModels):
         ownerCollection.update_one({self.get_dbFields().PK_KEY:heroId},{'$set':self._changes})
         self._changes = {}
 
+  @classmethod
+  def get_dbFields(cls):
+    return MonsterDbFields
 
-  @property
-  def name(self):
+  def get_name(self):
     if not self._definition:
       self._definition = MonsterDefinitions(self.definitionKey)
     return self._definition.get_name()
 
 
-
-  @property
-  def nowHp(self):
-    return self.dict[MonsterFields.NOW_HP]
-
-  @nowHp.setter
-  def nowHp(self,value):
-    self.dict[MonsterFields.NOW_HP] = value
-    self._changes[MonsterFields.NOW_HP] = value
-
   @property
   def maxHp(self):
-    return self.dict[MonsterFields.MAX_HP]
+    return self.dict[MonsterDbFields.MAX_HP]
+
 
   @maxHp.setter
   def maxHp(self,value):
-    self.dict[MonsterFields.MAX_HP] = value
-    self._changes[MonsterFields.MAX_HP] = value
+    self.set_common_story_property(MonsterDbFields.MAX_HP,value)
+
+
+  @property
+  def nowHp(self):
+    return self.dict[MonsterDbFields.NOW_HP]
+
+
+  @nowHp.setter
+  def nowHp(self,value):
+    self.set_common_story_property(MonsterDbFields.NOW_HP,value)
+
 
   @property
   def lvl(self):
-    return self.dict[MonsterFields.LVL]
+    return self.dict[MonsterDbFields.LVL]
 
   @lvl.setter
   def lvl(self,value):
-    self.dict[MonsterFields.LVL] = value
-    self._changes[MonsterFields.LVL] = value
+    self.set_common_story_property(MonsterDbFields.LVL,value)
 
-  @property
-  def description(self):
+
+  def get_description(self):
     if not self._definition:
       self._definition = MonsterDefinitions(self.definitionKey)
     return self._definition.get_description()
 
 
-  @property
-  def baseXpReward(self):
+  def get_baseXpReward(self):
     if not self._definition:
       self._definition = MonsterDefinitions(self.definitionKey)
     return self._definition.get_baseXpReward()
 
-  @property
-  def treasureDropRate(self):
+  def get_treasureDropRate(self):
     if not self._definition:
       self._definition = MonsterDefinitions(self.definitionKey)
     return self._definition.get_dropRate()
 
+  def get_gold(self):
+    '''
+      We only want to return 1 because constantly raising this like in normal
+      RPG's will skewer the motivational rewards aspect.
+      But I'm keeping it as a method in case I change my mind
+    '''
+    return 1
 
-  @property
-  def treasureDrops(self):
+
+  def get_treasureDrops(self):
     if not self._definition:
       self._definition = MonsterDefinitions(self.definitionKey)
     return self._definition.get_treasureDrops()
 
   @property
   def definitionKey(self):
-    return self.dict[MonsterFields.DEFINITION_KEY]
+    return self.dict[MonsterDbFields.DEFINITION_KEY]
 
   @definitionKey.setter
   def definitionKey(self,value):
-    self.dict[MonsterFields.DEFINITION_KEY] = value
-    self._changes[MonsterFields.DEFINITION_KEY] = value
+    self.dict[MonsterDbFields.DEFINITION_KEY] = value
+    self._changes[MonsterDbFields.DEFINITION_KEY] = value
 
-  @property
-  def zoneKey(self):
-    return self.dict[MonsterFields.ZONE_KEY]
-
-  @zoneKey.setter
-  def zoneKey(self,value):
-    self.dict[MonsterFields.DEFINITION_KEY] = value
-    self._changes[MonsterFields.DEFINITION_KEY] = value
 
   @classmethod
   def get_random_monster_definitionKey(cls,zoneKey):

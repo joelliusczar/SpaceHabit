@@ -31,6 +31,11 @@ class MainController(object):
   @cherrypy.tools.redirect_unauthenticated()
   def disable_popups(self):
     accountPk = cherrypy.session.get(BaseFields.ACCOUNT_PK_KEY)
-    account = Account.create_model_from_pk(accountPk)
+    account = Account.construct_model_from_pk(accountPk)
     account.preventPopups = True
     account.save_changes()
+
+  @cherrypy.expose
+  @cherrypy.tools.redirect_unauthenticated()
+  def register_zone(self,selectedZoneIndex):
+    pass

@@ -69,14 +69,14 @@ def check_in_and_get_notices(heroPk,accountPk,checkinTimeUtc,utcOffset):
     returns:
       we return a dict with two elements: 'story' which will be a list of 
       huge things of text and 'zoneChoice' which is a list of dicts each
-      of which contain 'zoneId','description'
+      of which contain 'zonePk','description'
       but zoneChoice may be none.
 
   """
   from Hero import Hero
   from Account import Account
-  hero = Hero.create_model_from_pk(heroPk)
-  account = Account.create_model_from_pk(accountPk)
+  hero = Hero.construct_model_from_pk(heroPk)
+  account = Account.construct_model_from_pk(accountPk)
 
   lastCheckinTime = account.lastCheckInTime
   account.lastCheckInTime = checkinTimeUtc
@@ -84,7 +84,7 @@ def check_in_and_get_notices(heroPk,accountPk,checkinTimeUtc,utcOffset):
 
   if not lastCheckinTime:
     messages = build_first_time_checkin_messages(hero)
-    hero.isInZoneLimbo = True
+    
     hero.save_changes()
     return messages
 
@@ -97,6 +97,9 @@ def check_in_and_get_notices(heroPk,accountPk,checkinTimeUtc,utcOffset):
   timeDiffInDays = (checkinTimeUtc - lastCheckinTime)/(60*60*24)
   if timeDiffInDays >= 1:
     pass
+
+
+
 
   
 

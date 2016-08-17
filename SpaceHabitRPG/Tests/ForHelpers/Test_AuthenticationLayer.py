@@ -94,13 +94,13 @@ class Test_AuthenticationLayerTests(SpaceUnitTest):
     self.assertIsNotNone(user)
 
   def test_get_userId_by_login(self):
-    pk = dbHelp.insert_one_test_login()
+    pk = dbHelp.create_login_using_test_values()
     rPk = auth.get_loginPk_by_login("a@b.c")
     self.assertEqual(pk,rPk)
 
   def test_get_accountPk_by_loginPk(self):
     from Account import Account
-    pk = dbHelp.insert_one_test_login()
+    pk = dbHelp.create_login_using_test_values()
     accntPk = Account.create_new_account_in_db(pk)
     rPk = auth.get_accountPk_by_loginPk(pk)
     self.assertEqual(accntPk,rPk)
@@ -108,7 +108,7 @@ class Test_AuthenticationLayerTests(SpaceUnitTest):
   def test_get_heroPk_by_accountPk(self):
     from Account import Account
     from Hero import Hero
-    pk = dbHelp.insert_one_test_login()
+    pk = dbHelp.create_login_using_test_values()
     accntPk = Account.create_new_account_in_db(pk)
     hPk = Hero.construct_new_hero_in_db(accntPk)
     rPk = auth.get_heroPk_by_accountPk(accntPk)

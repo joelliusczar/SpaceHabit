@@ -1,5 +1,5 @@
 from HabitBaseModel import HabitBaseModel
-from AllDBFields import AccountFields
+from AllDBFields import AccountDbFields
 from datetime import datetime
 from datetime import timezone
 from Daily import Daily
@@ -25,17 +25,17 @@ class Account(HabitBaseModel):
   @classmethod
   def create_new_account_in_db(cls,loginPk=None):
     account = {
-      AccountFields.LOGIN_PK_KEY: loginPk,
-      AccountFields.REMINDER_TIME: -1,
-      AccountFields.DAY_START:0,
-      AccountFields.DEATH_GOLD_PENALTY: .25,
-      AccountFields.HERO_LVL_PENALTY: 0,
-      AccountFields.ZONE_LVL_PENALTY: "LVLRESTART",
-      AccountFields.PERMA_DEATH: False,
-      AccountFields.PUBLIC_ACCOUNT: False,
-      AccountFields.PUBLIC_KEY: uuid.uuid4().hex,
-      AccountFields.CREATE_DATE: datetime.utcnow().timestamp(),
-      AccountFields.PREVENT_POPUPS: False
+      AccountDbFields.LOGIN_PK_KEY: loginPk,
+      AccountDbFields.REMINDER_TIME: -1,
+      AccountDbFields.DAY_START:0,
+      AccountDbFields.DEATH_GOLD_PENALTY: .25,
+      AccountDbFields.HERO_LVL_PENALTY: 0,
+      AccountDbFields.ZONE_LVL_PENALTY: "LVLRESTART",
+      AccountDbFields.PERMA_DEATH: False,
+      AccountDbFields.PUBLIC_ACCOUNT: False,
+      AccountDbFields.PUBLIC_KEY: uuid.uuid4().hex,
+      AccountDbFields.CREATE_DATE: datetime.utcnow().timestamp(),
+      AccountDbFields.PREVENT_POPUPS: False
     }
     collection = DatabaseLayer.get_table(cls.get_dbFields().COLLECTION_NAME)
     pk = collection.insert_one(account).inserted_id
@@ -43,11 +43,11 @@ class Account(HabitBaseModel):
 
   @classmethod
   def get_dbFields(cls):
-    return AccountFields
+    return AccountDbFields
       
   @property
   def lastCheckInTime(self):
-    if AccountFields.LAST_CHECKIN_TIME in self.dict:
+    if AccountDbFields.LAST_CHECKIN_TIME in self.dict:
       return self.dict[self.get_dbFields().LAST_CHECKIN_TIME]
     return None
 
